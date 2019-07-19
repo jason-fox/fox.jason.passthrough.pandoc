@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="dita-ot/plugin.rnc" type="application/relax-ng-compact-syntax"?>
+<plugin id="fox.jason.pandoc">
+ 
+  <!--
+		This plugin requires the XMLTask lib and the passthrough reader
+   -->
+  <require plugin="org.doctales.xmltask"/>
+  <require plugin="fox.jason.passthrough"/>
+
+  <feature extension="ant.import" file="process_pandoc.xml"/>
+
+  <feature extension="fox.jason.passthrough.process" value="run-pandoc"/>
+
+  <feature extension="dita.parser">
+    <parser format="pandoc" class="fox.jason.passthrough.parser.FileReader"/>
+  </feature>
+
+</plugin>
