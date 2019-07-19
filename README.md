@@ -1,4 +1,4 @@
-# Pandoc Plugin for DITA-OT
+# Pandoc Pass Through Plugin for DITA-OT
 
 [![license](https://img.shields.io/github/license/jason-fox/fox.jason.pandoc.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![DITA-OT 3.3](https://img.shields.io/badge/DITA--OT-3.3-blue.svg)](http://www.dita-ot.org/3.3/) <br/>
@@ -56,8 +56,12 @@ library. It can convert from
 -   `twiki` ([TWiki markup](http://twiki.org/cgi-bin/view/TWiki/TextFormattingRules))
 -   `vimwiki` ([Vimwiki](https://vimwiki.github.io))
 
-This plug-in contains a LUA template which extends the output formats supported by **Pandoc** to include DITA. The
+This plug-in contains a Lua template which extends the output formats supported by **Pandoc** to include DITA. The
 output consists of a single DITA topic for each input file added to the ditamap.
+
+Unlike the standard [Markdown Plug-in](https://github.com/jelovirt/org.lwdita), this plug-in does not fail if the
+`h1...h6` headers are incorrectly incremented. This is because the Lua template has been designed to calculate that 
+headers are incrementing at most one level at a time - the downside of this is that the output maybe unexpected.
 
 Note that because pandoc’s intermediate representation of a document is less expressive than many of the formats it
 converts between, one should not expect perfect conversions between every format and every other. Pandoc attempts to
@@ -68,7 +72,7 @@ expected to be lossy.
 
 # Install
 
-The DITA-OT Passthrough plug-in has been tested against [DITA-OT 3.x](http://www.dita-ot.org/download). It is
+The DITA-OT Pandoc Pass Through plug-in has been tested against [DITA-OT 3.x](http://www.dita-ot.org/download). It is
 recommended that you upgrade to the latest version.
 
 ## Installing DITA-OT
@@ -109,7 +113,7 @@ The `dita` command line tool requires no additional configuration.
 
 ## Installing Pandoc
 
-To download a copy follow the instructions on the [Install page](https://github.com/jgm/pandoc/blob/master/INSTALL.md
+To download a copy follow the instructions on the [Install page](https://github.com/jgm/pandoc/blob/master/INSTALL.md)
 
 # Usage
 
