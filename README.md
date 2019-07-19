@@ -20,41 +20,43 @@ formats can be directly added to a `*.ditamap` and processed as if they had been
 # Background
 
 **Pandoc** is a Haskell library for converting from one markup format to another, and a command-line tool that uses this
-library. It can convert from
+library. It can convert from the following formats:
 
--   `commonmark` ([CommonMark](http://commonmark.org) Markdown)
--   `creole` ([Creole 1.0](http://www.wikicreole.org/wiki/Creole1.0))
--   `docbook` ([DocBook](http://docbook.org))
--   `docx` ([Word docx](https://en.wikipedia.org/wiki/Office_Open_XML))
--   `dokuwiki` ([DokuWiki markup](https://www.dokuwiki.org/dokuwiki))
--   `epub` ([EPUB](http://idpf.org/epub))
--   `fb2` ([FictionBook2](http://www.fictionbook.org/index.php/Eng:XML_Schema_Fictionbook_2.1) e-book)
--   `gfm` ([GitHub-Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)), or the deprecated
-    and less accurate `markdown_github`; use [`markdown_github`](#markdown-variants) only if you need extensions not
-    supported in [`gfm`](#markdown-variants).
--   `haddock` ([Haddock markup](https://www.haskell.org/haddock/doc/html/ch03s08.html))
--   `html` ([HTML](http://www.w3.org/html/))
--   `ipynb` ([Jupyter notebook](https://nbformat.readthedocs.io/en/latest/))
--   `jats` ([JATS](https://jats.nlm.nih.gov) XML)
--   `json` (JSON version of native AST)
--   `latex` ([LaTeX](http://latex-project.org))
--   `markdown` ([Pandoc’s Markdown](#pandocs-markdown))
--   `markdown_mmd` ([MultiMarkdown](http://fletcherpenney.net/multimarkdown/))
--   `markdown_phpextra` ([PHP Markdown Extra](https://michelf.ca/projects/php-markdown/extra/))
--   `markdown_strict` (original unextended [Markdown](http://daringfireball.net/projects/markdown/))
--   `mediawiki` ([MediaWiki markup](https://www.mediawiki.org/wiki/Help:Formatting))
--   `man` ([roff man](http://man7.org/linux/man-pages/man7/groff_man.7.html))
--   `muse` ([Muse](https://amusewiki.org/library/manual))
--   `native` (native Haskell)
--   `odt` ([ODT](http://en.wikipedia.org/wiki/OpenDocument))
--   `opml` ([OPML](http://dev.opml.org/spec2.html))
--   `org` ([Emacs Org mode](http://orgmode.org))
--   `rst` ([reStructuredText](http://docutils.sourceforge.net/docs/ref/rst/introduction.html))
--   `t2t` ([txt2tags](http://txt2tags.org))
--   `textile` ([Textile](http://redcloth.org/textile))
--   `tikiwiki` ([TikiWiki markup](https://doc.tiki.org/Wiki-Syntax-Text#The_Markup_Language_Wiki-Syntax))
--   `twiki` ([TWiki markup](http://twiki.org/cgi-bin/view/TWiki/TextFormattingRules))
--   `vimwiki` ([Vimwiki](https://vimwiki.github.io))
+-  **Markdown:**  `commonmark` ([CommonMark](http://commonmark.org) Markdown)
+,`gfm` ([GitHub-Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/))
+,`markdown` ([Pandoc’s Markdown](#pandocs-markdown))
+,`markdown_mmd` ([MultiMarkdown](http://fletcherpenney.net/multimarkdown/))
+,`markdown_phpextra` ([PHP Markdown Extra](https://michelf.ca/projects/php-markdown/extra/))
+,`markdown_strict` (original unextended [Markdown](http://daringfireball.net/projects/markdown/))
+
+-  **Wiki Formats:**  `dokuwiki` ([DokuWiki markup](https://www.dokuwiki.org/dokuwiki))
+,`mediawiki` ([MediaWiki markup](https://www.mediawiki.org/wiki/Help:Formatting))
+,`muse` ([Muse](https://amusewiki.org/library/manual))
+,`tikiwiki` ([TikiWiki markup](https://doc.tiki.org/Wiki-Syntax-Text#The_Markup_Language_Wiki-Syntax))
+,`twiki` ([TWiki markup](http://twiki.org/cgi-bin/view/TWiki/TextFormattingRules))
+,`vimwiki` ([Vimwiki](https://vimwiki.github.io))
+
+- **Other Formats:**
+,`creole` ([Creole 1.0](http://www.wikicreole.org/wiki/Creole1.0))
+,`docbook` ([DocBook](http://docbook.org))
+,`docx` ([Word docx](https://en.wikipedia.org/wiki/Office_Open_XML))
+,`epub` ([EPUB](http://idpf.org/epub))
+,`fb2` ([FictionBook2](http://www.fictionbook.org/index.php/Eng:XML_Schema_Fictionbook_2.1) e-book)
+,`haddock` ([Haddock markup](https://www.haskell.org/haddock/doc/html/ch03s08.html))
+,`html` ([HTML](http://www.w3.org/html/))
+,`ipynb` ([Jupyter notebook](https://nbformat.readthedocs.io/en/latest/))
+,`jats` ([JATS](https://jats.nlm.nih.gov) XML)
+,`json` (JSON version of native AST)
+,`latex` ([LaTeX](http://latex-project.org))
+,`man` ([roff man](http://man7.org/linux/man-pages/man7/groff_man.7.html))
+,`native` (native Haskell)
+,`odt` ([ODT](http://en.wikipedia.org/wiki/OpenDocument))
+,`opml` ([OPML](http://dev.opml.org/spec2.html))
+,`org` ([Emacs Org mode](http://orgmode.org))
+,`rst` ([reStructuredText](http://docutils.sourceforge.net/docs/ref/rst/introduction.html))
+,`t2t` ([txt2tags](http://txt2tags.org))
+,`textile` ([Textile](http://redcloth.org/textile))
+
 
 This plug-in contains a Lua template which extends the output formats supported by **Pandoc** to include DITA. The
 output consists of a single DITA topic for each input file added to the ditamap.
