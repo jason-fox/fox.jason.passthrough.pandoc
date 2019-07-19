@@ -1,6 +1,6 @@
 # Pandoc Pass Through Plugin for DITA-OT
 
-[![license](https://img.shields.io/github/license/jason-fox/fox.jason.pandoc.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+[![license](https://img.shields.io/github/license/jason-fox/fox.jason.passthrough.pandoc.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![DITA-OT 3.3](https://img.shields.io/badge/DITA--OT-3.3-blue.svg)](http://www.dita-ot.org/3.3/) <br/>
 
 This is a DITA-OT Plug-in to used extend the available input formats for DITA-OT. Non DITA input sources can be
@@ -60,7 +60,7 @@ This plug-in contains a Lua template which extends the output formats supported 
 output consists of a single DITA topic for each input file added to the ditamap.
 
 Unlike the standard [Markdown Plug-in](https://github.com/jelovirt/org.lwdita), this plug-in does not fail if the
-`h1...h6` headers are incorrectly incremented. This is because the Lua template has been designed to calculate that 
+`h1...h6` headers are incorrectly incremented. This is because the Lua template has been designed to calculate that
 headers are incrementing at most one level at a time - the downside of this is that the output maybe unexpected.
 
 Note that because pandoc’s intermediate representation of a document is less expressive than many of the formats it
@@ -104,7 +104,7 @@ rm dita-ot-3.3.zip
 ```console
 dita --install https://github.com/doctales/org.doctales.xmltask/archive/master.zip
 dita -install https://github.com/jason-fox/fox.jason.passthrough/archive/master.zip
-dita -install https://github.com/jason-fox/fox.jason.pandoc/archive/master.zip
+dita -install https://github.com/jason-fox/fox.jason.passthrough.pandoc/archive/master.zip
 ```
 
 The `dita` command line tool requires no additional configuration.

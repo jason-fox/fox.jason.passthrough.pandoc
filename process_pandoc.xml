@@ -2,7 +2,7 @@
 	This file is part of the DITA-OT Pandoc Plug-in project.
 	See the accompanying LICENSE file for applicable licenses.
 -->
-<project name="fox.jason.pandoc">
+<project name="fox.jason.passthrough.pandoc">
     <target name="run-pandoc">
 		<macrodef name="pandoc-file">
 			<attribute name="src" />
@@ -10,12 +10,12 @@
 			<sequential>
 				<!-- For Unix run Pandoc as an executable -->
 				<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc">
-					<arg line="@{src}  -t ${dita.plugin.fox.jason.pandoc.dir}/resource/topic.lua -o  @{dest}"/>
+					<arg line="@{src}  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o  @{dest}"/>
 				</exec>
 				<!-- For Windows run from a DOS command -->
 				<exec executable="cmd" dir="${dita.temp.dir}" osfamily="windows" taskname="pandoc">
 					<arg value="/C"/>
-					<arg value="pandoc @{src}  -t ${dita.plugin.fox.jason.pandoc.dir}/resource/topic.lua -o @{dest}"/>
+					<arg value="pandoc @{src}  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o @{dest}"/>
 				</exec>
 			</sequential>
 		</macrodef>
