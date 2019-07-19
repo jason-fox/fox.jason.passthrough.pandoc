@@ -9,16 +9,13 @@ formats can be directly added to a `*.ditamap` and processed as if they had been
 
 # Table of Contents
 
--   [Pass Through Plugin for DITA-OT](#pass-through-plugin-for-dita-ot)
--   [Table of Contents](#table-of-contents)
+-   [Background](#background)
 -   [Install](#install)
     -   [Installing DITA-OT](#installing-dita-ot)
     -   [Installing the Plug-in](#installing-the-plug-in)
+    -   [Installing Pandoc](#installing-pandoc)
 -   [Usage](#usage)
-    -   [Extension points](#extension-points)
-        -   [Example](#example)
--   [API](#api)
-    -   [Passthrough-Iterate](#passthrough-iterate)
+-   [License](#license)
 
 # Background
 
