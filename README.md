@@ -117,7 +117,7 @@ To download a copy follow the instructions on the [Install page](https://github.
 
 # Usage
 
-To mark a file as requiring no processing, label it with `format="pandoc"` within the `*.ditamap` as shown:
+To mark a file to be passed through for **Pandoc** processing, label it with `format="pandoc"` within the `*.ditamap` as shown:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
