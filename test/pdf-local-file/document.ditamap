@@ -2,9 +2,9 @@
 <!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
 <bookmap>
     <chapter navtitle="list">
-		<topicref format="dita" href="topic1.dita"/>
+		<topicref format="dita" href="topic.dita"/>
     </chapter>
-    <chapter format="pandoc" processing-role="normal" type="topic" href="topic.docx"/>
+    <chapter format="pandoc" processing-role="normal" type="topic" href="Word_Document.docx"/>
 </bookmap>
 
 

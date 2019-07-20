@@ -3,13 +3,13 @@
 <fo:flow flow-name="xsl-region-body" xmlns:fo="http://www.w3.org/1999/XSL/Format">
   <fo:block>
     <fo:marker marker-class-name="current-topic-number">2</fo:marker>
-    <fo:marker marker-class-name="current-header">Document</fo:marker>
+    <fo:marker marker-class-name="current-header">Word Document</fo:marker>
     <fo:block>
       <fo:block font-weight="bold">Chapter
         <fo:block font-weight="bold">2</fo:block>
       </fo:block>
     </fo:block>
-    <fo:block border-after-color="black" font-family="STANDARD" font-weight="bold">Document</fo:block>
+    <fo:block border-after-color="black" font-family="STANDARD" font-weight="bold">Word Document</fo:block>
     <fo:table page-break-after="always" table-layout="fixed" width="100%">
       <fo:table-column column-number="1" column-width="35%"></fo:table-column>
       <fo:table-column column-number="2" column-width="65%"></fo:table-column>
