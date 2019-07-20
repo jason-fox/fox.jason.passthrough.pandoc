@@ -7,7 +7,7 @@ env:
   - DITA_OT=3.3.3
 
 before_install:
-  - sudo apt-get install ant
+  - sudo apt-get install ant pandoc
   - zip -r fox.jason.passthrough.pandoc.zip . -x *.zip* *.git/* *temp/* *out/*
   - curl -LO https://github.com/dita-ot/dita-ot/releases/download/$DITA_OT/dita-ot-$DITA_OT.zip
   - unzip -q dita-ot-$DITA_OT.zip
