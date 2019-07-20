@@ -25,9 +25,9 @@ before_script:
 script:
   - dita-ot-$DITA_OT/bin/dita --input dita-ot-$DITA_OT/plugins/fox.jason.passthrough.pandoc -f unit-test --output . -v
 
-after_success:
-  - cp dita-ot-$DITA_OT/plugins/fox.jason.unit-test/resource/pom.xml pom.xml
-  - mvn clean org.eluder.coveralls:coveralls-maven-plugin:report   
+# after_success:
+#  - cp dita-ot-$DITA_OT/plugins/fox.jason.unit-test/resource/pom.xml pom.xml
+#  - mvn clean org.eluder.coveralls:coveralls-maven-plugin:report   
 
 
 

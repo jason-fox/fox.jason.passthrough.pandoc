@@ -3,7 +3,6 @@
 [![license](https://img.shields.io/github/license/jason-fox/fox.jason.passthrough.pandoc.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![DITA-OT 3.3](https://img.shields.io/badge/DITA--OT-3.3-blue.svg)](http://www.dita-ot.org/3.3/) <br/>
 [![Build Status](https://travis-ci.org/jason-fox/fox.jason.passthrough.pandoc.svg?branch=master)](https://travis-ci.org/jason-fox/fox.jason.passthrough.pandoc)
-[![Coverage Status](https://coveralls.io/repos/github/jason-fox/fox.jason.passthrough.pandoc/badge.svg?branch=master)](https://coveralls.io/github/jason-fox/fox.jason.passthrough.pandoc?branch=master)
 
 This is a DITA-OT Plug-in to used extend the available input formats for DITA-OT. Non DITA input sources can be
 pre-processed using [Pandoc](https://pandoc.org/) to create create valid DITA source. Files written in multiple input
