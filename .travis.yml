@@ -20,6 +20,7 @@ install:
   - dita-ot-$DITA_OT/bin/dita --install fox.jason.passthrough.pandoc.zip
 
 before_script:
+  - dita-ot-$DITA_OT/bin/dita -f pdf -d -i dita-ot-$DITA_OT/plugins/fox.jason.passthrough.pandoc/test/pdf-local-file/document.ditamap 
   - dita-ot-$DITA_OT/bin/dita --input dita-ot-$DITA_OT/plugins/fox.jason.passthrough.pandoc -f xsl-instrument
 
 script:
