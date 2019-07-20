@@ -6,7 +6,7 @@
 	</description>
 	<target name="unit-test">
 		<exec-html5/>
-		<get-html-article from="topic.html" />
+		<get-html-article from="Word_Document.html" />
 		<compare-output suffix=".html"/>
 	</target>
 </project>
