@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  This file is part of the DITA-OT Pandoc DITA Plug-in project.
+  See the accompanying LICENSE file for applicable licenses.
+-->
+<messages xmlns:dita="http://dita-ot.sourceforge.net">
+  <message id="PAND001W" type="WARN">
+    <reason>Pandoc has not been installed</reason>
+    <response/>
+  </message>
+</messages>

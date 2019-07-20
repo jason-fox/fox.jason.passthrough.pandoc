@@ -9,9 +9,12 @@
 
 	<feature extension="ant.import" file="process_pandoc.xml"/>
 	<feature extension="fox.jason.passthrough.process" value="run-pandoc"/>
+	<feature extension="fox.jason.passthrough.pre" value="check-pandoc"/>
 
 	<feature extension="dita.parser">
 		<parser format="pandoc" class="fox.jason.passthrough.parser.FileReader"/>
 	</feature>
+	<!-- Ensure the plugin's error and logging messages are available -->
+	<feature extension="dita.xsl.messages" file="resource/messages.xml"/>
 
 </plugin>

@@ -2,12 +2,36 @@
 	This file is part of the DITA-OT Pandoc Plug-in project.
 	See the accompanying LICENSE file for applicable licenses.
 -->
-<project name="fox.jason.passthrough.pandoc">
+<project name="fox.jason.passthrough.pandoc" xmlns:if="ant:if" xmlns:unless="ant:unless">
+
+	<target name="check-pandoc">
+		<!-- For Unix run Pandoc as an executable -->
+		<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc"
+			resultproperty="pandoc.result" outputproperty="pandoc.out" failonerror="false" failifexecutionfails="false">
+			<arg line="-v"/>
+		</exec>
+		<!-- For Windows run from a DOS command -->
+		<exec executable="cmd" dir="${dita.temp.dir}" osfamily="windows" taskname="pandoc"
+			resultproperty="pandoc.result" outputproperty="pandoc.out" failonerror="false" failifexecutionfails="false">
+			<arg value="/C"/>
+			<arg value="pandoc -v"/>
+		</exec>
+
+		<condition property="pandoc.installed">
+			<equals arg1="${pandoc.result}" arg2="0"/>
+		</condition>
+
+		<dita-ot-echo unless:set="pandoc.installed" id="PAND001W"/>
+		<echo if:set="pandoc.installed"  taskname="pandoc" level="info" message="${pandoc.out}"/>
+	</target>
+
+
 	<target name="run-pandoc">
 		<macrodef name="pandoc-file">
 			<attribute name="src" />
 			<attribute name="dest" />
 			<sequential>
+				<echo if:set="pandoc.installed" taskname="pandoc" level="info" message="Processing @{src}"/>
 				<!-- For Unix run Pandoc as an executable -->
 				<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc">
 					<arg line="@{src}  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o  @{dest}"/>
