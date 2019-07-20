@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="unit-test">
+	<import file="../bootstrap.xml"/>
+	<description>
+		Expect that a local passthrough file is copied to a PDF build
+	</description>
+	<target name="unit-test">
+		<exec-pdf/>
+		<get-pdf-article/>
+		<compare-output/>
+	</target>
+</project>

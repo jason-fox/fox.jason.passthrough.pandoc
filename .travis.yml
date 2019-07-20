@@ -1,0 +1,34 @@
+language: java
+sudo: required
+
+jdk:
+  - openjdk8
+env:
+  - DITA_OT=3.3.3
+
+before_install:
+  - sudo apt-get install ant
+  - zip -r fox.jason.passthrough.pandoc.zip . -x *.zip* *.git/* *temp/* *out/*
+  - curl -LO https://github.com/dita-ot/dita-ot/releases/download/$DITA_OT/dita-ot-$DITA_OT.zip
+  - unzip -q dita-ot-$DITA_OT.zip
+  - chmod +x dita-ot-$DITA_OT/bin/dita
+
+install:
+  - dita-ot-$DITA_OT/bin/dita --install https://github.com/jason-fox/fox.jason.unit-test/archive/master.zip
+  - dita-ot-$DITA_OT/bin/dita --install https://github.com/doctales/org.doctales.xmltask/archive/master.zip
+  - dita-ot-$DITA_OT/bin/dita --install https://github.com/jason-fox/fox.jason.passthrough/archive/master.zip
+  - dita-ot-$DITA_OT/bin/dita --install fox.jason.passthrough.pandoc.zip
+
+before_script:
+  - dita-ot-$DITA_OT/bin/dita --input dita-ot-$DITA_OT/plugins/fox.jason.passthrough.pandoc -f xsl-instrument
+
+script:
+  - dita-ot-$DITA_OT/bin/dita --input dita-ot-$DITA_OT/plugins/fox.jason.passthrough.pandoc -f unit-test --output . -v
+
+after_success:
+  - cp dita-ot-$DITA_OT/plugins/fox.jason.unit-test/resource/pom.xml pom.xml
+  - mvn clean org.eluder.coveralls:coveralls-maven-plugin:report   
+
+
+
+

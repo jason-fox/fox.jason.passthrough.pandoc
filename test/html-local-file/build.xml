@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="unit-test">
+	<import file="../bootstrap.xml"/>
+	<description>
+		Expect that a local passthrough file is copied to an HTML build
+	</description>
+	<target name="unit-test">
+		<exec-html5/>
+		<get-html-article from="topic.html" />
+		<compare-output suffix=".html"/>
+	</target>
+</project>
