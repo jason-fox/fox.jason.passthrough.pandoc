@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="dita-ot/plugin.rnc" type="application/relax-ng-compact-syntax"?>
-<plugin id="fox.jason.passthrough.pandoc">
+<plugin id="fox.jason.passthrough.pandoc" version="1.0.0">
 	<!--
 		This plugin requires the XMLTask lib and the passthrough reader
 	-->
