@@ -423,13 +423,33 @@ function Plain(s)
   return s
 end
 
-function RawBlock(s)
-  return s
+function RawBlock(format, str)
+  if format == "html" then
+    if str == "<br/>" then
+      return '<br/>'
+    elseif str == "<br>" then
+      return '<br/>'
+    else
+      return ''
+    end
+  else
+      return ''
+  end
 end
 
 
-function RawInline(s)
-  return s
+function RawInline(format, str)
+  if format == "html" then
+    if str == "<br/>" then
+      return '<br/>'
+    elseif str == "<br>" then
+      return '<br/>'
+    else
+      return ''
+    end
+  else
+      return ''
+  end
 end
 
 -- Para is an block level element that translates to <p>
