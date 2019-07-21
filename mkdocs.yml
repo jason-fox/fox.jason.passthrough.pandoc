@@ -1,0 +1,12 @@
+site_name: Pandoc Pass Through Plugin
+
+repo_url: https://github.com/jason-fox/fox.jason.passthrough.pandoc
+repo_name: GitHub
+
+pages:
+    -  Home: index.md
+    - 'Install' : 'install.md'
+    - 'Usage' : 'usage.md'
+
+theme: readthedocs
+extra_css: ["https://jason-fox.github.io/fox.jason.passthrough.pandoc/dita.css"]
