@@ -4,8 +4,6 @@ This is a DITA-OT Plug-in to used extend the available input formats for DITA-OT
 pre-processed using [Pandoc](https://pandoc.org/) to create create valid DITA source. Files written in multiple input
 formats can be directly added to a `*.ditamap` and processed as if they had been written in DITA.
 
-# Background
-
 **Pandoc** is a Haskell library for converting from one markup format to another, and a command-line tool that uses this
 library. It can convert from the following formats:
 
