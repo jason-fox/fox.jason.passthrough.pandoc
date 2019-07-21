@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/jason-fox/fox.jason.passthrough.pandoc.svg?branch=master)](https://travis-ci.org/jason-fox/fox.jason.passthrough.pandoc)
 [![Documentation Status](https://readthedocs.org/projects/pandocdita-ot/badge/?version=latest)](https://pandocdita-ot.readthedocs.io/en/latest/?badge=latest)
 
-This is a DITA-OT Plug-in to used extend the available input formats for DITA-OT. Non DITA input sources can be
+This is a DITA-OT Plug-in to extend the available input formats for DITA-OT. Non DITA input sources can be
 pre-processed using [Pandoc](https://pandoc.org/) to create create valid DITA source. Files written in multiple input
 formats can be directly added to a `*.ditamap` and processed as if they had been written in DITA.
 
@@ -119,7 +119,7 @@ shown:
 <!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
 <bookmap>
     ...etc
-    <mapref format="pandoc" href="sample.docx"/>
+    <chapter format="pandoc" href="sample.docx"/>
 </bookmap>
 ```
 
