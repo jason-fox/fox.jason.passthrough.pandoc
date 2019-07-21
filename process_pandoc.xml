@@ -4,9 +4,37 @@
 -->
 <project name="fox.jason.passthrough.pandoc" xmlns:if="ant:if" xmlns:unless="ant:unless">
 
-	
+	<!--
+		Individual file processing for pandoc.
+		Take an input format run pandoc against it and convert to DITA
 
-	<target name="check-pandoc">
+		@param src - The input file to convert to DITA
+		@param dest - The output file location
+		@param title - The title of the converted file
+	-->
+	<macrodef name="add-pandoc-file">
+		<attribute name="src" />
+		<attribute name="dest" />
+		<attribute name="title" />
+		<sequential>
+			<echo if:set="pandoc.installed" taskname="pandoc" level="info" message="Processing @{src}"/>
+			<!-- For Unix run Pandoc as an executable -->
+			<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc">
+				<arg line="&quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o  @{dest} -M title=&quot;@{title}&quot;"/>
+			</exec>
+			<!-- For Windows run from a DOS command -->
+			<exec executable="cmd" dir="${dita.temp.dir}" osfamily="windows" taskname="pandoc">
+				<arg value="/C"/>
+				<arg value="pandoc &quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o @{dest} -M title=&quot;@{title}&quot;"/>
+			</exec>
+		</sequential>
+	</macrodef>
+
+	
+	<!--
+		Setting up Pandoc processing. Check that Pandoc is installed
+	-->
+	<target name="pandoc.check">
 		<!-- For Unix run Pandoc as an executable -->
 		<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc"
 			resultproperty="pandoc.result" outputproperty="pandoc.out" failonerror="false" failifexecutionfails="false">
@@ -27,25 +55,10 @@
 		<echo if:set="pandoc.installed"  taskname="pandoc" level="info" message="${pandoc.out}"/>
 	</target>
 
-
-	<target name="run-pandoc">
-		<macrodef name="pandoc-file">
-			<attribute name="src" />
-			<attribute name="dest" />
-			<attribute name="title" />
-			<sequential>
-				<echo if:set="pandoc.installed" taskname="pandoc" level="info" message="Processing @{src}"/>
-				<!-- For Unix run Pandoc as an executable -->
-				<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc">
-					<arg line="&quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o  @{dest} -M title=&quot;@{title}&quot;"/>
-				</exec>
-				<!-- For Windows run from a DOS command -->
-				<exec executable="cmd" dir="${dita.temp.dir}" osfamily="windows" taskname="pandoc">
-					<arg value="/C"/>
-					<arg value="pandoc &quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o @{dest} -M title=&quot;@{title}&quot;"/>
-				</exec>
-			</sequential>
-		</macrodef>
-		<passthrough-iterate format="pandoc" macro="pandoc-file"/>
+	<!--
+		Iterate across all files marked format="pandoc" and process them
+	-->
+	<target name="pandoc.process">
+		<passthrough-iterate format="pandoc" macro="add-pandoc-file"/>
 	</target>
 </project>

@@ -8,8 +8,8 @@
 	<require plugin="fox.jason.passthrough"/>
 
 	<feature extension="ant.import" file="process_pandoc.xml"/>
-	<feature extension="fox.jason.passthrough.process" value="run-pandoc"/>
-	<feature extension="fox.jason.passthrough.pre" value="check-pandoc"/>
+	<feature extension="fox.jason.passthrough.process" value="pandoc.process"/>
+	<feature extension="fox.jason.passthrough.pre" value="pandoc.check"/>
 
 	<feature extension="dita.parser">
 		<parser format="pandoc" class="fox.jason.passthrough.parser.FileReader"/>
