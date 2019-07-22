@@ -20,8 +20,8 @@ install:
   - dita-ot-$DITA_OT/bin/dita --install https://github.com/jason-fox/fox.jason.passthrough/archive/master.zip
   - dita-ot-$DITA_OT/bin/dita --install fox.jason.passthrough.pandoc.zip
 
-before_script:
-  - dita-ot-$DITA_OT/bin/dita --input dita-ot-$DITA_OT/plugins/fox.jason.passthrough.pandoc -f xsl-instrument
+# before_script:
+#  - dita-ot-$DITA_OT/bin/dita --input dita-ot-$DITA_OT/plugins/fox.jason.passthrough.pandoc -f xsl-instrument
 
 script:
   - dita-ot-$DITA_OT/bin/dita --input dita-ot-$DITA_OT/plugins/fox.jason.passthrough.pandoc -f unit-test --output . -v
