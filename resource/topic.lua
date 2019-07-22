@@ -630,7 +630,7 @@ function Table(caption, aligns, widths, headers, rows)
       width_total = width_total + w
     end
     for _, w in pairs(widths) do
-      add('\t\t<colspec class=" topic/colspec " colwidth="' .. string.format("%d%%", math.floor((w / width_total) * 100)) .. '"/>')
+      add('\t\t<colspec class=" topic/colspec " colnum="' .. _ .. '" colwidth="' .. string.format("%d%%", math.floor((w / width_total) * 100)) .. '"/>')
     end
   end
   local header_row = {}
