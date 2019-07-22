@@ -21,6 +21,8 @@ formats can be directly added to a `*.ditamap` and processed as if they had been
 
 # Background
 
+[<img src="https://jason-fox.github.io/fox.jason.passthrough.pandoc/pandoc-300x194.png" align="right" height="55">](http://pandocdita-ot.rtfd.io/)
+
 **Pandoc** is a Haskell library for converting from one markup format to another, and a command-line tool that uses this
 library. It can convert from the following formats:
 
@@ -71,7 +73,7 @@ recommended that you upgrade to the latest version.
 
 ## Installing DITA-OT
 
-<a href="https://www.dita-ot.org"><img src="https://www.dita-ot.org/images/dita-ot-logo.svg" align="right" height="55"></a>
+<a href="https://www.dita-ot.org"><img src="https://www.dita-ot.org/images/dita-ot-logo.svg" align="right" width="105" height="55"></a>
 
 The DITA-OT Pandoc plug-in is a file reader for the DITA Open Toolkit.
 
