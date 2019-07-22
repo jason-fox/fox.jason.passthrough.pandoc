@@ -21,9 +21,9 @@ formats can be directly added to a `*.ditamap` and processed as if they had been
 
 # Background
 
-[<img src="https://jason-fox.github.io/fox.jason.passthrough.pandoc/pandoc-300x194.png" align="right" height="55">](http://pandocdita-ot.rtfd.io/)
+[<img src="https://jason-fox.github.io/fox.jason.passthrough.pandoc/pandoc-300x194.png" align="right" height="55">](https://pandoc.org/)
 
-**Pandoc** is a Haskell library for converting from one markup format to another, and a command-line tool that uses this
+**[Pandoc](https://pandoc.org/)** is a Haskell library for converting from one markup format to another, and a command-line tool that uses this
 library. It can convert from the following formats:
 
 -   **Markdown:** `commonmark` ([CommonMark](http://commonmark.org) Markdown) ,`gfm`
@@ -59,7 +59,7 @@ Unlike the standard [Markdown Plug-in](https://github.com/jelovirt/org.lwdita), 
 `h1...h6` headers are incorrectly incremented. This is because the Lua template has been designed to calculate that
 headers are incrementing at most one level at a time - the downside of this is that the output maybe unexpected.
 
-Note that because pandoc’s intermediate representation of a document is less expressive than many of the formats it
+Note that because Pandoc’s intermediate representation of a document is less expressive than many of the formats it
 converts between, one should not expect perfect conversions between every format and every other. Pandoc attempts to
 preserve the structural elements of a document, but not formatting details such as margin size. And some document
 elements, such as complex tables, may not fit into pandoc’s simple document model. While conversions from pandoc’s
