@@ -3,13 +3,13 @@
 <fo:flow flow-name="xsl-region-body" xmlns:fo="http://www.w3.org/1999/XSL/Format">
   <fo:block>
     <fo:marker marker-class-name="current-topic-number">2</fo:marker>
-    <fo:marker marker-class-name="current-header">Word Document</fo:marker>
+    <fo:marker marker-class-name="current-header">FIWARE Step-by-Step</fo:marker>
     <fo:block>
       <fo:block font-weight="bold">Chapter
         <fo:block font-weight="bold">2</fo:block>
       </fo:block>
     </fo:block>
-    <fo:block border-after-color="black" font-family="STANDARD" font-weight="bold">Word Document</fo:block>
+    <fo:block border-after-color="black" font-family="STANDARD" font-weight="bold">FIWARE Step-by-Step</fo:block>
     <fo:table page-break-after="always" table-layout="fixed" width="100%">
       <fo:table-column column-number="1" column-width="35%"></fo:table-column>
       <fo:table-column column-number="2" column-width="65%"></fo:table-column>
@@ -39,21 +39,13 @@
                     </fo:block>
                   </fo:list-item-body>
                 </fo:list-item>
-                <fo:list-item relative-align="baseline">
-                  <fo:list-item-label keep-together.within-line="always">
-                    <fo:block text-align="start">&#8226;</fo:block>
-                  </fo:list-item-label>
-                  <fo:list-item-body>
-                    <fo:block>
-                      <fo:basic-link color="blue" internal-destination="unique_7">FIWARE Step-by-Step</fo:basic-link>
-                    </fo:block>
-                  </fo:list-item-body>
-                </fo:list-item>
               </fo:list-block>
             </fo:block>
           </fo:table-cell>
           <fo:table-cell padding-start="10pt">
-            <fo:block></fo:block>
+            <fo:block>
+              <fo:block>This is a collection of tutorials for the FIWARE system. Each tutorial consists of a series of exercises to demonstrate the correct use of individual FIWARE components and shows the flow of context data within a simple Smart Solution either by connecting to a series of dummy IoT devices or manipulating the context directly or programmatically.</fo:block>
+            </fo:block>
           </fo:table-cell>
         </fo:table-row>
       </fo:table-body>
@@ -160,19 +152,6 @@ docker version</fo:block>
                 <fo:basic-link color="blue" external-destination="url('http://www.cygwin.com/')">cygwin</fo:basic-link>to provide a command-line functionality similar to a Linux distribution on Windows.</fo:block>
             </fo:block>
           </fo:block>
-        </fo:block>
-      </fo:block>
-    </fo:block>
-    <fo:block>
-      <fo:block>
-        <fo:block border-after-color="black" font-family="STANDARD" font-weight="bold">
-          <fo:block border-end-width="0pt">
-            <fo:marker marker-class-name="current-h2">FIWARE Step-by-Step</fo:marker>
-            <fo:wrapper></fo:wrapper>
-            <fo:wrapper></fo:wrapper>FIWARE Step-by-Step</fo:block>
-        </fo:block>
-        <fo:block>
-          <fo:block>This is a collection of tutorials for the FIWARE system. Each tutorial consists of a series of exercises to demonstrate the correct use of individual FIWARE components and shows the flow of context data within a simple Smart Solution either by connecting to a series of dummy IoT devices or manipulating the context directly or programmatically.</fo:block>
         </fo:block>
       </fo:block>
     </fo:block>

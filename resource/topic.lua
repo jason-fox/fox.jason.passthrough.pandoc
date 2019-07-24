@@ -14,6 +14,7 @@ local note = nil
 local topics = {[0] = {elem = {}, open = true}}
 local parent = {0, 0, 0, 0, 0, 0}
 local level = {{}, {}, {}, {}, {}, {}}
+local doctitle = nil
 
 -------------------------------------------------------------------
 --
@@ -143,6 +144,9 @@ local function getRootTopicTitle(metadata)
   if metadata.title ~= nil then
     title = metadata.title
   end
+  if doctitle ~= nil then
+    title = doctitle
+  end
   return title
 end
 
@@ -185,12 +189,14 @@ local function nestTopicWithinParent (index, parent)
   closeTopicBody(parent)
 
   -- Add to parent if it is a subtopic - otherwise add to the root topic
-  if (parent == 1) then
-    -- Close the root topic body if it is still open
-    closeTopicBody(0)
-    pushElementToTopic(0, table.concat( topics[index].elem ,'\n'))
-  else
-    pushElementToTopic(parent, table.concat( topics[index].elem ,'\n'))
+  if (index > 1) then
+    if (parent == 1) then
+      -- Close the root topic body if it is still open
+      closeTopicBody(0)
+      pushElementToTopic(0, table.concat( topics[index].elem ,'\n'))
+    else
+      pushElementToTopic(parent, table.concat( topics[index].elem ,'\n'))
+    end
   end
 end
 
@@ -484,6 +490,9 @@ function Header(lev, s, attr)
  -- Uncomment this line to see the structure of the document.
  -- print (#topics .. ' ' .. lev .. ' ' .. parent[lev] .. ' ' .. level[lev][#level[lev]].parent .. ' '.. s  )
 
+  if #topics == 0 then
+    doctitle = s
+  end
 
   topics[#topics + 1 ] = {elem = {}, open = true}
   pushElementToCurrentTopic ('<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" ' ..  attributes(attr) .. 
@@ -519,7 +528,6 @@ function CodeBlock(s, attr)
 
   pushElementToCurrentTopic ('<codeblock class=" pr-d/codeblock " '
       .. attributes(attr) .. '>' .. escape(s) .. '</codeblock>')
---    .. attributes(attr) .. '>' .. escape(s) .. '</codeblock>')
   return ""
 end
 
