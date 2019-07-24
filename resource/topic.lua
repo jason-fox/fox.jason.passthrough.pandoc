@@ -261,13 +261,13 @@ function Doc(body, metadata, variables)
 
    -- Copy over meta data fields as comments if they exist
   if metadata.title ~= nil then
-    add('  <data name="title" value="' .. metadata.title .. '"/>')
+    add('  <data class="- topic/data " name="title" value="' .. metadata.title .. '"/>')
   end
   if metadata.subtitle ~= nil then
-    add('  <data name="subtitle" value="' .. metadata.subtitle .. '"/>')
+    add('  <data class="- topic/data " name="subtitle" value="' .. metadata.subtitle .. '"/>')
   end
   if metadata.date ~= nil then
-    add('  <data name="date"  value="' .. metadata.date .. '"/>')
+    add('  <data class="- topic/data " name="date"  value="' .. metadata.date .. '"/>')
   end
 
 
