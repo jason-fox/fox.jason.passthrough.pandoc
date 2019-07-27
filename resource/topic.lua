@@ -12,7 +12,8 @@
 -- Variable to store footnotes, so they can be included after the end of a paragraph.
 local note = nil
 local topics = {[0] = {elem = {}, open = true}}
-local abstract = {elem = {}, open = true}
+local abstract0 = {elem = {}, open = true}
+local abstract1 = {elem = {}, open = true}
 local parent = {0, 0, 0, 0, 0, 0}
 local level = {{}, {}, {}, {}, {}, {}}
 local doctitle = nil
@@ -53,8 +54,11 @@ end
 
 -- Adds a DITA block-level element to the current topic
 local function pushElementToCurrentTopic (s)
+  if (#topics == 1) then
+     table.insert(abstract1.elem, s)
+  end
   if (#topics == 0) then
-     table.insert(abstract.elem, s)
+     table.insert(abstract0.elem, s)
   else
     pushElementToTopic(#topics, s)
   end
@@ -287,31 +291,28 @@ function Doc(body, metadata, variables)
   -- rootTopicTitle = string.gsub(rootTopicTitle, '_', '-')
    rootTopicId = string.gsub(rootTopicTitle, "[#_;<>&\"']", '-')
    rootTopicId = string.lower(rootTopicId)
-
-
-  add('<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="' .. string.gsub(rootTopicId, ' ', '-') .. '">')
-
-   -- Copy over meta data fields as comments if they exist
-  if metadata.title ~= nil then
-    add('  <data class="- topic/data " name="title" value="' .. metadata.title .. '"/>')
-  end
-  if metadata.subtitle ~= nil then
-    add('  <data class="- topic/data " name="subtitle" value="' .. metadata.subtitle .. '"/>')
-  end
-  if metadata.date ~= nil then
-    add('  <data class="- topic/data " name="date"  value="' .. metadata.date .. '"/>')
-  end
-
-
-  add('<title class="- topic/title " >' .. rootTopicTitle .. '</title>')
-  add('<body class="- topic/body " >')
+  
   -- Add all the elements contained within the root DITA topic, then close it
-  if (#level[1] < 2) then
-    add(table.concat( abstract.elem ,'\n'))
+  if (#level[1] == 0) then
+    add('<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="' .. string.gsub(rootTopicId, ' ', '-') .. '">')
+
+  
+    add('<title class="- topic/title " >' .. rootTopicTitle .. '</title>')
+    add('<body class="- topic/body " >')
+    add(table.concat( abstract0.elem ,'\n'))
     if (#topics == 0) then
       add('</body>\n')
     end
+  elseif (#level[1] == 1) then
+    add(table.concat( abstract1.elem ,'\n'))
+    --add('</body>\n')
+  else
+    add('<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="' .. string.gsub(rootTopicId, ' ', '-') .. '">')
+    add('<title class="- topic/title " >' .. rootTopicTitle .. '</title>')
+    add('<body class="- topic/body " >')
   end
+
+
  
 
   add(table.concat( topics[0].elem ,'\n'))
