@@ -37,6 +37,7 @@
 			<dita-ot-echo if:set="pandoc.message.code" id="${pandoc.message.code}">
 				<param name="1" value="@{src}"/>
 			</dita-ot-echo>
+			<!--copy file="@{dest}" tofile="${output.dir}/test.xml"/-->
 		</sequential>
 	</macrodef>
 

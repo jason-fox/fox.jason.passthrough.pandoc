@@ -686,14 +686,18 @@ function Table(caption, aligns, widths, headers, rows)
       width_total = width_total + w
     end
     for _, w in pairs(widths) do
-      add('\t\t<colspec class=" topic/colspec " colnum="' .. _ .. '" colwidth="' .. string.format("%d%%", math.floor((w / width_total) * 100)) .. '"/>')
+      add('\t\t<colspec class=" topic/colspec " colname="c' .. _ .. '" colnum="' .. _ .. '" colwidth="' .. string.format("%d%%", math.floor((w / width_total) * 100)) .. '"/>')
+    end
+  else
+    for _, w in pairs(widths) do
+      add('\t\t<colspec class=" topic/colspec " colname="c' .. _ .. '" colnum="' .. _ .. '"/>')
     end
   end
   local header_row = {}
   local empty_header = true
   for i, h in pairs(headers) do
     local align = dita_align(aligns[i])
-    table.insert(header_row,'\t\t\t\t<entry class=" topic/entry " align="' .. align ..  '">' .. h .. '</entry>')
+    table.insert(header_row,'\t\t\t\t<entry class=" topic/entry " colname="c' .. i .. '" dita-ot:x="' .. i .. '" align="' .. align ..  '">' .. h .. '</entry>')
     empty_header = empty_header and h == ""
   end
   if empty_header then
@@ -712,7 +716,7 @@ function Table(caption, aligns, widths, headers, rows)
     add('\t\t\t<row class=" topic/row ">')
     for i,c in pairs(row) do
       local align = dita_align(aligns[i])
-      add('\t\t\t\t<entry class=" topic/entry " align="' .. align ..  '">' .. c .. '</entry>')
+      add('\t\t\t\t<entry class=" topic/entry " colname="c' .. i .. '" dita-ot:x="' .. i .. '" align="' .. align ..  '">' .. c .. '</entry>')
     end
     add('\t\t\t</row>')
   end
