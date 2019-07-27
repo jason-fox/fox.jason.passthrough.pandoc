@@ -251,6 +251,10 @@ function Doc(body, metadata, variables)
     table.insert(buffer, s)
   end
 
+  if (#level[1] > 1) then
+    io.stderr:write("Multiple Root Nodes detected.")
+  end
+
   if (#topics > 0) then
     -- Iterate across h1 to h6 topics and add to the associated
     -- parent topic.

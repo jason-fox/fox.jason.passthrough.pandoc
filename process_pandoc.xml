@@ -17,16 +17,26 @@
 		<attribute name="dest" />
 		<attribute name="title" />
 		<sequential>
-			<echo if:set="pandoc.installed" taskname="pandoc" level="info" message="Processing @{src}"/>
+			<local name="pandoc.error"/>
+			<local name="pandoc.message.code"/>
+			<echo if:set="pandoc.installed" taskname="pandoc" level="info" message="Processing @{src}" />
 			<!-- For Unix run Pandoc as an executable -->
-			<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc">
+			<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc" errorproperty="pandoc.error" >
 				<arg line="&quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o  @{dest} -M title=&quot;@{title}&quot;"/>
 			</exec>
 			<!-- For Windows run from a DOS command -->
-			<exec if:set="pandoc.installed" executable="cmd" dir="${dita.temp.dir}" osfamily="windows" taskname="pandoc">
+			<exec if:set="pandoc.installed" executable="cmd" dir="${dita.temp.dir}" osfamily="windows" taskname="pandoc" errorproperty="pandoc.error">
 				<arg value="/C"/>
 				<arg value="pandoc &quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o @{dest} -M title=&quot;@{title}&quot;"/>
 			</exec>
+
+			<condition property="pandoc.message.code" value="PAND002W">
+				<contains string="${pandoc.error}" substring="Multiple Root Nodes detected."/>
+			</condition>
+
+			<dita-ot-echo if:set="pandoc.message.code" id="${pandoc.message.code}">
+				<param name="1" value="@{src}"/>
+			</dita-ot-echo>
 		</sequential>
 	</macrodef>
 

@@ -8,4 +8,8 @@
     <reason>Pandoc has not been installed</reason>
     <response/>
   </message>
+   <message id="PAND002W" type="WARN">
+    <reason>Multiple H1 headers detected in %1.</reason>
+    <response>Update the file if the output not as expected.</response>
+  </message>
 </messages>
