@@ -1,47 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <?doctype-public -//OASIS//DTD DITA Topic//EN?>
 <?doctype-system topic.dtd?>
-<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="topic-1">
-  <data class="- topic/data " name="title" value="Title"/>
-<title class="- topic/title " >Topic 1</title>
-<body class="- topic/body " >
-</body>
-<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)"  id="subtopic-1a">
-<title class="- topic/title " >Subtopic 1a</title>
-<body class="- topic/body " >
-<p class="- topic/p " >
-	Rutrum curabitur eleifend quam porta nostra mauris aenean curae duis, lectus non neque nulla dictumst platea aliquam pulvinar aptent pretium, feugiat magnis tellus quis ultricies parturient felis lacinia. Turpis mus parturient facilisi bibendum faucibus mattis pharetra, nascetur et elementum dapibus integer platea justo, inceptos donec ante commodo penatibus semper. Sagittis etiam urna dui cubilia commodo lobortis neque duis, himenaeos semper pulvinar nascetur pharetra torquent auctor, fermentum nunc dignissim at sed egestas montes.
-</p>
-</body>
+<topic class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="topic-1" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <data class="- topic/data " name="title" value="Title"></data>
+  <title class="- topic/title ">Topic 1</title>
+  <body class="- topic/body "></body>
+  <topic class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="subtopic-1a">
+    <title class="- topic/title ">Subtopic 1a</title>
+    <body class="- topic/body ">
+      <p class="- topic/p ">Rutrum curabitur eleifend quam porta nostra mauris aenean curae duis, lectus non neque nulla dictumst platea aliquam pulvinar aptent pretium, feugiat magnis tellus quis ultricies parturient felis lacinia. Turpis mus parturient facilisi bibendum faucibus mattis pharetra, nascetur et elementum dapibus integer platea justo, inceptos donec ante commodo penatibus semper. Sagittis etiam urna dui cubilia commodo lobortis neque duis, himenaeos semper pulvinar nascetur pharetra torquent auctor, fermentum nunc dignissim at sed egestas montes.</p>
+    </body>
+  </topic>
+  <topic class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="subtopic-1b">
+    <title class="- topic/title ">Subtopic 1b</title>
+    <body class="- topic/body ">
+      <p class="- topic/p ">Est vel ad nisi varius semper risus facilisis, ante justo sociosqu mi aptent cubilia, mus etiam commodo dapibus magnis pulvinar. Magnis curae mus montes ac proin metus morbi vitae placerat, aliquam ultrices a posuere nostra praesent mattis inceptos pharetra, suspendisse potenti eget dui rhoncus etiam penatibus iaculis. Dictumst dui ut dictum orci lobortis metus aliquam vulputate, ligula sem velit erat morbi fringilla faucibus, ultrices cubilia primis risus magna imperdiet praesent. Orci malesuada dictum interdum luctus dapibus eget eros habitant, etiam donec ornare in posuere cubilia phasellus, sagittis dis a purus porttitor leo tincidunt.</p>
+    </body>
+  </topic>
+  <topic class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="topic-2">
+    <title class="- topic/title ">Topic 2</title>
+    <body class="- topic/body ">
+      <p class="- topic/p ">Molestie proin id vivamus risus inceptos massa, congue aptent varius nullam nostra sociis lacus, justo natoque convallis metus aliquet. Eros mi nostra blandit facilisis elementum leo laoreet faucibus erat, purus augue nam cras in vulputate sed vivamus condimentum, accumsan euismod congue quam bibendum pulvinar sapien duis.</p>
+    </body>
+  </topic>
+  <topic class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="subtopic-2a">
+    <title class="- topic/title ">Subtopic 2a</title>
+    <body class="- topic/body ">
+      <p class="- topic/p ">Aliquet ultricies quam in netus sem ad consequat placerat mattis, sed fermentum quis curae hac sociosqu luctus accumsan porta lacus, convallis odio enim egestas orci quisque ullamcorper elementum. Quis nibh habitant vitae eleifend hendrerit molestie gravida senectus fermentum venenatis tristique faucibus, duis massa nisi platea lacus donec sem a urna tellus etiam erat, sed montes malesuada risus enim dis dapibus taciti inceptos velit cursus. Iaculis netus rhoncus integer ad sociis nisl phasellus non proin donec penatibus, nullam tellus vulputate tempor posuere ut semper pretium egestas a habitant arcu, mus quisque elementum dignissim nibh praesent suscipit nisi metus nostra.</p>
+    </body>
+  </topic>
 </topic>
-
-<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)"  id="subtopic-1b">
-<title class="- topic/title " >Subtopic 1b</title>
-<body class="- topic/body " >
-<p class="- topic/p " >
-	Est vel ad nisi varius semper risus facilisis, ante justo sociosqu mi aptent cubilia, mus etiam commodo dapibus magnis pulvinar. Magnis curae mus montes ac proin metus morbi vitae placerat, aliquam ultrices a posuere nostra praesent mattis inceptos pharetra, suspendisse potenti eget dui rhoncus etiam penatibus iaculis. Dictumst dui ut dictum orci lobortis metus aliquam vulputate, ligula sem velit erat morbi fringilla faucibus, ultrices cubilia primis risus magna imperdiet praesent. Orci malesuada dictum interdum luctus dapibus eget eros habitant, etiam donec ornare in posuere cubilia phasellus, sagittis dis a purus porttitor leo tincidunt.
-</p>
-</body>
-</topic>
-
-<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)"  id="topic-2">
-<title class="- topic/title " >Topic 2</title>
-<body class="- topic/body " >
-<p class="- topic/p " >
-	Molestie proin id vivamus risus inceptos massa, congue aptent varius nullam nostra sociis lacus, justo natoque convallis metus aliquet. Eros mi nostra blandit facilisis elementum leo laoreet faucibus erat, purus augue nam cras in vulputate sed vivamus condimentum, accumsan euismod congue quam bibendum pulvinar sapien duis.
-</p>
-</body>
-</topic>
-
-<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)"  id="subtopic-2a">
-<title class="- topic/title " >Subtopic 2a</title>
-<body class="- topic/body " >
-<p class="- topic/p " >
-	Aliquet ultricies quam in netus sem ad consequat placerat mattis, sed fermentum quis curae hac sociosqu luctus accumsan porta lacus, convallis odio enim egestas orci quisque ullamcorper elementum. Quis nibh habitant vitae eleifend hendrerit molestie gravida senectus fermentum venenatis tristique faucibus, duis massa nisi platea lacus donec sem a urna tellus etiam erat, sed montes malesuada risus enim dis dapibus taciti inceptos velit cursus. Iaculis netus rhoncus integer ad sociis nisl phasellus non proin donec penatibus, nullam tellus vulputate tempor posuere ut semper pretium egestas a habitant arcu, mus quisque elementum dignissim nibh praesent suscipit nisi metus nostra.
-</p>
-</body>
-</topic>
-
-</topic>
-
 

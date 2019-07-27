@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="unit-test">
 	<import file="../bootstrap.xml"/>
+	<!-- @disabled - not supported -->
 	<description>
 		Expect that a file with a single topic and sections is converted properly.
 	</description>
@@ -10,6 +11,7 @@
 		<mkdir dir="${basedir}/temp"/>
 		<property name="dita.temp.dir" value="./temp"/>
 		<add-pandoc-file src="${basedir}/markdown.md" dest="${basedir}/out/topic.xml" title="Title" />
+		<order-xml file="${basedir}/out/topic.xml"/>
 		<compare-output suffix=".xml" result="${basedir}/out/topic.xml"/>
 	</target>
 </project>
