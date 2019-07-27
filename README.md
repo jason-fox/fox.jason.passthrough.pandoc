@@ -132,9 +132,9 @@ The additional file will run against the Pandoc _XXX-to-DITA_ lua filter to be c
 The chapter `title` is taken from the first header found. Thereafter the document is processed as expected:
 
 ```md
-The abstract (if any) goes here...
-
 # Chapter title
+
+The abstract (if any) goes here...
 
 ## Topic 1
 
@@ -146,6 +146,8 @@ Body of topic 2 goes here.
 
 ...etc
 ```
+
+Ideally input files should only contain a single `<h1>` header
 
 # License
 
