@@ -12,6 +12,7 @@
 -- Variable to store footnotes, so they can be included after the end of a paragraph.
 local note = nil
 local topics = {[0] = {elem = {}, open = true}}
+local abstract = {elem = {}, open = true}
 local parent = {0, 0, 0, 0, 0, 0}
 local level = {{}, {}, {}, {}, {}, {}}
 local doctitle = nil
@@ -52,7 +53,11 @@ end
 
 -- Adds a DITA block-level element to the current topic
 local function pushElementToCurrentTopic (s)
-  pushElementToTopic(#topics, s)
+  if (#topics == 0) then
+     table.insert(abstract.elem, s)
+  else
+    pushElementToTopic(#topics, s)
+  end
 end
 
 
@@ -170,8 +175,17 @@ end
 -- Close the existing topic body if it is still open.
 -- i.e. this topic has no further subtopics.
 local function closeTopicBody (index)
-  if(topics[index].open == true) then
-     pushElementToTopic(index, "</body>")
+  if(topics[index].open == true ) then
+
+    if ((topics[index].type == 'section')) then
+      -- nothing
+    elseif (not (index == #topics)) then
+      if(not (topics[index+1].type == 'section')) then
+        pushElementToTopic(index, "</body>")
+      end
+    else
+      pushElementToTopic(index, "</body>")
+    end 
      topics[index].open = false
   end 
 end 
@@ -184,7 +198,19 @@ local function nestTopicWithinParent (index, parent)
   -- Close the existing topic body if it is still open.
   -- i.e. this topic has no subtopics.
   closeTopicBody(index)
-  pushElementToTopic(index, "</topic>\n")
+  pushElementToTopic(index, "</" .. topics[index].type .. ">\n")
+
+  if (topics[index].type == 'section') then
+    if not (index == #topics) then
+      if not (topics[index+1].type == 'section') then
+         pushElementToTopic(index, "</body>")
+      end
+    else 
+      pushElementToTopic(index, "</body>")
+    end
+  end
+
+
   -- Close the existing parent body if it is still open
   closeTopicBody(parent)
 
@@ -225,19 +251,21 @@ function Doc(body, metadata, variables)
     table.insert(buffer, s)
   end
 
-  -- Iterate across h1 to h6 topics and add to the associated
-  -- parent topic.
-  for i = 6, 1, -1 do 
-    for j = 1,  #level[i] do
-      -- The +1 here is because LUA defaults to using 1 based arrays
-      -- The topic[0] has been added as a root element so the counting is out
-      nestTopicWithinParent (level[i][j].index + 1, level[i][j].parent + 1)
+  if (#topics > 0) then
+    -- Iterate across h1 to h6 topics and add to the associated
+    -- parent topic.
+    for i = 6, 1, -1 do 
+      for j = 1,  #level[i] do
+        -- The +1 here is because LUA defaults to using 1 based arrays
+        -- The topic[0] has been added as a root element so the counting is out
+        nestTopicWithinParent (level[i][j].index + 1, level[i][j].parent + 1)
+      end
     end
+    -- Just in case we have a document with no headers, check to close the 
+    -- root topic body as it may still be open.
+  
+    closeTopicBody(0)
   end
-
-  -- Just in case we have a document with no headers, check to close the 
-  -- root topic body as it may still be open.
-  closeTopicBody(0)
 
   -- Now we start to create the real output
   
@@ -274,6 +302,14 @@ function Doc(body, metadata, variables)
   add('<title class="- topic/title " >' .. rootTopicTitle .. '</title>')
   add('<body class="- topic/body " >')
   -- Add all the elements contained within the root DITA topic, then close it
+  if (#level[1] < 2) then
+    add(table.concat( abstract.elem ,'\n'))
+    if (#topics == 0) then
+      add('</body>\n')
+    end
+  end
+ 
+
   add(table.concat( topics[0].elem ,'\n'))
   add('</topic>\n')
 
@@ -494,9 +530,16 @@ function Header(lev, s, attr)
     doctitle = s
   end
 
-  topics[#topics + 1 ] = {elem = {}, open = true}
-  pushElementToCurrentTopic ('<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" ' ..  attributes(attr) .. 
-   '>\n<title class="- topic/title " >' .. s .. '</title>\n<body class="- topic/body " >')
+  if (attr.class == 'section') then
+      topics[#topics + 1 ] = {elem = {}, open = true, type = "section"}
+      pushElementToCurrentTopic ('<section class="- topic/section " ' ..  attributes(attr) .. 
+     '>\n<title class="- topic/title " >' .. s .. '</title>\n')
+
+  else
+    topics[#topics + 1 ] = {elem = {}, open = true, type = "topic"}
+    pushElementToCurrentTopic ('<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" ' ..  attributes(attr) .. 
+     '>\n<title class="- topic/title " >' .. s .. '</title>\n<body class="- topic/body " >')
+  end
 
   return ""
 end
