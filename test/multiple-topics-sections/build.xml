@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="unit-test">
 	<import file="../bootstrap.xml"/>
-	<!-- @disabled : section not supported -->
 	<description>
 		Expect that a file with two topics and sections, no chapter header is converted.
 

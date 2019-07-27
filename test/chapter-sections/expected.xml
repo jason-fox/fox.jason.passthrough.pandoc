@@ -5,6 +5,7 @@
   <data class="- topic/data " name="title" value="Title"/>
 <title class="- topic/title " >Chapter</title>
 <body class="- topic/body " >
+
 </body>
 <topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)"  id="topic-1">
 <title class="- topic/title " >Topic 1</title>
@@ -12,6 +13,14 @@
 <p class="- topic/p " >
 	Lorem ipsum dolor sit amet consectetur adipiscing, elit malesuada ligula vehicula netus sollicitudin sociis, feugiat scelerisque luctus parturient pharetra. Dis pretium ante fringilla nunc velit nisi risus primis felis vel, venenatis auctor nascetur viverra non sagittis habitant condimentum integer. Himenaeos iaculis placerat neque nisl sodales faucibus ut porttitor maecenas et quam posuere mauris, venenatis tortor scelerisque suspendisse magna malesuada rhoncus commodo feugiat pretium urna justo.
 </p>
+<section class="- topic/section "  outputclass="section" id="section-1">
+<title class="- topic/title " >Section 1</title>
+
+<p class="- topic/p " >
+	Ultricies nisi iaculis dapibus orci eu lacus accumsan, venenatis augue luctus nulla inceptos euismod sociis dui, donec malesuada torquent diam dis non. Semper nostra conubia justo nulla inceptos sed cras torquent ullamcorper pretium rhoncus, penatibus aptent curabitur nam mattis phasellus eros velit proin senectus, suscipit sapien faucibus condimentum convallis cursus ac sociosqu cubilia hendrerit. Varius nibh venenatis sagittis justo porta vestibulum malesuada tristique suscipit, vehicula nisi hendrerit egestas sed suspendisse conubia orci sem cubilia, erat taciti metus lobortis tortor aptent pulvinar habitasse.
+</p>
+</section>
+
 </body>
 </topic>
 
