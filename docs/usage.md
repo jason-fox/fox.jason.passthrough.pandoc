@@ -18,7 +18,7 @@ The additional file will run against the Pandoc _XXX-to-DITA_ lua filter to be c
 
 The chapter `title` is taken from the first header found. Thereafter the document is processed as expected:
 
-```md
+```markdown
 # Chapter title
 
 The abstract (if any) goes here...
