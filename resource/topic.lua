@@ -411,7 +411,7 @@ function Image(s, src, tit)
   if tit == nil then
     return '<image class=" topic/image " href="' .. escape(src,true) .. '"/>'
   else
-    return '<image class=" topic/image " href="' .. escape(src,true) .. '">' ..
+    return '<image class=" topic/image " scalefit="yes" href="' .. escape(src,true) .. '">' ..
       '<alt class=" topic/alt ">' .. tit .. '</alt>' ..
       '</image>'
   end
@@ -653,7 +653,7 @@ end
 -- CaptionedImage is an block level element that translates to <fig> with <title> abd <image> sub elements
 function CaptionedImage(src, tit, caption)
   pushElementToCurrentTopic('<fig class="- topic/fig ">\n\t<title class=" topic/title ">' .. caption .. '</title>\n' ..
-      '\t<image class=" topic/image " href="' .. escape(src,true) .. '">\n' ..
+      '\t<image class=" topic/image " scalefit="yes" href="' .. escape(src,true) .. '">\n' ..
       '\t\t<alt class="- topic/alt ">' .. tit .. '</alt>\n\t</image>\n</fig>')
   return ""
 end
