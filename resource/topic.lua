@@ -17,6 +17,9 @@ local abstract1 = {elem = {}, open = true}
 local parent = {0, 0, 0, 0, 0, 0}
 local level = {{}, {}, {}, {}, {}, {}}
 local doctitle = nil
+local codeblockCount = 0
+local codephCount = 0
+
 
 -------------------------------------------------------------------
 --
@@ -420,7 +423,9 @@ end
 
 -- Code is an inline element that translates to <codeph>
 function Code(s, attr)
-  return "<codeph class=' pr-d/codeph '" .. attributes(attr) .. ">" .. escape(s) .. "</codeph>"
+  codephCount = codephCount + 1
+  return '<codeph class=" pr-d/codeph "'  .. attributes(attr) .. '  xtrc="codeph:' .. 
+    codephCount ..'" xtrf="">' .. escape(s) .. '</codeph>'
 end
 
 
@@ -572,10 +577,10 @@ end
 -- Codeblock is an block level element that translates to <codeblock>
 function CodeBlock(s, attr)
 
-  
+  codeblockCount = codeblockCount + 1
 
   pushElementToCurrentTopic ('<codeblock class=" pr-d/codeblock " '
-      .. attributes(attr) .. '>' .. escape(s) .. '</codeblock>')
+      .. attributes(attr) .. '  xtrc="codeblock:' .. codeblockCount ..'" xtrf="">' .. escape(s) .. '</codeblock>')
   return ""
 end
 
