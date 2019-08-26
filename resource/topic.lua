@@ -20,6 +20,7 @@ local doctitle = nil
 local codeblockCount = 0
 local codephCount = 0
 local topicCount = 0
+local topicClosure = 0
 
 
 -------------------------------------------------------------------
@@ -207,15 +208,15 @@ local function nestTopicWithinParent (index, parent)
   -- i.e. this topic has no subtopics.
   closeTopicBody(index)
   pushElementToTopic(index, "</" .. topics[index].name .. ">\n")
+  topicClosure = topicClosure + 1
 
   if (topics[index].type == 'section') then
     if not (index == #topics) then
       if not (topics[index+1].type == 'section') then
          pushElementToTopic(index, "</body>\n")
-         -- pushElementToTopic(index, "</" .. topics[parent].name .. ">\n")
          topics[parent].open = false 
       end
-    elseif (topicCount == 1) then
+    elseif (topicCount == 1 or topicClosure > topicCount) then
        pushElementToTopic(index, "</body>\n")
     else
       pushElementToTopic(index, "</" .. topics[parent].name .. ">\n")
@@ -325,6 +326,9 @@ function Doc(body, metadata, variables)
  
 
   add(table.concat( topics[0].elem ,'\n'))
+  if (topicCount == 1 and #topics == 1) then
+    add('</body>\n')
+  end
   add('</topic>\n')
 
 
