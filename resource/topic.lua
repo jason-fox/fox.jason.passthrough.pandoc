@@ -211,7 +211,9 @@ local function nestTopicWithinParent (index, parent)
   if (topics[index].type == 'section') then
     if not (index == #topics) then
       if not (topics[index+1].type == 'section') then
-         pushElementToTopic(index, "</" .. topics[parent].name .. ">\n")
+         pushElementToTopic(index, "</body>\n")
+         -- pushElementToTopic(index, "</" .. topics[parent].name .. ">\n")
+         topics[parent].open = false 
       end
     elseif (topicCount == 1) then
        pushElementToTopic(index, "</body>\n")
