@@ -19,6 +19,7 @@ local level = {{}, {}, {}, {}, {}, {}}
 local doctitle = nil
 local codeblockCount = 0
 local codephCount = 0
+local topicCount = 0
 
 
 -------------------------------------------------------------------
@@ -187,7 +188,7 @@ local function closeTopicBody (index)
     if ((topics[index].type == 'section')) then
       -- nothing
     elseif (not (index == #topics)) then
-      if(not (topics[index+1].type == 'section')) then
+      if(not (topics[index+1].type == 'section') and topicCount ~= 1) then
         pushElementToTopic(index, "</body>")
       end
     else
@@ -205,15 +206,17 @@ local function nestTopicWithinParent (index, parent)
   -- Close the existing topic body if it is still open.
   -- i.e. this topic has no subtopics.
   closeTopicBody(index)
-  pushElementToTopic(index, "</" .. topics[index].type .. ">\n")
+  pushElementToTopic(index, "</" .. topics[index].name .. ">\n")
 
   if (topics[index].type == 'section') then
     if not (index == #topics) then
       if not (topics[index+1].type == 'section') then
-         pushElementToTopic(index, "</body>")
+         pushElementToTopic(index, "</" .. topics[parent].name .. ">\n")
       end
-    else 
-      pushElementToTopic(index, "</body>")
+    elseif (topicCount == 1) then
+       pushElementToTopic(index, "</body>\n")
+    else
+      pushElementToTopic(index, "</" .. topics[parent].name .. ">\n")
     end
   end
 
@@ -306,6 +309,7 @@ function Doc(body, metadata, variables)
     if (#topics == 0) then
       add('</body>\n')
     end
+
   elseif (#level[1] == 1) then
     add(table.concat( abstract1.elem ,'\n'))
     --add('</body>\n')
@@ -541,12 +545,17 @@ function Header(lev, s, attr)
   end
 
   if (attr.class == 'section') then
-      topics[#topics + 1 ] = {elem = {}, open = true, type = "section"}
+      topics[#topics + 1 ] = {elem = {}, open = true, type = "section", name = "section"}
       pushElementToCurrentTopic ('<section class="- topic/section " ' ..  attributes(attr) .. 
+     '>\n<title class="- topic/title " >' .. s .. '</title>\n')
+  elseif (attr.class == 'example') then
+      topics[#topics + 1 ] = {elem = {}, open = true, type = "section", name = "example"}
+      pushElementToCurrentTopic ('<example class="- topic/example " ' ..  attributes(attr) .. 
      '>\n<title class="- topic/title " >' .. s .. '</title>\n')
 
   else
-    topics[#topics + 1 ] = {elem = {}, open = true, type = "topic"}
+    topicCount = topicCount + 1
+    topics[#topics + 1 ] = {elem = {}, open = true, type = "topic", name="topic", body="body"}
     pushElementToCurrentTopic ('<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" ' ..  attributes(attr) .. 
      '>\n<title class="- topic/title " >' .. s .. '</title>\n<body class="- topic/body " >')
   end
