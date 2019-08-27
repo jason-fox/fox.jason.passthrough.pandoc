@@ -488,9 +488,9 @@ end
 function RawBlock(format, str)
   if format == "html" then
     if str == "<br/>" then
-      return '<br/>'
+      return '<ph class="- topic/ph ">&#xD;</ph>'
     elseif str == "<br>" then
-      return '<br/>'
+      return '<ph class="- topic/ph ">&#xD;</ph>'
     else
       return ''
     end
@@ -503,9 +503,9 @@ end
 function RawInline(format, str)
   if format == "html" then
     if str == "<br/>" then
-      return '<br/>'
+      return "&#13;" -- '<br/>'
     elseif str == "<br>" then
-      return '<br/>'
+      return "&#13;" -- '<br/>'
     else
       return ''
     end
