@@ -14,7 +14,7 @@ resourceid:
   - Resourceid1
   - Resourceid2
 workflow: review
-shortdesc: This is where the shortdesc goes ...
+shortdesc: This is where the shortdesc goes
 ---
 
 Lorem ipsum dolor sit amet consectetur adipiscing, elit malesuada ligula vehicula netus sollicitudin sociis, feugiat scelerisque luctus parturient pharetra. Dis pretium ante fringilla nunc velit nisi risus primis felis vel, venenatis auctor nascetur viverra non sagittis habitant condimentum integer. Himenaeos iaculis placerat neque nisl sodales faucibus ut porttitor maecenas et quam posuere mauris, venenatis tortor scelerisque suspendisse magna malesuada rhoncus commodo feugiat pretium urna justo.

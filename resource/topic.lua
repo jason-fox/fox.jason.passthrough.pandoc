@@ -397,6 +397,8 @@ function  createProlog (metadata)
         permissions = '<permissions class="- topic/permissions" view="' .. v .. '"/>'
       elseif (k =='shortdesc') then
         -- Nothing
+      elseif (k =='title') then
+        -- Nothing
       elseif (k =='audience') then
         addMetadata = true
         audience ='<audience audience="' .. v .. '" class="- topic/audience "/>'

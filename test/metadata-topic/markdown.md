@@ -14,7 +14,7 @@ resourceid:
   - Resourceid1
   - Resourceid2
 workflow: review
-shortdesc: This is where the shortdesc goes ...
+shortdesc: This is where the shortdesc goes
 ---
 
 # Chapter
