@@ -307,6 +307,9 @@ function Doc(body, metadata, variables)
 
   
     add('<title class="- topic/title " >' .. rootTopicTitle .. '</title>')
+    if (tablelength(metadata) > 0) then
+      add(createProlog (metadata))
+    end
     add('<body class="- topic/body " >')
     add(table.concat( abstract0.elem ,'\n'))
     if (#topics == 0) then
@@ -314,11 +317,30 @@ function Doc(body, metadata, variables)
     end
 
   elseif (#level[1] == 1) then
-    add(table.concat( abstract1.elem ,'\n'))
+    local preBuffer = {}
+    local postBuffer = {}
+
+    for idx, elem in ipairs(abstract1.elem) do
+      if (idx < 2) then
+        table.insert(preBuffer, elem)
+      else
+        table.insert(postBuffer, elem)
+      end
+    end
+
+    add(table.concat( preBuffer ,'\n'))
+    if (tablelength(metadata) > 0) then
+      add(createProlog (metadata))
+    end
+    add(table.concat( postBuffer ,'\n'))
+    --add(table.concat( abstract1.elem ,'\n'))
     --add('</body>\n')
   else
     add('<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="' .. string.gsub(rootTopicId, ' ', '-') .. '">')
     add('<title class="- topic/title " >' .. rootTopicTitle .. '</title>')
+    if (tablelength(metadata) > 0) then
+      add(createProlog (metadata))
+    end
     add('<body class="- topic/body " >')
   end
 
@@ -331,8 +353,125 @@ function Doc(body, metadata, variables)
   end
   add('</topic>\n')
 
-
   return table.concat(buffer,'\n') .. '\n'
+end
+
+
+function  createProlog (metadata)
+  local buffer = {}
+  local author = {}
+  local source = nil
+  local permissions = nil
+  local publisher = nil
+  local audience = nil
+  local category = nil
+  local keywords = {}
+  local resourceids = {}
+  local unknowns = {}
+  local addMetadata = false
+
+  local function add(s)
+    table.insert(buffer, s)
+  end
+
+  if(tablelength (metadata) > 0) then
+
+    if (metadata.shortdesc ~= nil) then
+      add('<shortdesc class=" topic/shortdesc ">' .. metadata.shortdesc .. '</shortdesc>')
+    end
+    add('<prolog class="- topic/prolog ">\n')
+    for k, v in pairs(metadata) do
+      if (k =='author') then
+        if type(v) == "table" then
+          for k, v in pairs(v) do
+            add('<author class="- topic/author ">' .. v .. '</author>')
+          end
+        else
+          add('<author class="- topic/author ">' .. v .. '</author>')
+        end
+      elseif (k =='source') then
+        source = '<source class="- topic/source ">' .. v .. '</source>'
+      elseif (k =='publisher') then
+        publisher = '<publisher class="- topic/publisher ">' .. v .. '</publisher>'
+      elseif (k =='permissions') then
+        permissions = '<permissions class="- topic/permissions" view="' .. v .. '"/>'
+      elseif (k =='shortdesc') then
+        -- Nothing
+      elseif (k =='audience') then
+        addMetadata = true
+        audience ='<audience audience="' .. v .. '" class="- topic/audience "/>'
+      elseif (k =='category') then
+        addMetadata = true
+        category = '<category class="- topic/category ">' .. v .. '</category>'
+      elseif (k =='keyword') then
+        addMetadata = true
+        if type(v) == "table" then
+          for k, v in pairs(v) do
+            table.insert(keywords, '<keyword class="- topic/keyword ">' .. v .. '</keyword>')
+          end
+        else
+          table.insert(keywords, '<keyword class="- topic/keyword ">' .. v .. '</keyword>')
+        end  
+      elseif (k =='resourceid') then
+        if type(v) == "table" then
+          for k, v in pairs(v) do
+            table.insert(resourceids, '<resourceid appid="' .. v .. '" ux-source-priority="topic-and-map" class="- topic/resourceid "/>')
+          end
+        else
+          table.insert(resourceids, '<resourceid appid="' .. v .. '" ux-source-priority="topic-and-map" class="- topic/resourceid "/>')
+        end
+      else
+        table.insert(unknowns, '<data name="'.. k .. '" value="' .. v .. '" class="- topic/data "/>')
+      end
+    end
+
+
+    if (source ~= nil) then
+      add(source)
+    end
+    if (publisher ~= nil) then
+      add(publisher)
+    end
+    if (permissions ~= nil) then
+      add(permissions)
+    end
+    if (addMetadata == true) then
+      add('<metadata class="- topic/metadata ">')
+      if (audience ~= nil) then
+        add(audience)
+      end
+      if (category ~= nil) then
+        add(category)
+      end
+      if (tablelength (keywords) > 0) then
+        add('<keywords class="- topic/keywords ">')
+        for k, v in pairs(keywords) do
+          add(v)
+        end
+        add('</keywords>')
+      end
+      add('</metadata>')
+    end
+    if (tablelength (resourceids) > 0) then
+      for k, v in pairs(resourceids) do
+        add(v)
+      end
+    end
+    if (tablelength (unknowns) > 0) then
+      for k, v in pairs(unknowns) do
+        add(v)
+      end
+    end
+    add('</prolog>')
+  end
+  return table.concat(buffer,'\n')
+end
+
+
+function tablelength(T)
+  local count = 0
+  for _ in pairs(T) do count = count + 1 end
+  return count
 end
 
 -- The functions that follow render corresponding pandoc elements.
@@ -563,7 +702,8 @@ function Header(lev, s, attr)
     topicCount = topicCount + 1
     topics[#topics + 1 ] = {elem = {}, open = true, type = "topic", name="topic", body="body"}
     pushElementToCurrentTopic ('<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" ' ..  attributes(attr) .. 
-     '>\n<title class="- topic/title " >' .. s .. '</title>\n<body class="- topic/body " >')
+     '>\n<title class="- topic/title " >' .. s .. '</title>')
+    pushElementToCurrentTopic ('<body class="- topic/body " >')
   end
 
   return ""

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<?doctype-public -//OASIS//DTD DITA Topic//EN?>
+<?doctype-system topic.dtd?>
+<topic class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="title" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <title class="- topic/title ">Title</title>
+  <shortdesc class=" topic/shortdesc ">This is where the shortdesc goes &#8230;</shortdesc>
+  <prolog class="- topic/prolog ">
+    <author class="- topic/author ">Author One</author>
+    <author class="- topic/author ">Author Two</author>
+    <source class="- topic/source ">Source</source>
+    <publisher class="- topic/publisher ">Publisher</publisher>
+    <permissions class="- topic/permissions" view="Permissions"></permissions>
+    <metadata class="- topic/metadata ">
+      <audience audience="Audience" class="- topic/audience "></audience>
+      <category class="- topic/category ">Category</category>
+      <keywords class="- topic/keywords ">
+        <keyword class="- topic/keyword ">Keyword1</keyword>
+        <keyword class="- topic/keyword ">Keyword2</keyword>
+      </keywords>
+    </metadata>
+    <resourceid appid="Resourceid1" class="- topic/resourceid " ux-source-priority="topic-and-map"></resourceid>
+    <resourceid appid="Resourceid2" class="- topic/resourceid " ux-source-priority="topic-and-map"></resourceid>
+    <data class="- topic/data " name="workflow" value="review"></data>
+    <data class="- topic/data " name="title" value="Title"></data>
+  </prolog>
+  <body class="- topic/body ">
+    <p class="- topic/p ">Lorem ipsum dolor sit amet consectetur adipiscing, elit malesuada ligula vehicula netus sollicitudin sociis, feugiat scelerisque luctus parturient pharetra. Dis pretium ante fringilla nunc velit nisi risus primis felis vel, venenatis auctor nascetur viverra non sagittis habitant condimentum integer. Himenaeos iaculis placerat neque nisl sodales faucibus ut porttitor maecenas et quam posuere mauris, venenatis tortor scelerisque suspendisse magna malesuada rhoncus commodo feugiat pretium urna justo.</p>
+    <p class="- topic/p ">Class ornare feugiat arcu parturient lacus mollis purus at, primis turpis morbi libero ultricies hendrerit. Volutpat sed ullamcorper bibendum mi sagittis ultricies ridiculus sociis nam, dapibus proin curae odio lacus est dignissim ad, commodo ornare nec phasellus condimentum laoreet vehicula porttitor. Himenaeos nunc aptent massa ridiculus auctor nisi pellentesque maecenas a eleifend, fermentum fringilla semper nam viverra vivamus velit metus in posuere, conubia tellus venenatis rutrum proin erat enim mi libero.</p>
+  </body>
+</topic>
+

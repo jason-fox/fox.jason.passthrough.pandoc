@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="unit-test">
+	<import file="../bootstrap.xml"/>
+	<description>
+		Expect that a file with two topics and metadata but no chapter header is converted.
+	</description>
+	<target name="unit-test">
+
+		<mkdir dir="${basedir}/out"/>
+		<mkdir dir="${basedir}/temp"/>
+		<property name="dita.temp.dir" value="./temp"/>
+		<add-pandoc-file src="${basedir}/markdown.md" dest="${basedir}/out/topic.xml" title="Title" />
+		<order-xml file="${basedir}/out/topic.xml"/>
+		<compare-output suffix=".xml" result="${basedir}/out/topic.xml"/>
+	</target>
+</project>
