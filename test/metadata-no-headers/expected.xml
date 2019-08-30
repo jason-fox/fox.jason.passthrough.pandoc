@@ -22,7 +22,6 @@
     <resourceid appid="Resourceid1" class="- topic/resourceid " ux-source-priority="topic-and-map"></resourceid>
     <resourceid appid="Resourceid2" class="- topic/resourceid " ux-source-priority="topic-and-map"></resourceid>
     <data class="- topic/data " name="workflow" value="review"></data>
-    <data class="- topic/data " name="title" value="Title"></data>
   </prolog>
   <body class="- topic/body ">
     <p class="- topic/p ">Lorem ipsum dolor sit amet consectetur adipiscing, elit malesuada ligula vehicula netus sollicitudin sociis, feugiat scelerisque luctus parturient pharetra. Dis pretium ante fringilla nunc velit nisi risus primis felis vel, venenatis auctor nascetur viverra non sagittis habitant condimentum integer. Himenaeos iaculis placerat neque nisl sodales faucibus ut porttitor maecenas et quam posuere mauris, venenatis tortor scelerisque suspendisse magna malesuada rhoncus commodo feugiat pretium urna justo.</p>
