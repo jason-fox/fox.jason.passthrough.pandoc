@@ -307,7 +307,7 @@ function Doc(body, metadata, variables)
 
   
     add('<title class="- topic/title " >' .. rootTopicTitle .. '</title>')
-    if (tablelength(metadata) > 0) then
+    if (tablelength(metadata) > 1) then
       add(createProlog (metadata))
     end
     add('<body class="- topic/body " >')
@@ -329,7 +329,7 @@ function Doc(body, metadata, variables)
     end
 
     add(table.concat( preBuffer ,'\n'))
-    if (tablelength(metadata) > 0) then
+    if (tablelength(metadata) > 1) then
       add(createProlog (metadata))
     end
     add(table.concat( postBuffer ,'\n'))
@@ -338,7 +338,7 @@ function Doc(body, metadata, variables)
   else
     add('<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="' .. string.gsub(rootTopicId, ' ', '-') .. '">')
     add('<title class="- topic/title " >' .. rootTopicTitle .. '</title>')
-    if (tablelength(metadata) > 0) then
+    if (tablelength(metadata) > 1) then
       add(createProlog (metadata))
     end
     add('<body class="- topic/body " >')
