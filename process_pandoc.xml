@@ -11,11 +11,13 @@
 		@param src - The input file to convert to DITA
 		@param dest - The output file location
 		@param title - The title of the converted file
+		@param metadata - The metadata of the converted file
 	-->
 	<macrodef name="add-pandoc-file">
 		<attribute name="src" />
 		<attribute name="dest" />
 		<attribute name="title" />
+		<attribute name="metadata"/>
 		<sequential>
 			<local name="pandoc.error"/>
 			<local name="pandoc.message.code"/>
