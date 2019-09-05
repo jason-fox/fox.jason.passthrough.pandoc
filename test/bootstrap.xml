@@ -40,6 +40,7 @@
 		<attribute name="src" />
 		<attribute name="dest" />
 		<attribute name="title" />
+		<attribute name="metadata" default="" />
 		<sequential>
 			<echo taskname="pandoc" level="info" message="Processing @{src}"/>
 			<!-- For Unix run Pandoc as an executable -->

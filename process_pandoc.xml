@@ -21,15 +21,30 @@
 		<sequential>
 			<local name="pandoc.error"/>
 			<local name="pandoc.message.code"/>
+			<local name="pandoc.metadata"/>
+			<local name="metadata.txt"/>
+
 			<echo if:set="pandoc.installed" taskname="pandoc" level="info" message="Processing @{src}" />
+
+			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
+					property="metadata.txt" suffix="txt"/>
+			<xslt unless:blank="@{metadata}" in="@{metadata}" out="${metadata.txt}"
+				style="${dita.plugin.fox.jason.passthrough.pandoc.dir}/xsl/topicmeta.xsl" 
+				taskname="topic-meta"/>
+			<loadfile unless:blank="@{metadata}" property="pandoc.metadata" srcfile="${metadata.txt}" failonerror="false"/>
+			<property if:blank="@{metadata}" name="pandoc.metadata" value=""/>
+
+
+			<echo level="error" message="${pandoc.metadata}"/>
+
 			<!-- For Unix run Pandoc as an executable -->
 			<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc" errorproperty="pandoc.error" >
-				<arg line="&quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o  @{dest} -M title=&quot;@{title}&quot;"/>
+				<arg line="&quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o  @{dest} -M title=&quot;@{title}&quot; ${pandoc.metadata}"/>
 			</exec>
 			<!-- For Windows run from a DOS command -->
 			<exec if:set="pandoc.installed" executable="cmd" dir="${dita.temp.dir}" osfamily="windows" taskname="pandoc" errorproperty="pandoc.error">
 				<arg value="/C"/>
-				<arg value="pandoc &quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o @{dest} -M title=&quot;@{title}&quot;"/>
+				<arg value="pandoc &quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o @{dest} -M title=&quot;@{title}&quot; ${pandoc.metadata}"/>
 			</exec>
 
 			<condition property="pandoc.message.code" value="PAND002W">
