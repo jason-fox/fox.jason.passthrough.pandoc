@@ -2,7 +2,7 @@
 <project basedir="." default="unit-test">
 	<import file="../bootstrap.xml"/>
 	<description>
-		Expect that a file with two topics and metadata but no chapter header is converted.
+		Expect that a file with metadata in the ditamap is converted.
 	</description>
 	<target name="unit-test">
 		<exec-html5/>
