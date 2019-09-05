@@ -34,9 +34,6 @@
 			<loadfile unless:blank="@{metadata}" property="pandoc.metadata" srcfile="${metadata.txt}" failonerror="false"/>
 			<property if:blank="@{metadata}" name="pandoc.metadata" value=""/>
 
-
-			<echo level="error" message="${pandoc.metadata}"/>
-
 			<!-- For Unix run Pandoc as an executable -->
 			<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc" errorproperty="pandoc.error" >
 				<arg line="&quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o  @{dest} -M title=&quot;@{title}&quot; ${pandoc.metadata}"/>
