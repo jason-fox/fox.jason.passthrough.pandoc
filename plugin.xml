@@ -4,7 +4,7 @@
 	This file is part of the DITA-OT Pandoc Plug-in project.
 	See the accompanying LICENSE file for applicable licenses.
 -->
-<plugin id="fox.jason.passthrough.pandoc" version="1.2.0">
+<plugin id="fox.jason.passthrough.pandoc" version="1.2.1">
 	<feature extension="ant.import" file="process_pandoc.xml"/>
 	<!-- Ensure the plugin's error and logging messages are available -->
 	<feature extension="dita.xsl.messages" file="resource/messages.xml"/>

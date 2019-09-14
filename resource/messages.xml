@@ -12,4 +12,8 @@
     <reason>Multiple H1 headers detected in %1.</reason>
     <response>Update the file if the output not as expected.</response>
   </message>
+  <message id="PAND003F" type="FATAL">
+    <reason>Pandoc failed to generate documentation:&#xD;&#xD; %1.</reason>
+    <response>Check that your input file is valid.</response>
+  </message>
 </messages>

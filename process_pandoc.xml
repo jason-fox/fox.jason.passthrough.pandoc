@@ -19,6 +19,8 @@
 		<attribute name="title" />
 		<attribute name="metadata"/>
 		<sequential>
+			<local name="pandoc.result"/>
+			<local name="pandoc.isError"/>
 			<local name="pandoc.error"/>
 			<local name="pandoc.message.code"/>
 			<local name="pandoc.metadata"/>
@@ -35,14 +37,28 @@
 			<property if:blank="@{metadata}" name="pandoc.metadata" value=""/>
 
 			<!-- For Unix run Pandoc as an executable -->
-			<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc" errorproperty="pandoc.error" >
+			<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc" errorproperty="pandoc.error" resultproperty="pandoc.result" >
 				<arg line="&quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o  @{dest} -M title=&quot;@{title}&quot; ${pandoc.metadata}"/>
 			</exec>
 			<!-- For Windows run from a DOS command -->
-			<exec if:set="pandoc.installed" executable="cmd" dir="${dita.temp.dir}" osfamily="windows" taskname="pandoc" errorproperty="pandoc.error">
+			<exec if:set="pandoc.installed" executable="cmd" dir="${dita.temp.dir}" osfamily="windows" taskname="pandoc" errorproperty="pandoc.error" resultproperty="pandoc.result">
 				<arg value="/C"/>
 				<arg value="pandoc &quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o @{dest} -M title=&quot;@{title}&quot; ${pandoc.metadata}"/>
 			</exec>
+
+
+			<condition property="pandoc.isError">
+			    <not>
+			        <equals arg1="${pandoc.result}" arg2="0"/>
+			    </not>
+			</condition>
+
+			<echo taskname="pandoc" if:set="pandoc.isError" level="error" message="${pandoc.error}"/>
+			
+
+			<dita-ot-fail id="PAND003F" if:set="pandoc.isError">
+		    	<param name="1" value="@{src}"/>
+		    </dita-ot-fail>
 
 			<condition property="pandoc.message.code" value="PAND002W">
 				<contains string="${pandoc.error}" substring="Multiple Root Nodes detected."/>
