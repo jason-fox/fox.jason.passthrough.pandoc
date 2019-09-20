@@ -15,27 +15,7 @@
 
 
 	<property name="dita.plugin.fox.jason.passthrough.pandoc.dir" value="${dita.dir}/plugins/fox.jason.passthrough.pandoc"/>
-	<property name="dita.plugin.org.doctales.xmltask.dir" value="${dita.dir}/plugins/org.doctales.xmltask"/>
-
-	<taskdef classname="com.oopsconsultancy.xmltask.ant.XmlTask" name="xmltask">
-		<classpath>
-			<pathelement location="${dita.plugin.org.doctales.xmltask.dir}/lib/xmltask.jar"/>
-		</classpath>
-	</taskdef> 
-
-
-	<macrodef name="order-xml">
-		<attribute name="file"/>
-		<attribute name="expected" default="${basedir}/expected.xml"/>
-		<sequential>
-			<xmltask 
-				expandEntityReferences="false"
-				dest="@{file}" outputter="simple" source="@{file}">
-			</xmltask>
-			<!-- copy file="@{file}" tofile="@{expected}"/-->
-		</sequential>
-	</macrodef>
-
+	
 	<macrodef name="add-pandoc-file">
 		<attribute name="src" />
 		<attribute name="dest" />
