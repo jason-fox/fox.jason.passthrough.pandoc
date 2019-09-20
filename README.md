@@ -1,11 +1,11 @@
 # Pandoc Plugin for DITA-OT [<img src="https://jason-fox.github.io/fox.jason.passthrough.pandoc/pandoc.png" align="right" width="300">](http://pandocdita-ot.rtfd.io/)
 
 [![license](https://img.shields.io/github/license/jason-fox/fox.jason.passthrough.pandoc.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![DITA-OT 3.3](https://img.shields.io/badge/DITA--OT-3.3-blue.svg)](http://www.dita-ot.org/3.3/) <br/>
+[![DITA-OT 3.3](https://img.shields.io/badge/DITA--OT-3.3-blue.svg)](http://www.dita-ot.org/3.3/)
 [![Build Status](https://travis-ci.org/jason-fox/fox.jason.passthrough.pandoc.svg?branch=master)](https://travis-ci.org/jason-fox/fox.jason.passthrough.pandoc)
 [![Documentation Status](https://readthedocs.org/projects/pandocdita-ot/badge/?version=latest)](https://pandocdita-ot.readthedocs.io/en/latest/?badge=latest)
 
-This is a DITA-OT Plug-in to extend the available input formats for DITA-OT. Non DITA input sources can be pre-processed
+This is a [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to extend the available input formats for DITA-OT. Non DITA input sources can be pre-processed
 using [Pandoc](https://pandoc.org/) to create create valid DITA source. Files written in multiple input formats can be
 directly added to a `*.ditamap` and processed as if they had been written in DITA.
 
