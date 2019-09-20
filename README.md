@@ -9,7 +9,8 @@ This is a [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to extend the avail
 using [Pandoc](https://pandoc.org/) to create create valid DITA source. Files written in multiple input formats can be
 directly added to a `*.ditamap` and processed as if they had been written in DITA.
 
-# Table of Contents
+<details>
+<summary><strong>Table of Contents</strong></summary>
 
 -   [Background](#background)
 -   [Install](#install)
@@ -24,7 +25,9 @@ directly added to a `*.ditamap` and processed as if they had been written in DIT
     -   [Ditamap topicmeta for Pandoc Files](#ditamap-topicmeta-for-pandoc-files)
 -   [License](#license)
 
-# Background
+</details>
+
+## Background
 
 [<img src="https://jason-fox.github.io/fox.jason.passthrough.pandoc/pandoc-300x194.png" align="right" height="55">](https://pandoc.org/)
 
@@ -71,12 +74,12 @@ elements, such as complex tables, may not fit into pandoc’s simple document mo
 Markdown to all formats aspire to be perfect, conversions from formats more expressive than pandoc’s Markdown can be
 expected to be lossy.
 
-# Install
+## Install
 
 The DITA-OT Pandoc Pass Through plug-in has been tested against [DITA-OT 3.x](http://www.dita-ot.org/download). It is
 recommended that you upgrade to the latest version.
 
-## Installing DITA-OT
+### Installing DITA-OT
 
 <a href="https://www.dita-ot.org"><img src="https://www.dita-ot.org/images/dita-ot-logo.svg" align="right" width="105" height="55"></a>
 
@@ -98,7 +101,7 @@ unzip -q dita-ot-3.3.4.zip
 rm dita-ot-3.3.4.zip
 ```
 
-## Installing the Plug-in
+### Installing the Plug-in
 
 -   Run the plug-in installation commands:
 
@@ -112,11 +115,11 @@ The `dita` command line tool requires no additional configuration.
 
 ---
 
-## Installing Pandoc
+### Installing Pandoc
 
 To download a copy follow the instructions on the [Install page](https://github.com/jgm/pandoc/blob/master/INSTALL.md)
 
-# Usage
+## Usage
 
 To mark a file to be passed through for **Pandoc** processing, label it with `format="pandoc"` within the `*.ditamap` as
 shown:
@@ -134,7 +137,7 @@ The additional file will run against the Pandoc _XXX-to-DITA_ lua filter to be c
 added to the build job without further processing. The `navtitle` of the included topic will be the same as root name of
 the file. Any underscores in the filename will be replaced by spaces in title.
 
-## How to annotate Pandoc passthrough files
+### How to annotate Pandoc passthrough files
 
 The examples below use Markdown as a passthrough format, other formats need to provide equivalent annotations to obtain
 full functionality. Where possible, annotation aligns with the
@@ -160,7 +163,7 @@ Body of topic 2 goes here.
 
 Ideally input files should only contain a single `<h1>` header
 
-### ID and outputclass
+#### ID and outputclass
 
 Pandoc [header_attributes](http://pandoc.org/MANUAL.html#extension-header_attributes) can be used to define `id` or
 `outputclass` attributes:
@@ -169,7 +172,7 @@ Pandoc [header_attributes](http://pandoc.org/MANUAL.html#extension-header_attrib
 # Topic title {#carrot .juice}
 ```
 
-### Sections
+#### Sections
 
 The following class values in [header_attributes](http://pandoc.org/MANUAL.html#extension-header_attributes) have a
 special meaning on header levels.
@@ -187,7 +190,7 @@ They are used to generate `<section>` and `<example>` elements:
 ## Example title {.example}
 ```
 
-### Metadata
+#### Metadata
 
 [YAML](http://www.yaml.org/) metadata block as defined in Pandoc pandoc_metadata_block can be used to specify different
 metadata elements. The supported elements are:
@@ -224,7 +227,7 @@ workflow: review
 ---
 ```
 
-#### Sample output with YAML header
+##### Sample output with YAML header
 
 ```xml
 <title>Sample with YAML header</title>
@@ -248,7 +251,7 @@ workflow: review
 </prolog>
 ```
 
-## Ditamap TopicMeta for Pandoc Files
+### Ditamap TopicMeta for Pandoc Files
 
 Ditamap `<topicmeta>` processing is also supported.
 
@@ -272,7 +275,7 @@ Ditamap `<topicmeta>` processing is also supported.
 
 This allows for topic metadata to be added to files for formats other than Markdown.
 
-# License
+## License
 
 [Apache 2.0](LICENSE) © 2019 Jason Fox
 
