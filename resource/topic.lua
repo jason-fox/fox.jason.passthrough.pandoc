@@ -557,7 +557,10 @@ function Link(s, src, tit)
   else
     if string.match(src,' ') then
       index = string.find(src, "[^ ]*$")
-      return '<xref class="- topic/xref " href="' .. escape(string.sub(src, index),true) .. '" format="html" scope="external">' .. s .. '</xref>'
+      src = string.sub(src, index)
+    end
+    if src == "" then
+      return s
     else
       return '<xref class="- topic/xref " href="' .. escape(src,true) .. '" format="html" scope="external">' .. s .. '</xref>'
     end
