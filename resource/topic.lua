@@ -550,16 +550,16 @@ end
 -- We need to differenciate between internal and external links
 function Link(s, src, tit)
    src = string.gsub(src, '_', '-')
+   src = string.gsub(src, '%%20', ' ')
    src =  string.lower(src)
   if string.starts(src,'#') then
     return '<xref class="- topic/xref " href="' .. escape(src,true) .. '" format="dita">' .. s .. '</xref>'
   else
-    href = string.lower(escape(src,true))
-    if string.match(href,'%%') then
-      index = string.find(href, "[^%%]*$")
-      return '<xref class="- topic/xref " href="' .. string.sub(href, index + 2) .. '" format="html" scope="external">' .. s .. '</xref>'
+    if string.match(src,' ') then
+      index = string.find(src, "[^ ]*$")
+      return '<xref class="- topic/xref " href="' .. escape(string.sub(src, index),true) .. '" format="html" scope="external">' .. s .. '</xref>'
     else
-      return '<xref class="- topic/xref " href="' .. href .. '" format="html" scope="external">' .. s .. '</xref>'
+      return '<xref class="- topic/xref " href="' .. escape(src,true) .. '" format="html" scope="external">' .. s .. '</xref>'
     end
   end
 end

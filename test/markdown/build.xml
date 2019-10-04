@@ -16,6 +16,9 @@
 				location="${dita.dir}/plugins/fox.jason.passthrough/resource/fake.dtd"/>
 			</xmlcatalog>
 		</xmltask>
+		<replace file="${basedir}/out/markdown.md.dita" token="&amp;#8217;" value="'"/>
+		<replace file="${basedir}/out/markdown.md.dita" token="&amp;#8230;" value="..."/>
+		<replace file="${basedir}/out/markdown.md.dita" token="&amp;#8211;" value="--"/>
 
 		<compare-output suffix=".xml" result="${basedir}/out/markdown.md.dita"/>
 	</target>
