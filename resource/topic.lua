@@ -626,11 +626,11 @@ function Note(s)
   
   if s ~= "" then
     -- This is a plain text list item
-    note = '<note class=" topic/note " type="note">\n\t' .. s .. '\n</note>'
+    note = '<fn class=" topic/fn ">\n\t' .. s .. '\n</fn>'
   else
     -- If the item is empty this is a paragraph within the <note>
     -- remove the <p> previously processed from the topic and add it to the list items
-    note = '<note class=" topic/note " type="note">\n\t' .. getLastTopicElement() .. '</note>' 
+    note = '<fn class=" topic/fn ">\n\t' .. getLastTopicElement() .. '</fn>' 
     popElementFromCurrentTopic()
   end
 
