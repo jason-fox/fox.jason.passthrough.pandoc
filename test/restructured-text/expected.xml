@@ -5,14 +5,12 @@
   <body>
     <p>The text below contains links that look like "(
       <xref format="html" href="quickref.html" scope="external">quickref</xref>)". These
-are relative links that point to the
-      <xref format="html" href="" scope="external">Quick reStructuredText</xref>user
+are relative links that point to the Quick reStructuredText user
 reference. If these links don't work, please refer to the
       <xref format="html" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html" scope="external">master
 quick reference</xref>document.</p>
     <p>This document is an informal introduction to
-reStructuredText. The
-      <xref format="html" href="" scope="external">What Next?</xref>section below has links to
+reStructuredText. The What Next? section below has links to
 further resources, including a formal reference.</p>
   </body>
   <topic id="structure">
@@ -314,11 +312,9 @@ examples, because sections cannot exist inside block quotes. For a
 concrete example, compare the section structure of this document's
 source text and processed output.)</p>
       <p>Note that section headers are available as link targets, just using
-their name. To link to the
-        <xref format="html" href="" scope="external">Lists</xref>heading, I write "
+their name. To link to the Lists heading, I write "
         <codeph>Lists_</codeph>". If
-the heading has a space in it like
-        <xref format="html" href="" scope="external">text styles</xref>, we need to quote
+the heading has a space in it like text styles, we need to quote
 the heading "
         <codeph>`text styles`_</codeph>".</p>
     </body>
@@ -382,8 +378,8 @@ you wish to supply additional information, you may:</p>
     <title>What Next?</title>
     <body>
       <p>This primer introduces the most common features of reStructuredText,
-but there are a lot more to explore. The
-        <xref format="html" href="" scope="external">Quick reStructuredText</xref>user reference is a good place to go next. For complete details, the
+but there are a lot more to explore. The Quick reStructuredText
+user reference is a good place to go next. For complete details, the
         <xref format="html" href="../../ref/rst/restructuredtext.html" scope="external">reStructuredText Markup Specification</xref>is the place to go.</p>
       <note type="note">
         <p>If that relative link doesn't work, try the master document:
