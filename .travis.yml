@@ -3,7 +3,7 @@ sudo: required
 dist: bionic
 
 jdk:
-  - openjdk8
+  - openjdk10
 env:
   - DITA_OT=3.3.4
 
