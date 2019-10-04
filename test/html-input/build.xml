@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="unit-test">
+	<import file="../bootstrap.xml"/>
+	<description>
+		Expect that HTML is converted properly.
+	</description>
+	<target name="unit-test">
+
+		<exec-transtype transtype="dita"/>
+		<xmltask expandEntityReferences="false"
+			dest="${basedir}/out/topic.html.dita" 
+			outputter="simple" 
+			source="${basedir}/out/topic.html.dita">
+			<xmlcatalog>
+				<dtd publicId="-//OASIS//DTD DITA Topic//EN" 
+				location="${dita.dir}/plugins/fox.jason.passthrough/resource/fake.dtd"/>
+			</xmlcatalog>
+		</xmltask>
+		<replace file="${basedir}/out/topic.html.dita" token="&amp;#8217;" value="'"/>
+		<replace file="${basedir}/out/topic.html.dita" token="&amp;#8230;" value="..."/>
+		<replace file="${basedir}/out/topic.html.dita" token="&amp;#8211;" value="--"/>
+
+		<compare-output suffix=".xml" result="${basedir}/out/topic.html.dita"/>
+	</target>
+</project>

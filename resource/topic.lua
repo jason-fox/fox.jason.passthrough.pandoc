@@ -21,6 +21,9 @@ local codeblockCount = 0
 local codephCount = 0
 local topicCount = 0
 local topicClosure = 0
+local p = nil
+local note_types = {'note', 'tip', 'fastpath', 'restriction', 'important', 'remember', 'attention', 'caution', 'notice', 'danger', 'warning', 'trouble', 'other'}
+
 
 
 -------------------------------------------------------------------
@@ -48,6 +51,15 @@ local function escape(s, in_attribute)
         return x
       end
     end)
+end
+
+local function has_value (tab, val)
+    for index, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+    return false
 end
 
 
@@ -79,7 +91,14 @@ end
 -- Removes a block element from the current topic.
 -- This function is called when an element has been added in the wrong place.
 local function popElementFromCurrentTopic ()
-  table.remove(topics[#topics].elem, #topics[#topics].elem)
+  if (#topics == 1) then
+     table.remove(abstract1.elem, #abstract1.elem)
+  end
+  if (#topics == 0) then
+     table.remove(abstract0.elem, #abstract0.elem)
+  else
+    table.remove(topics[#topics].elem, #topics[#topics].elem)
+  end
 end
 
 
@@ -666,6 +685,7 @@ end
 
 -- Para is an block level element that translates to <p>
 function Para(s)
+  p = s
   pushElementToCurrentTopic('<p class="- topic/p " >\n\t' .. s .. "\n</p>")
   -- Place any <note> after the closed paragraph
   if note ~= nil then
@@ -903,7 +923,23 @@ end
 
 
 function Div(s, attr)
-  return "<div class='' topic/div '" .. attributes(attr) .. ">\n" .. s .. "</div>"
+  
+  if (attr.class == "admonition-title") then
+    if (p ~= nil) then
+      if has_value(note_types, string.lower(p)) then
+        popElementFromCurrentTopic()
+      end
+    end      
+  end
+
+  if (has_value(note_types, attr.class)) then
+    div = '<note class=" topic/note " type="' .. attr.class .. '">\n\t' .. getLastTopicElement() .. '</note>' 
+    popElementFromCurrentTopic()
+    pushElementToCurrentTopic(div)
+  end
+
+  --  pushElementToCurrentTopic("<div class=' topic/div '" .. attributes(attr) .. ">\n" .. s .. "</div>")
+  return "" -- "<div class=' topic/div '" .. attributes(attr) .. ">\n" .. s .. "</div>"
 end
 
 
