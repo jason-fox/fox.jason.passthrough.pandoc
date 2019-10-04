@@ -10,10 +10,9 @@ are relative links that point to the
 reference. If these links don't work, please refer to the
       <xref format="html" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html" scope="external">master
 quick reference</xref>document.</p>
-    <p>Note</p>
     <p>This document is an informal introduction to
 reStructuredText. The
-      <xref format="dita" href="#what-next">What Next?</xref>section below has links to
+      <xref format="html" href="" scope="external">What Next?</xref>section below has links to
 further resources, including a formal reference.</p>
   </body>
   <topic id="structure">
@@ -77,7 +76,6 @@ placing a backslash just before it, like so "
         <xref format="html" href="quickref.html#escaping" scope="external">quickref</xref>), or
 by enclosing it in double back-quotes (inline literals), like this:</p>
       <codeblock>``*``</codeblock>
-      <p>Tip</p>
       <p>Think of inline markup as a form of (parentheses) and use it
 the same way: immediately before and after the text being marked
 up. Inline markup by itself (surrounded by whitespace) or in the
@@ -317,10 +315,10 @@ concrete example, compare the section structure of this document's
 source text and processed output.)</p>
       <p>Note that section headers are available as link targets, just using
 their name. To link to the
-        <xref format="dita" href="#lists">Lists</xref>heading, I write "
+        <xref format="html" href="" scope="external">Lists</xref>heading, I write "
         <codeph>Lists_</codeph>". If
 the heading has a space in it like
-        <xref format="dita" href="#text-styles">text styles</xref>, we need to quote
+        <xref format="html" href="" scope="external">text styles</xref>, we need to quote
 the heading "
         <codeph>`text styles`_</codeph>".</p>
     </body>
@@ -377,8 +375,7 @@ you wish to supply additional information, you may:</p>
    :width: 200
    :scale: 50
    :alt: alternate text</codeblock>
-      <p>See the full
-        <ph outputclass="title-ref">image directive documentation</ph>__ for more info.</p>
+      <p>See the full image directive documentation__ for more info.</p>
     </body>
   </topic>
   <topic id="what-next">
