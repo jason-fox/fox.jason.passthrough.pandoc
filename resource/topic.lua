@@ -554,7 +554,13 @@ function Link(s, src, tit)
   if string.starts(src,'#') then
     return '<xref class="- topic/xref " href="' .. escape(src,true) .. '" format="dita">' .. s .. '</xref>'
   else
-    return '<xref class="- topic/xref " href="' .. string.lower(escape(src,true)) .. '" format="html" scope="external">' .. s .. '</xref>'
+    href = string.lower(escape(src,true))
+    if string.match(href,'%%') then
+      index = string.find(href, "[^%%]*$")
+      return '<xref class="- topic/xref " href="' .. string.sub(href, index + 2) .. '" format="html" scope="external">' .. s .. '</xref>'
+    else
+      return '<xref class="- topic/xref " href="' .. href .. '" format="html" scope="external">' .. s .. '</xref>'
+    end
   end
 end
 
@@ -803,7 +809,7 @@ function DefinitionList(items)
   local buffer = {}
   for _,item in pairs(items) do
     for k, v in pairs(item) do
-      table.insert(buffer,"\n\t<dlentry class=' topic/dlentry '>\n\t\t<dt class=' topic/dt '>" .. k .. "</dt>\n\t\t<dd ' topic/dd '>" ..
+      table.insert(buffer,"\n\t<dlentry class=' topic/dlentry '>\n\t\t<dt class=' topic/dt '>" .. k .. "</dt>\n\t\t<dd class=' topic/dd '>" ..
                         table.concat(v,"</dd>\n\t\t<dd class=' topic/dd '>") .. "</dd>\n\t</dlentry>")
     end
   end
