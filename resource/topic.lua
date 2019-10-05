@@ -658,11 +658,9 @@ end
 function RawBlock(format, str)
   if format == "html" then
     if str == "<br/>" then
-      return '<ph class="- topic/ph ">&#xD;</ph>'
+      return '\n'
     elseif str == "<br>" then
-      return '<ph class="- topic/ph ">&#xD;</ph>'
-    else
-      return ''
+      return '\n'
     end
   else
       return ''
@@ -928,9 +926,20 @@ function Table(caption, aligns, widths, headers, rows)
   add('\t\t<tbody class=" topic/tbody ">')
   for _, row in pairs(rows) do
     add('\t\t\t<row class=" topic/row ">')
+    addLines = false
+    for i,c in pairs(row) do
+      c = c:gsub("&#13;", "\n")
+      if (string.match(c,'\n')) then
+        addLines = true
+      end
+    end
     for i,c in pairs(row) do
       local align = dita_align(aligns[i])
-      add('\t\t\t\t<entry class=" topic/entry " colname="c' .. i .. '" dita-ot:x="' .. i .. '" align="' .. align ..  '">' .. c .. '</entry>')
+      if (addLines == true) then
+        c = '<lines class=" topic/lines ">' .. c  .. '</lines>'
+      end
+      add('\t\t\t\t<entry class=" topic/entry " colname="c' .. i 
+        .. '" dita-ot:x="' .. i .. '" align="' .. align ..  '">' .. c .. '</entry>')
     end
     add('\t\t\t</row>')
   end
