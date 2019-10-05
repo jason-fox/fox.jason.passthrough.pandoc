@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="unit-test">
+	<!-- @disabled -->
 	<import file="../bootstrap.xml"/>
 	<description>
 		Expect that a file with two topics and notes, no chapter header is converted.
