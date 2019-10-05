@@ -662,9 +662,8 @@ function RawBlock(format, str)
     elseif str == "<br>" then
       return '\n'
     end
-  else
-      return ''
   end
+  return ''
 end
 
 
