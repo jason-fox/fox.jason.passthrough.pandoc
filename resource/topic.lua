@@ -670,15 +670,12 @@ end
 function RawInline(format, str)
   if format == "html" then
     if str == "<br/>" then
-      return "&#13;" -- '<br/>'
+      return '\n'
     elseif str == "<br>" then
-      return "&#13;" -- '<br/>'
-    else
-      return ''
+      return '\n'
     end
-  else
-      return ''
   end
+  return ''
 end
 
 -- Para is an block level element that translates to <p>
@@ -928,6 +925,7 @@ function Table(caption, aligns, widths, headers, rows)
     addLines = false
     for i,c in pairs(row) do
       c = c:gsub("&#13;", "\n")
+      c = c:gsub("&#xD;", "\n")
       if (string.match(c,'\n')) then
         addLines = true
       end
