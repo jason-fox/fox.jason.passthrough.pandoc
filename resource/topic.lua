@@ -10,7 +10,8 @@
 -------------------------------------------------------------------
 
 -- Variable to store footnotes, so they can be included after the end of a paragraph.
-local note = nil
+local footnote = nil
+local note = false
 local topics = {[0] = {elem = {}, open = true}}
 local abstract0 = {elem = {}, open = true}
 local abstract1 = {elem = {}, open = true}
@@ -618,7 +619,7 @@ function DisplayMath(s)
 end
 
 
--- Pandoc Note translates to a DITA block level <note> element. This is usually a footnote,
+-- Pandoc Note translates to a DITA  <fn> element. This is usually a footnote,
 -- but we can add an additional block element after the closure of the current paragraph.
 
 -- Currently only simple single paragraph notes are supported.
@@ -626,11 +627,11 @@ function Note(s)
   
   if s ~= "" then
     -- This is a plain text list item
-    note = '<fn class=" topic/fn ">\n\t' .. s .. '\n</fn>'
+    footnote = '<fn class=" topic/fn ">\n\t' .. s .. '\n</fn>'
   else
-    -- If the item is empty this is a paragraph within the <note>
+    -- If the item is empty this is a paragraph within the <fn>
     -- remove the <p> previously processed from the topic and add it to the list items
-    note = '<fn class=" topic/fn ">\n\t' .. getLastTopicElement() .. '</fn>' 
+    footnote = '<fn class=" topic/fn ">\n\t' .. getLastTopicElement() .. '</fn>' 
     popElementFromCurrentTopic()
   end
 
@@ -687,10 +688,10 @@ end
 function Para(s)
   p = s
   pushElementToCurrentTopic('<p class="- topic/p " >\n\t' .. s .. "\n</p>")
-  -- Place any <note> after the closed paragraph
-  if note ~= nil then
-     pushElementToCurrentTopic(note)
-     note = nil
+  -- Place any <fn> after the closed paragraph
+  if footnote ~= nil then
+     pushElementToCurrentTopic(footnote)
+     footnote = nil
   end
   return "" 
 end
@@ -704,6 +705,23 @@ end
 
 -- lev is an integer, the header level.
 function Header(lev, s, attr)
+
+  if (has_value(note_types, attr.class)) then
+    note = true
+
+    if has_value(note_types, string.lower(s)) then
+      pushElementToCurrentTopic ('<note class=" topic/note " type="' .. string.lower(s) .. '">\n\t')
+    else
+      pushElementToCurrentTopic ('<note class=" topic/note " type="other" othertype="' .. s .. '">\n\t')
+    end
+    return ""
+  end
+
+  if (note == true) then
+     pushElementToCurrentTopic ('</note>')
+     note = false
+  end
+
   for i = lev+1, #parent do
     parent[i]= #topics
   end
@@ -750,6 +768,11 @@ end
 -- HorizontalRule does not translate directly to a DITA element
 -- Add a carriage return
 function HorizontalRule()
+
+  if (note == true) then
+    pushElementToCurrentTopic ('</note>')
+    note = false
+  end
   return "\n"
 end
 
@@ -933,9 +956,9 @@ function Div(s, attr)
   end
 
   if (has_value(note_types, attr.class)) then
-    div = '<note class=" topic/note " type="' .. attr.class .. '">\n\t' .. getLastTopicElement() .. '</note>' 
+    div_note = '<note class=" topic/note " type="' .. attr.class .. '">\n\t' .. getLastTopicElement() .. '</note>' 
     popElementFromCurrentTopic()
-    pushElementToCurrentTopic(div)
+    pushElementToCurrentTopic(div_note)
   end
 
   --  pushElementToCurrentTopic("<div class=' topic/div '" .. attributes(attr) .. ">\n" .. s .. "</div>")

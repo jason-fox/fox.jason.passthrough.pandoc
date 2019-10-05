@@ -190,6 +190,37 @@ They are used to generate `<section>` and `<example>` elements:
 ## Example title {.example}
 ```
 
+
+#### Note
+
+The following class values in [header_attributes](http://pandoc.org/MANUAL.html#extension-header_attributes) has a
+special meaning on header levels.
+
+-   `note`
+
+They are used to generate `<note>` elements:
+
+```markdown
+# Topic title
+
+Contents of the topic go here ...
+
+---
+
+## Note|Warning|Tip|Important {.note}
+
+Contents of the note
+
+---
+
+Contents of the topic continue here ...
+
+```
+
+The `type` of the note is defined by the title of the header. The `<note>`
+will continue until the next header element or horizontal rule `---`, which
+ever comes sooner
+
 #### Metadata
 
 [YAML](http://www.yaml.org/) metadata block as defined in Pandoc pandoc_metadata_block can be used to specify different
