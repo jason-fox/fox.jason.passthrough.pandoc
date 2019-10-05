@@ -7,31 +7,8 @@
 	-->	
 	<dirname property="test.root.dir" file="${ant.file.unit-test.bootstrap}/.." />
 	<property name="dita.dir" location="${test.root.dir}/../.."/> 
-
 	<!-- 
 		Load the unit testing library to make the macros available to the unit-tests 
 	-->
 	<typedef file="${dita.dir}/plugins/fox.jason.unit-test/resource/antlib.xml"/>
-
-
-	<property name="dita.plugin.fox.jason.passthrough.pandoc.dir" value="${dita.dir}/plugins/fox.jason.passthrough.pandoc"/>
-	
-	<macrodef name="add-pandoc-file">
-		<attribute name="src" />
-		<attribute name="dest" />
-		<attribute name="title" />
-		<attribute name="metadata" default="" />
-		<sequential>
-			<echo taskname="pandoc" level="info" message="Processing @{src}"/>
-			<!-- For Unix run Pandoc as an executable -->
-			<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc">
-				<arg line="&quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o  @{dest} -M title=&quot;@{title}&quot;"/>
-			</exec>
-			<!-- For Windows run from a DOS command -->
-			<exec executable="cmd" dir="${dita.temp.dir}" osfamily="windows" taskname="pandoc">
-				<arg value="/C"/>
-				<arg value="pandoc &quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o @{dest} -M title=&quot;@{title}&quot;"/>
-			</exec>
-		</sequential>
-	</macrodef>
 </project>

@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?doctype-public -//OASIS//DTD DITA Topic//EN?>
+<?doctype-system topic.dtd?>
+<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)"  id="a-restructuredtext-primer">
+<title class="- topic/title " >A ReStructuredText Primer</title>
+<body class="- topic/body " >
+<p class="- topic/p " >
+	The text below contains links that look like &quot;(<xref class="- topic/xref " href="quickref.html" format="html" scope="external">quickref</xref>)&quot;. These are relative links that point to the Quick reStructuredText user reference. If these links don&#39;t work, please refer to the <xref class="- topic/xref " href="http://docutils.sourceforge.net/docs/user/rst/quickref.html" format="html" scope="external">master quick reference</xref> document.
+</p>
+<p class="- topic/p " >
+	Note
+</p>
+<p class="- topic/p " >
+	This document is an informal introduction to reStructuredText. The <xref class="- topic/xref " href="#what-next" format="dita">What Next?</xref> section below has links to further resources, including a formal reference.
+</p>
+<note class=" topic/note " type="note">
+	<p class="- topic/p " >
+	This document is an informal introduction to reStructuredText. The <xref class="- topic/xref " href="#what-next" format="dita">What Next?</xref> section below has links to further resources, including a formal reference.
+</p></note>
+</body>
+<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)"  id="structure">
+<title class="- topic/title " >Structure</title>
+<body class="- topic/body " >
+<p class="- topic/p " >
+	From the outset, let me say that &quot;Structured Text&quot; is probably a bit of a misnomer. It&#39;s more like &quot;Relaxed Text&quot; that uses certain consistent patterns. These patterns are interpreted by a HTML converter to produce &quot;Very Structured Text&quot; that can be used by a web browser.
+</p>
+<p class="- topic/p " >
+	The most basic pattern recognised is a <b class=' hi-d/b '>paragraph</b> (<xref class="- topic/xref " href="quickref.html#paragraphs" format="html" scope="external">quickref</xref>). That&#39;s a chunk of text that is separated by blank lines (one is enough). Paragraphs must have the same indentation -- that is, line up at their left edge. Paragraphs that start indented will result in indented quote paragraphs. For example:
+</p>
+<codeblock class=" pr-d/codeblock "   xtrc="codeblock:1" xtrf="">This is a paragraph.  It&#39;s quite
+short.
+
+   This paragraph will result in an indented block of
+   text, typically used for quoting other text.
+
+This is another one.</codeblock>
+<p class="- topic/p " >
+	Results in:
+</p>
+<p class="- topic/p " >
+	This is a paragraph. It&#39;s quite short.
+</p>
+<p class="- topic/p " >
+	This paragraph will result in an indented block of text, typically used for quoting other text.
+</p>
+<p class="- topic/p " >
+	This is another one.
+</p>
+</body>
+</topic>
+
+<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)"  id="text-styles">
+<title class="- topic/title " >Text styles</title>
+<body class="- topic/body " >
+<p class="- topic/p " >
+	(<xref class="- topic/xref " href="quickref.html#inline-markup" format="html" scope="external">quickref</xref>)
+</p>
+<p class="- topic/p " >
+	Inside paragraphs and other bodies of text, you may additionally mark text for <i class=' hi-d/i '>italics</i> with &quot;<codeph class=" pr-d/codeph "  xtrc="codeph:1" xtrf="">*italics*</codeph>&quot; or <b class=' hi-d/b '>bold</b> with &quot;<codeph class=" pr-d/codeph "  xtrc="codeph:2" xtrf="">**bold**</codeph>&quot;. This is called &quot;inline markup&quot;.
+</p>
+<p class="- topic/p " >
+	If you want something to appear as a fixed-space literal, use &quot;<codeph class=" pr-d/codeph "  xtrc="codeph:3" xtrf=""></codeph>double back-quotes<codeph class=" pr-d/codeph "  xtrc="codeph:4" xtrf=""></codeph>&quot;. Note that no further fiddling is done inside the double back-quotes -- so asterisks &quot;<codeph class=" pr-d/codeph "  xtrc="codeph:5" xtrf="">*</codeph>&quot; etc. are left alone.
+</p>
+<p class="- topic/p " >
+	If you find that you want to use one of the &quot;special&quot; characters in text, it will generally be OK -- reStructuredText is pretty smart. For example, this lone asterisk * is handled just fine, as is the asterisk in this equation: 5*6=30. If you actually want text *surrounded by asterisks* to <b class=' hi-d/b '>not</b> be italicised, then you need to indicate that the asterisk is not special. You do this by placing a backslash just before it, like so &quot;<codeph class=" pr-d/codeph "  xtrc="codeph:6" xtrf="">\*</codeph>&quot; (<xref class="- topic/xref " href="quickref.html#escaping" format="html" scope="external">quickref</xref>), or by enclosing it in double back-quotes (inline literals), like this:
+</p>
+<codeblock class=" pr-d/codeblock "   xtrc="codeblock:2" xtrf="">``*``</codeblock>
+<p class="- topic/p " >
+	Think of inline markup as a form of (parentheses) and use it the same way: immediately before and after the text being marked up. Inline markup by itself (surrounded by whitespace) or in the middle of a word won&#39;t be recognized. See the <xref class="- topic/xref " href="../../ref/rst/restructuredtext.html#inline-markup" format="html" scope="external">markup spec</xref> for full details.
+</p>
+</body>
+</topic>
+
+<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)"  id="lists">
+<title class="- topic/title " >Lists</title>
+<body class="- topic/body " >
+<p class="- topic/p " >
+	Lists of items come in three main flavours: <b class=' hi-d/b '>enumerated</b>, <b class=' hi-d/b '>bulleted</b> and <b class=' hi-d/b '>definitions</b>. In all list cases, you may have as many paragraphs, sublists, etc. as you want, as long as the left-hand side of the paragraph or whatever aligns with the first line of text in the list item.
+</p>
+<p class="- topic/p " >
+	Lists must always start a new paragraph -- that is, they must appear after a blank line.
+</p>
+<p class="- topic/p " >
+	__ quickref.html#enumerated-lists
+</p>
+<p class="- topic/p " >
+	Start a line off with a number or letter followed by a period &quot;.&quot;, right bracket &quot;)&quot; or surrounded by brackets &quot;( )&quot; -- whatever you&#39;re comfortable with. All of the following forms are recognised:
+</p>
+<codeblock class=" pr-d/codeblock "   xtrc="codeblock:3" xtrf="">1. numbers
+
+A. upper-case letters
+   and it goes over many lines
+
+   with two paragraphs and all!
+
+a. lower-case letters
+
+   3. with a sub-list starting at a different number
+   4. make sure the numbers are in the correct sequence though!
+
+I. upper-case roman numerals
+
+i. lower-case roman numerals
+
+(1) numbers again
+
+1) and again</codeblock>
+<p class="- topic/p " >
+	Results in (note: the different enumerated list styles are not always supported by every web browser, so you may not get the full effect here):
+</p>
+<ol class=" topic/ol ">
+	<li class=" topic/li ">numbers</li>
+</ol>
+<p class="- topic/p " >
+	upper-case letters and it goes over many lines
+</p>
+<p class="- topic/p " >
+	with two paragraphs and all!
+</p>
+<ol class=" topic/ol ">
+	<li class=" topic/li ">
+
+</li>
+</ol>
+<ol class=" topic/ol ">
+	<li class=" topic/li ">with a sub-list starting at a different number</li>
+	<li class=" topic/li ">make sure the numbers are in the correct sequence though!</li>
+</ol>
+<ol class=" topic/ol ">
+	<li class=" topic/li ">lower-case letters
+
+</li>
+</ol>
+<ol class=" topic/ol ">
+	<li class=" topic/li ">upper-case roman numerals</li>
+</ol>
+<ol class=" topic/ol ">
+	<li class=" topic/li ">lower-case roman numerals</li>
+</ol>
+<ol class=" topic/ol ">
+	<li class=" topic/li ">numbers again</li>
+</ol>
+<ol class=" topic/ol ">
+	<li class=" topic/li ">and again</li>
+</ol>
+<p class="- topic/p " >
+	__ quickref.html#bullet-lists
+</p>
+<p class="- topic/p " >
+	Just like enumerated lists, start the line off with a bullet point character - either &quot;-&quot;, &quot;+&quot; or &quot;*&quot;:
+</p>
+<codeblock class=" pr-d/codeblock "   xtrc="codeblock:4" xtrf="">* a bullet point using &quot;*&quot;
+
+  - a sub-list using &quot;-&quot;
+
+    + yet another sub-list
+
+  - another item</codeblock>
+<p class="- topic/p " >
+	Results in:
+</p>
+<ul class=" topic/ul ">
+	<li class=" topic/li ">yet another sub-list</li>
+</ul>
+<ul class=" topic/ul ">
+	<li class=" topic/li ">a sub-list using &quot;-&quot;
+
+</li>
+	<li class=" topic/li ">another item</li>
+</ul>
+<ul class=" topic/ul ">
+	<li class=" topic/li ">a bullet point using &quot;*&quot;
+
+</li>
+</ul>
+<p class="- topic/p " >
+	__ quickref.html#definition-lists
+</p>
+<p class="- topic/p " >
+	Unlike the other two, the definition lists consist of a term, and the definition of that term. The format of a definition list is:
+</p>
+<codeblock class=" pr-d/codeblock "   xtrc="codeblock:5" xtrf="">what
+  Definition lists associate a term with a definition.
+
+*how*
+  The term is a one-line phrase, and the definition is one or more
+  paragraphs or body elements, indented relative to the term.
+  Blank lines are not allowed between term and definition.</codeblock>
+<p class="- topic/p " >
+	Results in:
+</p>
+<p class="- topic/p " >
+	Definition lists associate a term with a definition.
+</p>
+<p class="- topic/p " >
+	The term is a one-line phrase, and the definition is one or more paragraphs or body elements, indented relative to the term. Blank lines are not allowed between term and definition.
+</p>
+<dl class=' topic/dl '>
+	<dlentry class=' topic/dlentry '>
+		<dt class=' topic/dt '>what</dt>
+		<dd class=' topic/dd '></dd>
+	</dlentry>
+
+	<dlentry class=' topic/dlentry '>
+		<dt class=' topic/dt '><i class=' hi-d/i '>how</i></dt>
+		<dd class=' topic/dd '></dd>
+	</dlentry>
+</dl>
+<dl class=' topic/dl '>
+	<dlentry class=' topic/dlentry '>
+		<dt class=' topic/dt '><b class=' hi-d/b '>enumerated</b> lists (numbers, letters or roman numerals; <xref class="- topic/xref " href="quickref.html#literal-blocks" format="html" scope="external">quickref</xref>)</dt>
+		<dd class=' topic/dd '>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</dd>
+	</dlentry>
+
+	<dlentry class=' topic/dlentry '>
+		<dt class=' topic/dt '><b class=' hi-d/b '>bulleted</b> lists (<xref class="- topic/xref " href="quickref.html#section-structure" format="html" scope="external">quickref</xref>)</dt>
+		<dd class=' topic/dd '>
+
+
+
+
+
+
+
+</dd>
+	</dlentry>
+
+	<dlentry class=' topic/dlentry '>
+		<dt class=' topic/dt '><b class=' hi-d/b '>definition</b> lists (<xref class="- topic/xref " href="quickref.html#directives" format="html" scope="external">quickref</xref>)</dt>
+		<dd class=' topic/dd '>
+
+
+
+
+
+
+
+</dd>
+	</dlentry>
+</dl>
+</body>
+</topic>
+
+<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)"  id="preformatting-code-samples">
+<title class="- topic/title " >Preformatting (code samples)</title>
+<body class="- topic/body " >
+<p class="- topic/p " >
+	(<xref class="- topic/xref " href="../../ref/rst/directives.html" format="html" scope="external">quickref</xref>)
+</p>
+<p class="- topic/p " >
+	To just include a chunk of preformatted, never-to-be-fiddled-with text, finish the prior paragraph with &quot;<codeph class=" pr-d/codeph "  xtrc="codeph:7" xtrf="">::</codeph>&quot;. The preformatted block is finished when the text falls back to the same indentation level as a paragraph prior to the preformatted block. For example:
+</p>
+<codeblock class=" pr-d/codeblock "   xtrc="codeblock:6" xtrf="">An example::
+
+    Whitespace, newlines, blank lines, and all kinds of markup
+      (like *this* or \this) is preserved by literal blocks.
+  Lookie here, I&#39;ve dropped an indentation level
+  (but not far enough)
+
+no more example</codeblock>
+<p class="- topic/p " >
+	Results in:
+</p>
+<p class="- topic/p " >
+	An example:
+</p>
+<codeblock class=" pr-d/codeblock "   xtrc="codeblock:7" xtrf="">Whitespace, newlines, blank lines, and all kinds of markup
+  (like *this* or \this) is preserved by literal blocks.</codeblock>
+<p class="- topic/p " >
+	Lookie here, I&#39;ve dropped an indentation level (but not far enough)
+</p>
+<p class="- topic/p " >
+	no more example
+</p>
+<p class="- topic/p " >
+	Note that if a paragraph consists only of &quot;<codeph class=" pr-d/codeph "  xtrc="codeph:8" xtrf="">::</codeph>&quot;, then it&#39;s removed from the output:
+</p>
+<codeblock class=" pr-d/codeblock "   xtrc="codeblock:8" xtrf="">::
+
+    This is preformatted text, and the
+    last &quot;::&quot; paragraph is removed</codeblock>
+<p class="- topic/p " >
+	Results in:
+</p>
+<codeblock class=" pr-d/codeblock "   xtrc="codeblock:9" xtrf="">This is preformatted text, and the
+last &quot;::&quot; paragraph is removed</codeblock>
+</body>
+</topic>
+
+<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)"  id="sections">
+<title class="- topic/title " >Sections</title>
+<body class="- topic/body " >
+<p class="- topic/p " >
+	(<xref class="- topic/xref " href="../../ref/rst/directives.html#images" format="html" scope="external">quickref</xref>)
+</p>
+<p class="- topic/p " >
+	To break longer text up into sections, you use <b class=' hi-d/b '>section headers</b>. These are a single line of text (one or more words) with adornment: an underline alone, or an underline and an overline together, in dashes &quot;<codeph class=" pr-d/codeph "  xtrc="codeph:9" xtrf="">-----</codeph>&quot;, equals &quot;<codeph class=" pr-d/codeph "  xtrc="codeph:10" xtrf="">======</codeph>&quot;, tildes &quot;<codeph class=" pr-d/codeph "  xtrc="codeph:11" xtrf="">~~~~~~</codeph>&quot; or any of the non-alphanumeric characters <codeph class=" pr-d/codeph "  xtrc="codeph:12" xtrf="">= - ` : &#39; &quot; ~ ^ _ * + # &lt; &gt;</codeph> that you feel comfortable with. An underline-only adornment is distinct from an overline-and-underline adornment using the same character. The underline/overline must be at least as long as the title text. Be consistent, since all sections marked with the same adornment style are deemed to be at the same level:
+</p>
+<codeblock class=" pr-d/codeblock "   xtrc="codeblock:10" xtrf="">Chapter 1 Title
+===============
+
+Section 1.1 Title
+-----------------
+
+Subsection 1.1.1 Title
+~~~~~~~~~~~~~~~~~~~~~~
+
+Section 1.2 Title
+-----------------
+
+Chapter 2 Title
+===============</codeblock>
+<p class="- topic/p " >
+	This results in the following structure, illustrated by simplified pseudo-XML:
+</p>
+<codeblock class=" pr-d/codeblock "   xtrc="codeblock:11" xtrf="">&lt;section&gt;
+    &lt;title&gt;
+        Chapter 1 Title
+    &lt;section&gt;
+        &lt;title&gt;
+            Section 1.1 Title
+        &lt;section&gt;
+            &lt;title&gt;
+                Subsection 1.1.1 Title
+    &lt;section&gt;
+        &lt;title&gt;
+            Section 1.2 Title
+&lt;section&gt;
+    &lt;title&gt;
+        Chapter 2 Title</codeblock>
+<p class="- topic/p " >
+	(Pseudo-XML uses indentation for nesting and has no end-tags. It&#39;s not possible to show actual processed output, as in the other examples, because sections cannot exist inside block quotes. For a concrete example, compare the section structure of this document&#39;s source text and processed output.)
+</p>
+<p class="- topic/p " >
+	Note that section headers are available as link targets, just using their name. To link to the <xref class="- topic/xref " href="#lists" format="dita">Lists</xref> heading, I write &quot;<codeph class=" pr-d/codeph "  xtrc="codeph:13" xtrf="">Lists_</codeph>&quot;. If the heading has a space in it like <xref class="- topic/xref " href="#text-styles" format="dita">text styles</xref>, we need to quote the heading &quot;<codeph class=" pr-d/codeph "  xtrc="codeph:14" xtrf="">`text styles`_</codeph>&quot;.
+</p>
+</body>
+<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)"  id="document-title-subtitle">
+<title class="- topic/title " >Document Title / Subtitle</title>
+<body class="- topic/body " >
+<p class="- topic/p " >
+	The title of the whole document is distinct from section titles and may be formatted somewhat differently (e.g. the HTML writer by default shows it as a centered heading).
+</p>
+<p class="- topic/p " >
+	To indicate the document title in reStructuredText, use a unique adornment style at the beginning of the document. To indicate the document subtitle, use another unique adornment style immediately after the document title. For example:
+</p>
+<codeblock class=" pr-d/codeblock "   xtrc="codeblock:12" xtrf="">================
+ Document Title
+================
+----------
+ Subtitle
+----------
+
+Section Title
+=============
+
+...</codeblock>
+<p class="- topic/p " >
+	Note that &quot;Document Title&quot; and &quot;Section Title&quot; above both use equals signs, but are distict and unrelated styles. The text of overline-and-underlined titles (but not underlined-only) may be inset for aesthetics.
+</p>
+</body>
+</topic>
+
+</topic>
+
+<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)"  id="images">
+<title class="- topic/title " >Images</title>
+<body class="- topic/body " >
+<p class="- topic/p " >
+	(quickref__)
+</p>
+<p class="- topic/p " >
+	To include an image in your document, you use the the <codeph class=" pr-d/codeph "  xtrc="codeph:15" xtrf="">image</codeph> directive__. For example:
+</p>
+<codeblock class=" pr-d/codeblock "   xtrc="codeblock:13" xtrf="">.. image:: images/biohazard.png</codeblock>
+<p class="- topic/p " >
+	results in:
+</p>
+<fig class="- topic/fig ">
+	<title class=" topic/title ">image</title>
+	<image class=" topic/image " scalefit="yes" href="images/biohazard.png">
+		<alt class="- topic/alt "></alt>
+	</image>
+</fig>
+<p class="- topic/p " >
+	The <codeph class=" pr-d/codeph "  xtrc="codeph:16" xtrf="">images/biohazard.png</codeph> part indicates the filename of the image you wish to appear in the document. There&#39;s no restriction placed on the image (format, size etc). If the image is to appear in HTML and you wish to supply additional information, you may:
+</p>
+<codeblock class=" pr-d/codeblock "   xtrc="codeblock:14" xtrf="">.. image:: images/biohazard.png
+   :height: 100
+   :width: 200
+   :scale: 50
+   :alt: alternate text</codeblock>
+<p class="- topic/p " >
+	See the full <ph class="- topic/ph " outputclass="title-ref">image directive documentation</ph>__ for more info.
+</p>
+</body>
+</topic>
+
+<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)"  id="what-next">
+<title class="- topic/title " >What Next?</title>
+<body class="- topic/body " >
+<p class="- topic/p " >
+	This primer introduces the most common features of reStructuredText, but there are a lot more to explore. The Quick reStructuredText user reference is a good place to go next. For complete details, the <xref class="- topic/xref " href="../../ref/rst/restructuredtext.html" format="html" scope="external">reStructuredText Markup Specification</xref> is the place to go<xref class="- topic/xref " href="#fn1" format="dita"><sup class=' hi-d/sup '>1</sup></xref>.
+</p>
+<p class="- topic/p " >
+	Users who have questions or need assistance with Docutils or reStructuredText should post a message to the <xref class="- topic/xref " href="../mailing-lists.html#docutils-users" format="html" scope="external">Docutils-users</xref> mailing list.
+</p>
+<ol class=" topic/ol ">
+	<li class=" topic/li "><p class="- topic/p " >
+	If that relative link doesn&#39;t work, try the master document: <xref class="- topic/xref " href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html" format="html" scope="external">http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html</xref>.<xref class="- topic/xref " href="#fnref1" format="dita">↩︎</xref>
+</p></li>
+</ol>
+</body>
+</topic>
+
+</topic>
+
+

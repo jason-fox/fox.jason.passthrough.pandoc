@@ -2,6 +2,25 @@
 
 <topic id="topic-1">
   <title>Topic 1</title>
+  <shortdesc>This is where the shortdesc goes</shortdesc>
+  <prolog>
+    <author>Author One</author>
+    <author>Author Two</author>
+    <source>Source</source>
+    <publisher>Publisher</publisher>
+    <permissions view="Permissions"></permissions>
+    <metadata>
+      <audience audience=""></audience>
+      <category>Category</category>
+      <keywords>
+        <keyword>Keyword1</keyword>
+        <keyword>Keyword2</keyword>
+      </keywords>
+    </metadata>
+    <resourceid appid="Resourceid1" ux-source-priority="topic-and-map"></resourceid>
+    <resourceid appid="Resourceid2" ux-source-priority="topic-and-map"></resourceid>
+    <data name="workflow" value="review"></data>
+  </prolog>
   <body></body>
   <topic id="subtopic-1a">
     <title>Subtopic 1a</title>

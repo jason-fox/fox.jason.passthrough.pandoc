@@ -5,12 +5,14 @@
 		Expect that a chapter with an abstract and topics is converted properly
 	</description>
 	<target name="unit-test">
-
-		<mkdir dir="${basedir}/out"/>
-		<mkdir dir="${basedir}/temp"/>
-		<property name="dita.temp.dir" value="./temp"/>
-		<add-pandoc-file src="${basedir}/markdown.md" dest="${basedir}/out/topic.xml" title="Title" />
-		<tidy-xml file="${basedir}/out/topic.xml"/>
-		<compare-output suffix=".xml" result="${basedir}/out/topic.xml"/>
+		<property name="file" value="${basedir}/out/markdown.md.dita"/>
+		<exec-transtype transtype="dita"/>
+		<xmltask expandEntityReferences="false" dest="${file}" outputter="simple" source="${file}">
+			<xmlcatalog>
+				<dtd publicId="-//OASIS//DTD DITA Topic//EN" 
+				location="${dita.dir}/plugins/fox.jason.passthrough/resource/fake.dtd"/>
+			</xmlcatalog>
+		</xmltask>
+		<compare-output suffix=".xml" result="${file}"/>
 	</target>
 </project>

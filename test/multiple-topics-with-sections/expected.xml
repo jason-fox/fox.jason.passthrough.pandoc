@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<?doctype-public -//OASIS//DTD DITA Topic//EN?>
+<?doctype-system topic.dtd?>
+<topic class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="topic-1" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <title class="- topic/title ">Topic 1</title>
+  <body class="- topic/body "></body>
+  <topic class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="subtopic-1a">
+    <title class="- topic/title ">Subtopic 1a</title>
+    <body class="- topic/body ">
+      <p class="- topic/p ">Rutrum curabitur eleifend quam porta nostra mauris aenean curae duis, lectus non neque nulla dictumst platea aliquam pulvinar aptent pretium, feugiat magnis tellus quis ultricies parturient felis lacinia. Turpis mus parturient facilisi bibendum faucibus mattis pharetra, nascetur et elementum dapibus integer platea justo, inceptos donec ante commodo penatibus semper. Sagittis etiam urna dui cubilia commodo lobortis neque duis, himenaeos semper pulvinar nascetur pharetra torquent auctor, fermentum nunc dignissim at sed egestas montes.</p>
+      <section class="- topic/section " id="section-1a-i" outputclass="section">
+        <title class="- topic/title ">Section 1a i)</title>
+        <p class="- topic/p ">Ultricies nisi iaculis dapibus orci eu lacus accumsan, venenatis augue luctus nulla inceptos euismod sociis dui, donec malesuada torquent diam dis non. Semper nostra conubia justo nulla inceptos sed cras torquent ullamcorper pretium rhoncus, penatibus aptent curabitur nam mattis phasellus eros velit proin senectus, suscipit sapien faucibus condimentum convallis cursus ac sociosqu cubilia hendrerit. Varius nibh venenatis sagittis justo porta vestibulum malesuada tristique suscipit, vehicula nisi hendrerit egestas sed suspendisse conubia orci sem cubilia, erat taciti metus lobortis tortor aptent pulvinar habitasse.</p>
+      </section>
+      <section class="- topic/section " id="section-2a-i" outputclass="section">
+        <title class="- topic/title ">Section 2a i)</title>
+        <p class="- topic/p ">Phasellus venenatis hendrerit porta torquent aliquet sociosqu vivamus eleifend vitae, fusce feugiat ultrices mi mattis congue lacus curae, himenaeos nec tempor suscipit inceptos donec egestas quam. Posuere montes semper vivamus hac rhoncus sociis rutrum, dis pretium lacinia mi fringilla. Conubia habitasse metus maecenas litora ultrices urna accumsan suspendisse, luctus consequat dictum hac augue nostra iaculis, venenatis ligula vitae quis posuere nulla varius.</p>
+      </section>
+    </body>
+  </topic>
+  <topic class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="subtopic-1b">
+    <title class="- topic/title ">Subtopic 1b</title>
+    <body class="- topic/body ">
+      <p class="- topic/p ">Est vel ad nisi varius semper risus facilisis, ante justo sociosqu mi aptent cubilia, mus etiam commodo dapibus magnis pulvinar. Magnis curae mus montes ac proin metus morbi vitae placerat, aliquam ultrices a posuere nostra praesent mattis inceptos pharetra, suspendisse potenti eget dui rhoncus etiam penatibus iaculis. Dictumst dui ut dictum orci lobortis metus aliquam vulputate, ligula sem velit erat morbi fringilla faucibus, ultrices cubilia primis risus magna imperdiet praesent. Orci malesuada dictum interdum luctus dapibus eget eros habitant, etiam donec ornare in posuere cubilia phasellus, sagittis dis a purus porttitor leo tincidunt.</p>
+    </body>
+  </topic>
+  <topic class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="topic-2">
+    <title class="- topic/title ">Topic 2</title>
+    <body class="- topic/body ">
+      <p class="- topic/p ">Molestie proin id vivamus risus inceptos massa, congue aptent varius nullam nostra sociis lacus, justo natoque convallis metus aliquet. Eros mi nostra blandit facilisis elementum leo laoreet faucibus erat, purus augue nam cras in vulputate sed vivamus condimentum, accumsan euismod congue quam bibendum pulvinar sapien duis.</p>
+      <section class="- topic/section " id="section-2-i" outputclass="section">
+        <title class="- topic/title ">Section 2 i)</title>
+        <p class="- topic/p ">Vestibulum ut dui himenaeos hac donec mauris tempor, rutrum pharetra viverra eros interdum taciti sociosqu accumsan, scelerisque aliquet commodo dictumst varius curae. Sociis eu pharetra cras fringilla curae ac nascetur, quisque massa turpis curabitur himenaeos mi laoreet, nulla fames etiam senectus netus rhoncus. Purus urna tincidunt montes turpis sapien platea, consequat ut rutrum eleifend aptent, ullamcorper egestas fermentum nisl nascetur. Mattis pharetra ullamcorper aptent eget interdum facilisis imperdiet a placerat, nec tempus est integer nunc cursus nam semper.</p>
+        <p class="- topic/p ">Fringilla nisl aliquam class justo massa metus leo dictum rhoncus netus, elementum at fermentum odio dui gravida a volutpat mattis conubia pretium, ultrices mi fames maecenas ut mus sed platea non. Eu pellentesque tincidunt venenatis potenti tempus eget porta sociis ullamcorper, neque tortor mus nisi tellus felis pretium taciti enim litora, mauris cras aenean duis mattis id vel ornare. Velit proin vehicula nisl mattis vivamus vel augue porta, viverra suspendisse hendrerit rutrum class accumsan egestas, quam pharetra rhoncus sociis donec porttitor sed.</p>
+      </section>
+    </body>
+  </topic>
+  <topic class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="subtopic-2a">
+    <title class="- topic/title ">Subtopic 2a</title>
+    <body class="- topic/body ">
+      <p class="- topic/p ">Aliquet ultricies quam in netus sem ad consequat placerat mattis, sed fermentum quis curae hac sociosqu luctus accumsan porta lacus, convallis odio enim egestas orci quisque ullamcorper elementum. Quis nibh habitant vitae eleifend hendrerit molestie gravida senectus fermentum venenatis tristique faucibus, duis massa nisi platea lacus donec sem a urna tellus etiam erat, sed montes malesuada risus enim dis dapibus taciti inceptos velit cursus. Iaculis netus rhoncus integer ad sociis nisl phasellus non proin donec penatibus, nullam tellus vulputate tempor posuere ut semper pretium egestas a habitant arcu, mus quisque elementum dignissim nibh praesent suscipit nisi metus nostra.</p>
+      <section class="- topic/section " id="section-2a-i-1" outputclass="section">
+        <title class="- topic/title ">Section 2a i)</title>
+        <p class="- topic/p ">Fringilla nisl aliquam class justo massa metus leo dictum rhoncus netus, elementum at fermentum odio dui gravida a volutpat mattis conubia pretium, ultrices mi fames maecenas ut mus sed platea non. Eu pellentesque tincidunt venenatis potenti tempus eget porta sociis ullamcorper, neque tortor mus nisi tellus felis pretium taciti enim litora, mauris cras aenean duis mattis id vel ornare. Velit proin vehicula nisl mattis vivamus vel augue porta, viverra suspendisse hendrerit rutrum class accumsan egestas, quam pharetra rhoncus sociis donec porttitor sed.</p>
+      </section>
+    </body>
+  </topic>
+</topic>
+

@@ -1,36 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<?doctype-public -//OASIS//DTD DITA Topic//EN?>
-<?doctype-system topic.dtd?>
-<topic class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="xxx" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
-  <title class="- topic/title ">XXX</title>
-  <body class="- topic/body "></body>
-  <topic class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="security">
-    <title class="- topic/title ">Security</title>
-    <body class="- topic/body ">
-      <table class=" topic/table ">
-        <tgroup class=" topic/tgroup " cols="3">
-          <colspec class=" topic/colspec " colname="c1" colnum="1"></colspec>
-          <colspec class=" topic/colspec " colname="c2" colnum="2"></colspec>
-          <colspec class=" topic/colspec " colname="c3" colnum="3"></colspec>
-          <thead class=" topic/thead ">
-            <row class=" topic/row ">
-              <entry align="left" class=" topic/entry " colname="c1" dita-ot:x="1" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot">Type</entry>
-              <entry align="left" class=" topic/entry " colname="c2" dita-ot:x="2" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot">Name</entry>
-              <entry align="left" class=" topic/entry " colname="c3" dita-ot:x="3" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot">Scopes</entry>
+<topic id="xxx">
+  <title>XXX</title>
+  <body></body>
+  <topic id="security">
+    <title>Security</title>
+    <body>
+      <table>
+        <tgroup cols="3">
+          <colspec colname="c1" colnum="1"></colspec>
+          <colspec colname="c2" colnum="2"></colspec>
+          <colspec colname="c3" colnum="3"></colspec>
+          <thead>
+            <row>
+              <entry align="left" colname="c1">Type</entry>
+              <entry align="left" colname="c2">Name</entry>
+              <entry align="left" colname="c3">Scopes</entry>
             </row>
           </thead>
-          <tbody class=" topic/tbody ">
-            <row class=" topic/row ">
-              <entry align="left" class=" topic/entry " colname="c1" dita-ot:x="1" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot">
-                <b class=" hi-d/b ">oauth2</b>
+          <tbody>
+            <row>
+              <entry align="left" colname="c1">
+                <b>oauth2</b>
               </entry>
-              <entry align="left" class=" topic/entry " colname="c2" dita-ot:x="2" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot">
-                <b class=" hi-d/b ">
-                  <xref class="- topic/xref " format="dita" href="#petstore-auth">petstore_auth</xref>
+              <entry align="left" colname="c2">
+                <b>
+                  <xref format="dita" href="#petstore-auth">petstore_auth</xref>
                 </b>
               </entry>
-              <entry align="left" class=" topic/entry " colname="c3" dita-ot:x="3" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot">write:pets,read:pets</entry>
+              <entry align="left" colname="c3">write:pets,read:pets</entry>
             </row>
           </tbody>
         </tgroup>
