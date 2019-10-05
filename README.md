@@ -21,6 +21,7 @@ directly added to a `*.ditamap` and processed as if they had been written in DIT
     -   [How to annotate Pandoc passthrough files](#how-to-annotate-pandoc-passthrough-files)
         -   [ID and outputclass](#id-and-outputclass)
         -   [Sections](#sections)
+        -   [Note](#note)
         -   [Metadata](#metadata)
     -   [Ditamap topicmeta for Pandoc Files](#ditamap-topicmeta-for-pandoc-files)
 -   [License](#license)
