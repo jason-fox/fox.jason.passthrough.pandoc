@@ -2,7 +2,7 @@
 <project basedir="." default="unit-test">
 	<import file="../bootstrap.xml"/>
 	<description>
-		Expect that pandoc flavoured markdown is converted properly.
+		Expect that Pandoc can create a DITA file using Pandoc flavoured markdown as an input.
 	</description>
 	<target name="unit-test">
 

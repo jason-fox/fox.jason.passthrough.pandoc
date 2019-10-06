@@ -2,7 +2,7 @@
 <project basedir="." default="unit-test">
 	<import file="../bootstrap.xml"/>
 	<description>
-		Expect that a file with two topics, no chapter header is converted.
+		Expect that two topics, no chapter header is converted.
 	</description>
 	<target name="unit-test">
 

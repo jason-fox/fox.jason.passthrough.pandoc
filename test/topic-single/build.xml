@@ -2,7 +2,7 @@
 <project basedir="." default="unit-test">
 	<import file="../bootstrap.xml"/>
 	<description>
-		Expect that a file with a single topic is converted properly.
+		Expect that a single topic is converted properly.
 	</description>
 	<target name="unit-test">
 
