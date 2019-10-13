@@ -3,126 +3,6 @@
 	See the accompanying LICENSE file for applicable licenses.
 -->
 <project name="fox.jason.passthrough.pandoc" xmlns:if="ant:if" xmlns:unless="ant:unless">
-
-	<!--
-		Individual file processing for pandoc.
-		Take an input format run pandoc against it and convert to DITA
-
-		@param src - The input file to convert to DITA
-		@param dest - The output file location
-		@param title - The title of the converted file
-		@param metadata - The metadata of the converted file
-	-->
-	<macrodef name="add-pandoc-file">
-		<attribute name="src" />
-		<attribute name="dest" />
-		<attribute name="title" />
-		<attribute name="metadata"/>
-		<sequential>
-			<local name="pandoc.result"/>
-			<local name="pandoc.error"/>
-			<local name="pandoc.metadata"/>
-			<local name="metadata.txt"/>
-
-			<echo if:set="pandoc.installed" taskname="pandoc" level="info" message="Processing @{src}" />
-
-			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
-					property="metadata.txt" suffix="txt"/>
-			<xslt unless:blank="@{metadata}" in="@{metadata}" out="${metadata.txt}"
-				style="${dita.plugin.fox.jason.passthrough.pandoc.dir}/xsl/topicmeta.xsl" 
-				taskname="topic-meta"/>
-			<loadfile unless:blank="@{metadata}" property="pandoc.metadata" srcfile="${metadata.txt}" failonerror="false"/>
-			<property if:blank="@{metadata}" name="pandoc.metadata" value=""/>
-
-			<!-- For Unix run Pandoc as an executable -->
-			<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc" errorproperty="pandoc.error" resultproperty="pandoc.result" >
-				<arg line="&quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o  &quot;@{dest}&quot; -M title=&quot;@{title}&quot; ${pandoc.metadata}"/>
-			</exec>
-			<!-- For Windows run from a DOS command -->
-			<exec if:set="pandoc.installed" executable="cmd" dir="${dita.temp.dir}" osfamily="windows" taskname="pandoc" errorproperty="pandoc.error" resultproperty="pandoc.result">
-				<arg value="/C"/>
-				<arg value="pandoc &quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o &quot;@{dest}&quot; -M title=&quot;@{title}&quot; ${pandoc.metadata}"/>
-			</exec>
-
-			<process-pandoc-errors src="@{src}" result="${pandoc.result}" message="${pandoc.error}"/>
-			<process-pandoc-images src="@{src}" dest="@{dest}"/>
-			<!--copy file="@{dest}" tofile="${output.dir}/test.xml"/-->
-		</sequential>
-	</macrodef>
-
-	<!--
-		Flag up any error messages created during file processing
-
-		@param src - The input file to convert to DITA
-		@param result - Whether Pandoc succeeded or failed
-		@param message - err.out from Pandoc
-	-->
-	<macrodef name="process-pandoc-errors">
-		<attribute name="result" />
-		<attribute name="message" />
-		<attribute name="src" />
-		<sequential>
-			<local name="pandoc.isError"/>
-			<local name="pandoc.message.code"/>
-
-			<condition property="pandoc.isError">
-			    <not>
-			        <equals arg1="@{result}" arg2="0"/>
-			    </not>
-			</condition>
-
-			<echo taskname="pandoc" if:set="pandoc.isError" level="error" message="@{message}"/>
-			
-
-			<dita-ot-fail id="PAND003F" if:set="pandoc.isError">
-		    	<param name="1" value="@{src}"/>
-		    </dita-ot-fail>
-
-			<condition property="pandoc.message.code" value="PAND002W">
-				<contains string="@{message}" substring="Multiple Root Nodes detected."/>
-			</condition>
-
-			<dita-ot-echo if:set="pandoc.message.code" id="${pandoc.message.code}">
-				<param name="1" value="@{src}"/>
-			</dita-ot-echo>
-		</sequential>
-	</macrodef>
-
-
-	<!--
-		Ensure that any images associated with the coverted file are copied to
-		the output
-
-		@param src - The input file to convert to DITA
-		@param dest - The output file location
-	-->
-	<macrodef name="process-pandoc-images">
-		<attribute name="src" />
-		<attribute name="dest" />
-		<sequential>
-			<local name="src.dir"/>
-			<dirname property="src.dir" file="@{src}"/>
-
-			<xmltask taskname="pandoc.read-images" source="@{dest}">
-				<call path="//image[not(contains(@href, ':'))]">
-					<param default="" name="href" path="@href" />
-					<actions>
-						<local name="pandoc.image"/>
-						<condition property="pandoc.image"> 
-							<and>
-								<available file="${src.dir}/@{href}"/>
-								<not>
-									<available file="{copy-image.todir}/@{href}"/>
-								</not>
-							</and>
-						</condition>
-						<copy taskname="pandoc.copy-image" if:set="pandoc.image" toFile="${copy-image.todir}/@{href}" failonerror="false" file="${src.dir}/@{href}"/>
-					</actions>
-				</call>
-			</xmltask>
-		</sequential>
-	</macrodef>
-	
 	<!--
 		Setting up Pandoc processing. Check that Pandoc is installed
 	-->
@@ -145,6 +25,10 @@
 
 		<dita-ot-echo unless:set="pandoc.installed" id="PAND001W"/>
 		<echo if:set="pandoc.installed"  taskname="pandoc" level="info" message="${pandoc.out}"/>
+
+		<typedef file="${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/antlib.xml"/>
+		<dirname property="args.input.dir" file="${args.input}"/> 
+
 	</target>
 
 	<!--

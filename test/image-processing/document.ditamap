@@ -2,5 +2,5 @@
 <!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
 <bookmap>
     <chapter format="pandoc" processing-role="normal" type="topic" href="markdown.md"/>
-    <chapter format="dita" processing-role="normal" type="topic" href="topic.dita"/>
+    <chapter format="pandoc" processing-role="normal" type="topic" href="topics/markdown.md"/>
 </bookmap>
