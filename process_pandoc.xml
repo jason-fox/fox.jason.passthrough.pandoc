@@ -20,9 +20,7 @@
 		<attribute name="metadata"/>
 		<sequential>
 			<local name="pandoc.result"/>
-			<local name="pandoc.isError"/>
 			<local name="pandoc.error"/>
-			<local name="pandoc.message.code"/>
 			<local name="pandoc.metadata"/>
 			<local name="metadata.txt"/>
 
@@ -46,14 +44,34 @@
 				<arg value="pandoc &quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o &quot;@{dest}&quot; -M title=&quot;@{title}&quot; ${pandoc.metadata}"/>
 			</exec>
 
+			<process-pandoc-errors src="@{src}" result="${pandoc.result}" message="${pandoc.error}"/>
+			<process-pandoc-images src="@{src}" dest="@{dest}"/>
+			<!--copy file="@{dest}" tofile="${output.dir}/test.xml"/-->
+		</sequential>
+	</macrodef>
+
+	<!--
+		Flag up any error messages created during file processing
+
+		@param src - The input file to convert to DITA
+		@param result - Whether Pandoc succeeded or failed
+		@param message - err.out from Pandoc
+	-->
+	<macrodef name="process-pandoc-errors">
+		<attribute name="result" />
+		<attribute name="message" />
+		<attribute name="src" />
+		<sequential>
+			<local name="pandoc.isError"/>
+			<local name="pandoc.message.code"/>
 
 			<condition property="pandoc.isError">
 			    <not>
-			        <equals arg1="${pandoc.result}" arg2="0"/>
+			        <equals arg1="@{result}" arg2="0"/>
 			    </not>
 			</condition>
 
-			<echo taskname="pandoc" if:set="pandoc.isError" level="error" message="${pandoc.error}"/>
+			<echo taskname="pandoc" if:set="pandoc.isError" level="error" message="@{message}"/>
 			
 
 			<dita-ot-fail id="PAND003F" if:set="pandoc.isError">
@@ -61,16 +79,49 @@
 		    </dita-ot-fail>
 
 			<condition property="pandoc.message.code" value="PAND002W">
-				<contains string="${pandoc.error}" substring="Multiple Root Nodes detected."/>
+				<contains string="@{message}" substring="Multiple Root Nodes detected."/>
 			</condition>
 
 			<dita-ot-echo if:set="pandoc.message.code" id="${pandoc.message.code}">
 				<param name="1" value="@{src}"/>
 			</dita-ot-echo>
-			<!--copy file="@{dest}" tofile="${output.dir}/test.xml"/-->
 		</sequential>
 	</macrodef>
 
+
+	<!--
+		Ensure that any images associated with the coverted file are copied to
+		the output
+
+		@param src - The input file to convert to DITA
+		@param dest - The output file location
+	-->
+	<macrodef name="process-pandoc-images">
+		<attribute name="src" />
+		<attribute name="dest" />
+		<sequential>
+			<local name="src.dir"/>
+			<dirname property="src.dir" file="@{src}"/>
+
+			<xmltask taskname="pandoc.read-images" source="@{dest}">
+				<call path="//image[not(contains(@href, ':'))]">
+					<param default="" name="href" path="@href" />
+					<actions>
+						<local name="pandoc.image"/>
+						<condition property="pandoc.image"> 
+							<and>
+								<available file="${src.dir}/@{href}"/>
+								<not>
+									<available file="{copy-image.todir}/@{href}"/>
+								</not>
+							</and>
+						</condition>
+						<copy taskname="pandoc.copy-image" if:set="pandoc.image" toFile="${copy-image.todir}/@{href}" failonerror="false" file="${src.dir}/@{href}"/>
+					</actions>
+				</call>
+			</xmltask>
+		</sequential>
+	</macrodef>
 	
 	<!--
 		Setting up Pandoc processing. Check that Pandoc is installed
