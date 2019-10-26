@@ -4,6 +4,7 @@
 [![DITA-OT 3.3](https://img.shields.io/badge/DITA--OT-3.3-blue.svg)](http://www.dita-ot.org/3.3/)
 [![Build Status](https://travis-ci.org/jason-fox/fox.jason.passthrough.pandoc.svg?branch=master)](https://travis-ci.org/jason-fox/fox.jason.passthrough.pandoc)
 [![Documentation Status](https://readthedocs.org/projects/pandocdita-ot/badge/?version=latest)](https://pandocdita-ot.readthedocs.io/en/latest/?badge=latest)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fox.jason.passthrough.pandoc&metric=alert_status)](https://sonarcloud.io/dashboard?id=fox.jason.passthrough.pandoc)
 
 This is a [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to extend the available input formats for DITA-OT. Non DITA input sources can be pre-processed
 using [Pandoc](https://pandoc.org/) to create create valid DITA source. Files written in multiple input formats can be
