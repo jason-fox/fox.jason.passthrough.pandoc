@@ -10,6 +10,11 @@ This is a [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to extend the avail
 using [Pandoc](https://pandoc.org/) to create create valid DITA source. Files written in multiple input formats can be
 directly added to a `*.ditamap` and processed as if they had been written in DITA.
 
+
+:arrow_forward: [Video from DITA-OT Day 2019](https://youtu.be/cd7XThpkivw)
+
+[![](https://jason-fox.github.io/fox.jason.passthrough.pandoc/nothing-video.png)](https://youtu.be/cd7XThpkivw)
+
 <details>
 <summary><strong>Table of Contents</strong></summary>
 
