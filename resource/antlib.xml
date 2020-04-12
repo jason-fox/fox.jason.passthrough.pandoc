@@ -6,30 +6,6 @@
 <antlib xmlns:if="ant:if" xmlns:unless="ant:unless">
 
 	<!--
-		Returns the relative path of the src file
-
-		@param  src -   The value to convert
-		@param  to -  The property to set
-	-->
-	<scriptdef language="javascript" name="relative-path" src="${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/relative-path.js">
-		<attribute name="src" />
-		<attribute name="to" />
-	</scriptdef>
-
-	<!--
-		Converts a URI to make it relative to the ditamap root
-
-		@param  path -   The relative path of the file
-		@param  href -  The relative path of the image
-	-->
-	<scriptdef language="javascript" name="amend-uri" src="${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/amend-uri.js">
-		<attribute name="path" />
-		<attribute name="href" />
-		<attribute name="to" />
-	</scriptdef>
-
-
-	<!--
 		Individual file processing for pandoc.
 		Take an input format run pandoc against it and convert to DITA
 
