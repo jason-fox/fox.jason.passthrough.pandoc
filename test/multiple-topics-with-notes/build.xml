@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="unit-test">
+	<import file="../bootstrap.xml"/>
+	<description>
+		Expect that two topics and notes, no chapter header is converted.
+
+	</description>
+	<target name="unit-test">
+
+		<property name="file" value="${basedir}/out/markdown.md.dita"/>
+		<exec-transtype transtype="dita"/>
+		<xmltask expandEntityReferences="false" dest="${file}" outputter="simple" source="${file}">
+			<xmlcatalog>
+				<dtd publicId="-//OASIS//DTD DITA Topic//EN" 
+				location="${dita.dir}/plugins/fox.jason.passthrough/resource/fake.dtd"/>
+			</xmlcatalog>
+		</xmltask>
+		<compare-output suffix=".xml" result="${file}"/>
+	</target>
+</project>

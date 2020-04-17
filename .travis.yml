@@ -1,0 +1,48 @@
+language: java
+sudo: required
+dist: bionic
+
+jdk:
+  - openjdk11
+
+addons:
+  apt:
+    packages:
+      - ant
+  sonarcloud:
+    organization: "dita-ot-plugins"
+    token:
+      secure: "nQWwmgDYMUBCxtt+YfHns/3lv4ThygmyTasqwOsmwCTXLvjhlswyU1frJLUpAQhf+ldZwVXIek4v2EHgsUXYLtd0TYrxQz/KmmYaBSeZwZiOy2eKCE+rMArcKEsPgMnfPRzG1KVA5HoZsLSdiEOIOxgJx32JBe+zlzjeKqDuHKC6IqJh3c5gVdPO6uLYmGGUb/lYbuhz8ugIoBEhhk47ssZBzsaaVWhhJdZjcUFOmkJAuKmC9gKI3R994EiMZBTOo6we00XpywXhwcgv+Ir9MYiV4NKc+dP5eoOwun0ZM6b4YlImFXs2pU/Udz8QmvK1Swa6kDU1nnMz4nWloolfmIyT8OslskVw5H1irA6J7+513GrIWsJTOEAjE85NcfPAp1+yZ4qNyfJHTGgdeAYK1ePJH+HGpX2WDqECwKMOAJCRfI72fkVSvBJlUHfgH4TVABA5UpgwmtpT7jBVWvlnduczwdpvnSnxa/ebgaU7KWF/IBiXlvnjT3bvFUZ8MB1JRWuydDpbgY03PCoaXORFInPk7/wl3DLjX3cWaJ+NiJKit9DalWaqfsYpmZgl5B7TiHQTR792Jt63lYknWJQxU2Ky3G8THAUW/vD7XMQ++qhJk5zm64cMozrey1K/eq/kD6w7lT4ZaLUR9+rs73G/tyd3tfgW0hS/Vd6UqRUpf60="
+env:
+  - DITA_OT=3.4.1
+
+before_install:
+  - sudo wget https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-1-amd64.deb
+  - sudo dpkg -i pandoc-2.7.3-1-amd64.deb
+  - pandoc --version
+  - zip -r fox.jason.passthrough.pandoc.zip . -x *.zip* *.git/* *temp/* *out/*
+  - curl -LO https://github.com/dita-ot/dita-ot/releases/download/$DITA_OT/dita-ot-$DITA_OT.zip
+  - unzip -q dita-ot-$DITA_OT.zip
+  - chmod +x dita-ot-$DITA_OT/bin/dita
+
+install:
+  - dita-ot-$DITA_OT/bin/dita --install https://github.com/jason-fox/fox.jason.unit-test/archive/master.zip
+  - dita-ot-$DITA_OT/bin/dita --install https://github.com/doctales/org.doctales.xmltask/archive/master.zip
+  - dita-ot-$DITA_OT/bin/dita --install https://github.com/jason-fox/fox.jason.passthrough/archive/master.zip
+  - dita-ot-$DITA_OT/bin/dita --install fox.jason.passthrough.pandoc.zip
+
+# before_script:
+#  - dita-ot-$DITA_OT/bin/dita --input dita-ot-$DITA_OT/plugins/fox.jason.passthrough.pandoc -f xsl-instrument
+
+script:
+  - dita-ot-$DITA_OT/bin/dita --input dita-ot-$DITA_OT/plugins/fox.jason.passthrough.pandoc -f unit-test --output . -v
+
+after_success:
+#  - cp dita-ot-$DITA_OT/plugins/fox.jason.unit-test/resource/pom.xml pom.xml
+#  - mvn clean org.eluder.coveralls:coveralls-maven-plugin:report
+  - rm -rf dita-ot-$DITA_OT
+  - sonar-scanner 
+
+
+
+
