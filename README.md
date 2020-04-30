@@ -6,10 +6,9 @@
 [![Documentation Status](https://readthedocs.org/projects/pandocdita-ot/badge/?version=latest)](https://pandocdita-ot.readthedocs.io/en/latest/?badge=latest)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fox.jason.passthrough.pandoc&metric=alert_status)](https://sonarcloud.io/dashboard?id=fox.jason.passthrough.pandoc)
 
-This is a [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to extend the available input formats for DITA-OT. Non DITA input sources can be pre-processed
-using [Pandoc](https://pandoc.org/) to create create valid DITA source. Files written in multiple input formats can be
-directly added to a `*.ditamap` and processed as if they had been written in DITA.
-
+This is a [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to extend the available input formats for DITA-OT. Non DITA
+input sources can be pre-processed using [Pandoc](https://pandoc.org/) to create create valid DITA source. Files written
+in multiple input formats can be directly added to a `*.ditamap` and processed as if they had been written in DITA.
 
 :arrow_forward: [Video from DITA-OT Day 2019](https://youtu.be/cd7XThpkivw)
 
@@ -197,7 +196,6 @@ They are used to generate `<section>` and `<example>` elements:
 ## Example title {.example}
 ```
 
-
 #### Note
 
 The following class values in [header_attributes](http://pandoc.org/MANUAL.html#extension-header_attributes) has a
@@ -221,12 +219,10 @@ Contents of the note
 ---
 
 Contents of the topic continue here ...
-
 ```
 
-The `type` of the note is defined by the title of the header. The `<note>`
-will continue until the next header element or horizontal rule `---`, which
-ever comes sooner
+The `type` of the note is defined by the title of the header. The `<note>` will continue until the next header element
+or horizontal rule `---`, which ever comes sooner
 
 #### Metadata
 
