@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<topic id="a-restructuredtext-primer">
+  <title>A ReStructuredText Primer</title>
+  <body>
+    <p>The text below contains links that look like "(
+      <xref format="html" href="quickref.html" scope="external">quickref</xref>)". These are relative links that point to the Quick reStructuredText user reference. If these links don't work, please refer to the
+      <xref format="html" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html" scope="external">master quick reference</xref>document.</p>
+    <note type="note">
+      <p>This document is an informal introduction to reStructuredText. The
+        <xref format="dita" href="#what-next">What Next?</xref>section below has links to further resources, including a formal reference.</p>
+    </note>
+  </body>
+  <topic id="structure">
+    <title>Structure</title>
+    <body>
+      <p>From the outset, let me say that "Structured Text" is probably a bit of a misnomer. It's more like "Relaxed Text" that uses certain consistent patterns. These patterns are interpreted by a HTML converter to produce "Very Structured Text" that can be used by a web browser.</p>
+      <p>The most basic pattern recognised is a
+        <b>paragraph</b>(
+        <xref format="html" href="quickref.html#paragraphs" scope="external">quickref</xref>). That's a chunk of text that is separated by blank lines (one is enough). Paragraphs must have the same indentation -- that is, line up at their left edge. Paragraphs that start indented will result in indented quote paragraphs. For example:</p>
+      <codeblock>This is a paragraph.  It's quite
+short.
+
+   This paragraph will result in an indented block of
+   text, typically used for quoting other text.
+
+This is another one.</codeblock>
+      <p>Results in:</p>
+      <p>This is a paragraph. It's quite short.</p>
+      <p>This paragraph will result in an indented block of text, typically used for quoting other text.</p>
+      <p>This is another one.</p>
+    </body>
+  </topic>
+  <topic id="text-styles">
+    <title>Text styles</title>
+    <body>
+      <p>(
+        <xref format="html" href="quickref.html#inline-markup" scope="external">quickref</xref>)</p>
+      <p>Inside paragraphs and other bodies of text, you may additionally mark text for
+        <i>italics</i>with "
+        <codeph>*italics*</codeph>" or
+        <b>bold</b>with "
+        <codeph>**bold**</codeph>". This is called "inline markup".</p>
+      <p>If you want something to appear as a fixed-space literal, use "
+        <codeph></codeph>double back-quotes
+        <codeph></codeph>". Note that no further fiddling is done inside the double back-quotes -- so asterisks "
+        <codeph>*</codeph>" etc. are left alone.</p>
+      <p>If you find that you want to use one of the "special" characters in text, it will generally be OK -- reStructuredText is pretty smart. For example, this lone asterisk * is handled just fine, as is the asterisk in this equation: 5*6=30. If you actually want text *surrounded by asterisks* to
+        <b>not</b>be italicised, then you need to indicate that the asterisk is not special. You do this by placing a backslash just before it, like so "
+        <codeph>\*</codeph>" (
+        <xref format="html" href="quickref.html#escaping" scope="external">quickref</xref>), or by enclosing it in double back-quotes (inline literals), like this:</p>
+      <codeblock>``*``</codeblock>
+      <note type="tip">
+        <p>Think of inline markup as a form of (parentheses) and use it the same way: immediately before and after the text being marked up. Inline markup by itself (surrounded by whitespace) or in the middle of a word won't be recognized. See the
+          <xref format="html" href="../../ref/rst/restructuredtext.html#inline-markup" scope="external">markup spec</xref>for full details.</p>
+      </note>
+    </body>
+  </topic>
+  <topic id="lists">
+    <title>Lists</title>
+    <body>
+      <p>Lists of items come in three main flavours:
+        <b>enumerated</b>,
+        <b>bulleted</b>and
+        <b>definitions</b>. In all list cases, you may have as many paragraphs, sublists, etc. as you want, as long as the left-hand side of the paragraph or whatever aligns with the first line of text in the list item.</p>
+      <p>Lists must always start a new paragraph -- that is, they must appear after a blank line.</p>
+      <p>__ quickref.html#enumerated-lists</p>
+      <p>Start a line off with a number or letter followed by a period ".", right bracket ")" or surrounded by brackets "( )" -- whatever you're comfortable with. All of the following forms are recognised:</p>
+      <codeblock>1. numbers
+
+A. upper-case letters
+   and it goes over many lines
+
+   with two paragraphs and all!
+
+a. lower-case letters
+
+   3. with a sub-list starting at a different number
+   4. make sure the numbers are in the correct sequence though!
+
+I. upper-case roman numerals
+
+i. lower-case roman numerals
+
+(1) numbers again
+
+1) and again</codeblock>
+      <p>Results in (note: the different enumerated list styles are not always supported by every web browser, so you may not get the full effect here):</p>
+      <ol>
+        <li>numbers</li>
+      </ol>
+      <p>upper-case letters and it goes over many lines</p>
+      <p>with two paragraphs and all!</p>
+      <ol>
+        <li></li>
+      </ol>
+      <ol>
+        <li>with a sub-list starting at a different number</li>
+        <li>make sure the numbers are in the correct sequence though!</li>
+      </ol>
+      <ol>
+        <li>lower-case letters</li>
+      </ol>
+      <ol>
+        <li>upper-case roman numerals</li>
+      </ol>
+      <ol>
+        <li>lower-case roman numerals</li>
+      </ol>
+      <ol>
+        <li>numbers again</li>
+      </ol>
+      <ol>
+        <li>and again</li>
+      </ol>
+      <p>__ quickref.html#bullet-lists</p>
+      <p>Just like enumerated lists, start the line off with a bullet point character - either "-", "+" or "*":</p>
+      <codeblock>* a bullet point using "*"
+
+  - a sub-list using "-"
+
+    + yet another sub-list
+
+  - another item</codeblock>
+      <p>Results in:</p>
+      <ul>
+        <li>yet another sub-list</li>
+      </ul>
+      <ul>
+        <li>a sub-list using "-"</li>
+        <li>another item</li>
+      </ul>
+      <ul>
+        <li>a bullet point using "*"</li>
+      </ul>
+      <p>__ quickref.html#definition-lists</p>
+      <p>Unlike the other two, the definition lists consist of a term, and the definition of that term. The format of a definition list is:</p>
+      <codeblock>what
+  Definition lists associate a term with a definition.
+
+*how*
+  The term is a one-line phrase, and the definition is one or more
+  paragraphs or body elements, indented relative to the term.
+  Blank lines are not allowed between term and definition.</codeblock>
+      <p>Results in:</p>
+      <p>Definition lists associate a term with a definition.</p>
+      <p>The term is a one-line phrase, and the definition is one or more paragraphs or body elements, indented relative to the term. Blank lines are not allowed between term and definition.</p>
+      <dl>
+        <dlentry>
+          <dt>what</dt>
+          <dd></dd>
+        </dlentry>
+        <dlentry>
+          <dt>
+            <i>how</i>
+          </dt>
+          <dd></dd>
+        </dlentry>
+      </dl>
+      <dl>
+        <dlentry>
+          <dt>
+            <b>enumerated</b>lists (numbers, letters or roman numerals;
+            <xref format="html" href="quickref.html#literal-blocks" scope="external">quickref</xref>)</dt>
+          <dd></dd>
+        </dlentry>
+        <dlentry>
+          <dt>
+            <b>bulleted</b>lists (
+            <xref format="html" href="quickref.html#section-structure" scope="external">quickref</xref>)</dt>
+          <dd></dd>
+        </dlentry>
+        <dlentry>
+          <dt>
+            <b>definition</b>lists (
+            <xref format="html" href="quickref.html#directives" scope="external">quickref</xref>)</dt>
+          <dd></dd>
+        </dlentry>
+      </dl>
+    </body>
+  </topic>
+  <topic id="preformatting-code-samples">
+    <title>Preformatting (code samples)</title>
+    <body>
+      <p>(
+        <xref format="html" href="../../ref/rst/directives.html" scope="external">quickref</xref>)</p>
+      <p>To just include a chunk of preformatted, never-to-be-fiddled-with text, finish the prior paragraph with "
+        <codeph>::</codeph>". The preformatted block is finished when the text falls back to the same indentation level as a paragraph prior to the preformatted block. For example:</p>
+      <codeblock>An example::
+
+    Whitespace, newlines, blank lines, and all kinds of markup
+      (like *this* or \this) is preserved by literal blocks.
+  Lookie here, I've dropped an indentation level
+  (but not far enough)
+
+no more example</codeblock>
+      <p>Results in:</p>
+      <p>An example:</p>
+      <codeblock>Whitespace, newlines, blank lines, and all kinds of markup
+  (like *this* or \this) is preserved by literal blocks.</codeblock>
+      <p>Lookie here, I've dropped an indentation level (but not far enough)</p>
+      <p>no more example</p>
+      <p>Note that if a paragraph consists only of "
+        <codeph>::</codeph>", then it's removed from the output:</p>
+      <codeblock>::
+
+    This is preformatted text, and the
+    last "::" paragraph is removed</codeblock>
+      <p>Results in:</p>
+      <codeblock>This is preformatted text, and the
+last "::" paragraph is removed</codeblock>
+    </body>
+  </topic>
+  <topic id="sections">
+    <title>Sections</title>
+    <body>
+      <p>(
+        <xref format="html" href="../../ref/rst/directives.html#images" scope="external">quickref</xref>)</p>
+      <p>To break longer text up into sections, you use
+        <b>section headers</b>. These are a single line of text (one or more words) with adornment: an underline alone, or an underline and an overline together, in dashes "
+        <codeph>-----</codeph>", equals "
+        <codeph>======</codeph>", tildes "
+        <codeph>~~~~~~</codeph>" or any of the non-alphanumeric characters
+        <codeph>= - ` : ' " ~ ^ _ * + # &lt; &gt;</codeph>that you feel comfortable with. An underline-only adornment is distinct from an overline-and-underline adornment using the same character. The underline/overline must be at least as long as the title text. Be consistent, since all sections marked with the same adornment style are deemed to be at the same level:</p>
+      <codeblock>Chapter 1 Title
+===============
+
+Section 1.1 Title
+-----------------
+
+Subsection 1.1.1 Title
+~~~~~~~~~~~~~~~~~~~~~~
+
+Section 1.2 Title
+-----------------
+
+Chapter 2 Title
+===============</codeblock>
+      <p>This results in the following structure, illustrated by simplified pseudo-XML:</p>
+      <codeblock>&lt;section&gt;
+    &lt;title&gt;
+        Chapter 1 Title
+    &lt;section&gt;
+        &lt;title&gt;
+            Section 1.1 Title
+        &lt;section&gt;
+            &lt;title&gt;
+                Subsection 1.1.1 Title
+    &lt;section&gt;
+        &lt;title&gt;
+            Section 1.2 Title
+&lt;section&gt;
+    &lt;title&gt;
+        Chapter 2 Title</codeblock>
+      <p>(Pseudo-XML uses indentation for nesting and has no end-tags. It's not possible to show actual processed output, as in the other examples, because sections cannot exist inside block quotes. For a concrete example, compare the section structure of this document's source text and processed output.)</p>
+      <p>Note that section headers are available as link targets, just using their name. To link to the
+        <xref format="dita" href="#lists">Lists</xref>heading, I write "
+        <codeph>Lists_</codeph>". If the heading has a space in it like
+        <xref format="dita" href="#text-styles">text styles</xref>, we need to quote the heading "
+        <codeph>`text styles`_</codeph>".</p>
+    </body>
+    <topic id="document-title-subtitle">
+      <title>Document Title / Subtitle</title>
+      <body>
+        <p>The title of the whole document is distinct from section titles and may be formatted somewhat differently (e.g. the HTML writer by default shows it as a centered heading).</p>
+        <p>To indicate the document title in reStructuredText, use a unique adornment style at the beginning of the document. To indicate the document subtitle, use another unique adornment style immediately after the document title. For example:</p>
+        <codeblock>================
+ Document Title
+================
+----------
+ Subtitle
+----------
+
+Section Title
+=============
+
+...</codeblock>
+        <p>Note that "Document Title" and "Section Title" above both use equals signs, but are distict and unrelated styles. The text of overline-and-underlined titles (but not underlined-only) may be inset for aesthetics.</p>
+      </body>
+    </topic>
+  </topic>
+  <topic id="images">
+    <title>Images</title>
+    <body>
+      <p>(quickref__)</p>
+      <p>To include an image in your document, you use the the
+        <codeph>image</codeph>directive__. For example:</p>
+      <codeblock>.. image:: images/biohazard.png</codeblock>
+      <p>results in:</p>
+      <fig>
+        <title>image</title>
+        <image href="images/biohazard.png" scalefit="yes">
+          <alt></alt>
+        </image>
+      </fig>
+      <p>The
+        <codeph>images/biohazard.png</codeph>part indicates the filename of the image you wish to appear in the document. There's no restriction placed on the image (format, size etc). If the image is to appear in HTML and you wish to supply additional information, you may:</p>
+      <codeblock>.. image:: images/biohazard.png
+   :height: 100
+   :width: 200
+   :scale: 50
+   :alt: alternate text</codeblock>
+      <p>See the full
+        <ph outputclass="title-ref">image directive documentation</ph>__ for more info.</p>
+    </body>
+  </topic>
+  <topic id="what-next">
+    <title>What Next?</title>
+    <body>
+      <p>This primer introduces the most common features of reStructuredText, but there are a lot more to explore. The Quick reStructuredText user reference is a good place to go next. For complete details, the
+        <xref format="html" href="../../ref/rst/restructuredtext.html" scope="external">reStructuredText Markup Specification</xref>is the place to go
+        <xref format="dita" href="#fn1">
+          <sup>1</sup>
+        </xref>.</p>
+      <p>Users who have questions or need assistance with Docutils or reStructuredText should post a message to the
+        <xref format="html" href="../mailing-lists.html#docutils-users" scope="external">Docutils-users</xref>mailing list.</p>
+      <ol>
+        <li>
+          <p>If that relative link doesn't work, try the master document:
+            <xref format="html" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html" scope="external">http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html</xref>.
+            <xref format="dita" href="#fnref1">&#8617;&#65038;</xref>
+          </p>
+        </li>
+      </ol>
+    </body>
+  </topic>
+</topic>
+
