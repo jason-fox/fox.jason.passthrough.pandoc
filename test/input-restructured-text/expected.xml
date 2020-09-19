@@ -9,6 +9,7 @@ are relative links that point to the Quick reStructuredText user
 reference. If these links don't work, please refer to the
       <xref format="html" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html" scope="external">master
 quick reference</xref>document.</p>
+    <p>Note</p>
     <note type="note">
       <p>This document is an informal introduction to
 reStructuredText. The
@@ -77,6 +78,7 @@ placing a backslash just before it, like so "
         <xref format="html" href="quickref.html#escaping" scope="external">quickref</xref>), or
 by enclosing it in double back-quotes (inline literals), like this:</p>
       <codeblock>``*``</codeblock>
+      <p>Tip</p>
       <note type="tip">
         <p>Think of inline markup as a form of (parentheses) and use it
 the same way: immediately before and after the text being marked
@@ -244,9 +246,9 @@ no more example</codeblock>
       <p>Results in:</p>
       <p>An example:</p>
       <codeblock>Whitespace, newlines, blank lines, and all kinds of markup
-  (like *this* or \this) is preserved by literal blocks.</codeblock>
-      <p>Lookie here, I've dropped an indentation level
-(but not far enough)</p>
+  (like *this* or \this) is preserved by literal blocks.
+Lookie here, I've dropped an indentation level
+(but not far enough)</codeblock>
       <p>no more example</p>
       <p>Note that if a paragraph consists only of "
         <codeph>::</codeph>", then it's removed

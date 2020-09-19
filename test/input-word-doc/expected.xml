@@ -26,20 +26,14 @@
           <xref format="html" href="https://www.docker.com" scope="external">Docker</xref>.
           <b>Docker</b>is a container technology which allows to different components isolated into their respective environments.</p>
         <ul>
-          <li>
-            <p>To install Docker on Windows follow the instructions
-              <xref format="html" href="https://docs.docker.com/docker-for-windows/" scope="external">here</xref>
-            </p>
+          <li>To install Docker on Windows follow the instructions
+            <xref format="html" href="https://docs.docker.com/docker-for-windows/" scope="external">here</xref>
           </li>
-          <li>
-            <p>To install Docker on Mac follow the instructions
-              <xref format="html" href="https://docs.docker.com/docker-for-mac/" scope="external">here</xref>
-            </p>
+          <li>To install Docker on Mac follow the instructions
+            <xref format="html" href="https://docs.docker.com/docker-for-mac/" scope="external">here</xref>
           </li>
-          <li>
-            <p>To install Docker on Linux follow the instructions
-              <xref format="html" href="https://docs.docker.com/install/" scope="external">here</xref>
-            </p>
+          <li>To install Docker on Linux follow the instructions
+            <xref format="html" href="https://docs.docker.com/install/" scope="external">here</xref>
           </li>
         </ul>
         <p>

@@ -23,6 +23,25 @@
     <title>Cras eu lectus sit amet purus</title>
     <body>
       <p>Vestibulum placerat felis turpis, et suscipit ipsum ornare at.</p>
+      <ul>
+        <li>Curabitur ac odio eget eros tincidunt condimentum. Xref
+          <xref format="dita" href="#lorem-ipsum">lorem_ipsum</xref>.</li>
+        <li>Morbi pretium, orci ut scelerisque congue.</li>
+        <li>quam arcu congue tellus, ut bibendum diam arcu et nisl.</li>
+        <li>Proin erat libero, lacinia eget sapien a, commodo placerat quam</li>
+      </ul>
+      <ul>
+        <li>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</li>
+        <li>Donec egestas lectus a pulvinar ultricies.</li>
+        <li>Implement agile data mastering.</li>
+        <li>In in felis sit amet erat dignissim ornare non eu mauris.</li>
+      </ul>
+      <ul>
+        <li>Vivamus vel massa pellentesque massa placerat lobortis quis non quam.</li>
+        <li>Nam ut neque quis mi rhoncus commodo.</li>
+        <li>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</li>
+        <li>Iliquam non leo at mi vulputate finibus ac at nibh.</li>
+      </ul>
       <table>
         <tgroup cols="2">
           <colspec colname="c1" colnum="1" colwidth="33%"></colspec>
@@ -35,42 +54,21 @@
           </thead>
           <tbody>
             <row>
-              <entry align="left" colname="c1">
-                <lines>Praesent eget interdum lorem</lines>
-              </entry>
-              <entry align="left" colname="c2">
-                <lines>- Curabitur ac odio eget eros tincidunt condimentum. Xref
-                  <xref format="dita" href="#lorem-ipsum">lorem_ipsum</xref>.
-- Morbi pretium, orci ut scelerisque congue.
-- quam arcu congue tellus, ut bibendum diam arcu et nisl.
-- Proin erat libero, lacinia eget sapien a, commodo placerat quam</lines>
-              </entry>
+              <entry align="left" colname="c1">Praesent eget interdum lorem</entry>
+              <entry align="left" colname="c2"></entry>
             </row>
             <row>
-              <entry align="left" colname="c1">
-                <lines>Duis et finibus nunc</lines>
-              </entry>
-              <entry align="left" colname="c2">
-                <lines>- Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
-- Donec egestas lectus a pulvinar ultricies.
-- Implement agile data mastering.
-- In in felis sit amet erat dignissim ornare non eu mauris.</lines>
-              </entry>
+              <entry align="left" colname="c1">Duis et finibus nunc</entry>
+              <entry align="left" colname="c2"></entry>
             </row>
             <row>
-              <entry align="left" colname="c1">
-                <lines>Nullam maximus vel nisi ac scelerisque</lines>
-              </entry>
-              <entry align="left" colname="c2">
-                <lines>- Vivamus vel massa pellentesque massa placerat lobortis quis non quam.
-- Nam ut neque quis mi rhoncus commodo.
-- Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-- Iliquam non leo at mi vulputate finibus ac at nibh.</lines>
-              </entry>
+              <entry align="left" colname="c1">Nullam maximus vel nisi ac scelerisque</entry>
+              <entry align="left" colname="c2"></entry>
             </row>
           </tbody>
         </tgroup>
       </table>
+      <p>Note</p>
       <note type="note">
         <p>Quisque ornare felis eget diam rhoncus, sit amet pharetra nulla porta. Class aptent
           <i>taciti</i>sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi eu sapien magna. Aliquam in arcu eget libero vestibulum hendrerit.</p>
