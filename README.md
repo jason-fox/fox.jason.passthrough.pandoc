@@ -2,7 +2,7 @@
 
 [![license](https://img.shields.io/github/license/jason-fox/fox.jason.passthrough.pandoc.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![DITA-OT 3.5](https://img.shields.io/badge/DITA--OT-3.5-blue.svg)](http://www.dita-ot.org/3.5)
-[![Build Status](https://api.travis-ci.com/jason-fox/fox.jason.passthrough.pandoc.svg?branch=master)](https://travis-ci.com/github/jason-fox/fox.jason.passthrough.pandoc)
+[![CI](https://github.com/jason-fox/fox.jason.passthrough.pandoc/workflows/CI/badge.svg)](https://github.com/jason-fox/fox.jason.passthrough.pandoc/actions?query=workflow%3ACI)
 [![Documentation Status](https://readthedocs.org/projects/pandocdita-ot/badge/?version=latest)](https://pandocdita-ot.readthedocs.io/en/latest/?badge=latest)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fox.jason.passthrough.pandoc&metric=alert_status)](https://sonarcloud.io/dashboard?id=fox.jason.passthrough.pandoc)
 
