@@ -32,7 +32,7 @@ jobs:
       - name: Run DITA-OT Unit Test
         uses: jason-fox/dita-unit-test-action@master
         with:
-          dita-ot-version: 3.5.4
+          dita-ot-version: 3.6
           plugin: 'fox.jason.passthrough.pandoc'
           prerequisites: fox.jason.passthrough
           setup-script: 'test/setup.sh'
