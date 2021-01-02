@@ -8,12 +8,12 @@
 	-->
 	<target name="pandoc.check">
 		<!-- For Unix run Pandoc as an executable -->
-		<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc"
+		<exec executable="pandoc" dir="${dita.dir}" osfamily="unix" taskname="pandoc"
 			resultproperty="pandoc.result" outputproperty="pandoc.out" failonerror="false" failifexecutionfails="false">
 			<arg line="-v"/>
 		</exec>
 		<!-- For Windows run from a DOS command -->
-		<exec executable="cmd" dir="${dita.temp.dir}" osfamily="windows" taskname="pandoc"
+		<exec executable="cmd" dir="${dita.dir}" osfamily="windows" taskname="pandoc"
 			resultproperty="pandoc.result" outputproperty="pandoc.out" failonerror="false" failifexecutionfails="false">
 			<arg value="/C"/>
 			<arg value="pandoc -v"/>

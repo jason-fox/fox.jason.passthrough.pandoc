@@ -36,7 +36,7 @@
 			<property if:blank="@{metadata}" name="pandoc.metadata" value=""/>
 
 			<!-- For Unix run Pandoc as an executable -->
-			<exec executable="pandoc" dir="${dita.temp.dir}" osfamily="unix" taskname="pandoc" errorproperty="pandoc.error" resultproperty="pandoc.result" >
+			<exec executable="pandoc" dir="${dita.dir}" osfamily="unix" taskname="pandoc" errorproperty="pandoc.error" resultproperty="pandoc.result" >
 				<arg line="&quot;@{src}&quot;  -t ${dita.plugin.fox.jason.passthrough.pandoc.dir}/resource/topic.lua -o  &quot;@{dest}&quot; -M title=&quot;@{title}&quot; ${pandoc.metadata}"/>
 			</exec>
 			<!-- For Windows run from a DOS command -->
