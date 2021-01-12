@@ -2,6 +2,11 @@
 **/temp/**
 **/tmp/**
 
+target/
+classes/
+lib/ant-*.jar
+lib/ant-launcher-*.jar
+
 .scannerwork/
 
 *~

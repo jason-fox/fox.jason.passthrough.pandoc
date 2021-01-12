@@ -8,18 +8,18 @@
 
 		<exec-transtype transtype="dita"/>
 		<xmltask expandEntityReferences="false"
-			dest="${basedir}/out/markdown.md.dita" 
+			dest="${basedir}/out/markdown.md" 
 			outputter="simple" 
-			source="${basedir}/out/markdown.md.dita">
+			source="${basedir}/out/markdown.md">
 			<xmlcatalog>
 				<dtd publicId="-//OASIS//DTD DITA Topic//EN" 
 				location="${dita.dir}/plugins/fox.jason.passthrough/resource/fake.dtd"/>
 			</xmlcatalog>
 		</xmltask>
-		<replace file="${basedir}/out/markdown.md.dita" token="&amp;#8217;" value="'"/>
-		<replace file="${basedir}/out/markdown.md.dita" token="&amp;#8230;" value="..."/>
-		<replace file="${basedir}/out/markdown.md.dita" token="&amp;#8211;" value="--"/>
+		<replace file="${basedir}/out/markdown.md" token="&amp;#8217;" value="'"/>
+		<replace file="${basedir}/out/markdown.md" token="&amp;#8230;" value="..."/>
+		<replace file="${basedir}/out/markdown.md" token="&amp;#8211;" value="--"/>
 
-		<compare-output suffix=".xml" result="${basedir}/out/markdown.md.dita"/>
+		<compare-output suffix=".xml" result="${basedir}/out/markdown.md"/>
 	</target>
 </project>

@@ -306,12 +306,7 @@ function Doc(body, metadata, variables)
 
   -- Now we start to create the real output
   
-  -- Standard DITA xml preamble.
-  add('<?xml version="1.0" encoding="UTF-8"?>')
---  add('<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">')
 
-  add('<?doctype-public -//OASIS//DTD DITA Topic//EN?>')
-  add('<?doctype-system topic.dtd?>')
 
   -- Add a title to the root DITA topic - this should have a reasonable 
   -- default as a fallback.
@@ -323,7 +318,7 @@ function Doc(body, metadata, variables)
   
   -- Add all the elements contained within the root DITA topic, then close it
   if (#level[1] == 0) then
-    add('<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="' .. string.gsub(rootTopicId, ' ', '-') .. '">')
+    add('<topic class="- topic/topic " domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="' .. string.gsub(rootTopicId, ' ', '-') .. '">')
 
   
     add('<title class="- topic/title " >' .. rootTopicTitle .. '</title>')
@@ -356,7 +351,7 @@ function Doc(body, metadata, variables)
     --add(table.concat( abstract1.elem ,'\n'))
     --add('</body>\n')
   else
-    add('<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="' .. string.gsub(rootTopicId, ' ', '-') .. '">')
+    add('<topic class="- topic/topic " domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" id="' .. string.gsub(rootTopicId, ' ', '-') .. '">')
     add('<title class="- topic/title " >' .. rootTopicTitle .. '</title>')
     if (tablelength(metadata) > 1) then
       add(createProlog (metadata))
@@ -592,9 +587,9 @@ end
 function Image(s, src, tit)
  
   if tit == nil then
-    return '<image class=" topic/image " href="' .. escape(src,true) .. '"/>'
+    return '<image class="- topic/image " href="' .. escape(src,true) .. '"/>'
   else
-    return '<image class=" topic/image " scalefit="yes" href="' .. escape(src,true) .. '">' ..
+    return '<image class="- topic/image " scalefit="yes" href="' .. escape(src,true) .. '">' ..
       '<alt class=" topic/alt ">' .. tit .. '</alt>' ..
       '</image>'
   end
@@ -604,7 +599,7 @@ end
 -- Code is an inline element that translates to <codeph>
 function Code(s, attr)
   codephCount = codephCount + 1
-  return '<codeph class=" pr-d/codeph "'  .. attributes(attr) .. '  xtrc="codeph:' .. 
+  return '<codeph class="- pr-d/codeph "'  .. attributes(attr) .. '  xtrc="codeph:' .. 
     codephCount ..'" xtrf="">' .. escape(s) .. '</codeph>'
 end
 
@@ -744,7 +739,7 @@ function Header(lev, s, attr)
   else
     topicCount = topicCount + 1
     topics[#topics + 1 ] = {elem = {}, open = true, type = "topic", name="topic", body="body"}
-    pushElementToCurrentTopic ('<topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" class="- topic/topic " ditaarch:DITAArchVersion="1.3" domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" ' ..  attributes(attr) .. 
+    pushElementToCurrentTopic ('<topic class="- topic/topic " domains="(topic abbrev-d) a(props deliveryTarget) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic svg-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" ' ..  attributes(attr) .. 
      '>\n<title class="- topic/title " >' .. s .. '</title>')
     pushElementToCurrentTopic ('<body class="- topic/body " >')
   end
@@ -860,8 +855,8 @@ end
 
 -- CaptionedImage is an block level element that translates to <fig> with <title> abd <image> sub elements
 function CaptionedImage(src, tit, caption)
-  pushElementToCurrentTopic('<fig class="- topic/fig ">\n\t<title class=" topic/title ">' .. caption .. '</title>\n' ..
-      '\t<image class=" topic/image " scalefit="yes" href="' .. escape(src,true) .. '">\n' ..
+  pushElementToCurrentTopic('<fig class="- topic/fig ">\n\t<title class="- topic/title ">' .. caption .. '</title>\n' ..
+      '\t<image class="- topic/image " scalefit="yes" href="' .. escape(src,true) .. '">\n' ..
       '\t\t<alt class="- topic/alt ">' .. tit .. '</alt>\n\t</image>\n</fig>')
   return ""
 end
