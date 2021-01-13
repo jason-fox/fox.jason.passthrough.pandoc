@@ -12,9 +12,7 @@
 	<!--
 		This plugin requires the Passthrough reader 3.0
 	-->
-	<require plugin="fox.jason.passthrough"/>
-
-	
+	<require plugin="fox.jason.passthrough"/>	
 	<!-- Uses the passthrough extension point and file reader -->
 	<feature extension="dita.parser">
 		<parser format="pandoc" class="fox.jason.passthrough.PandocFileReader"/>

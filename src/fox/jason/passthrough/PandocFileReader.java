@@ -1,16 +1,27 @@
 package fox.jason.passthrough;
 
-public class PandocFileReader extends AbstractFileReader {
+import java.io.File;
+import java.io.IOException;
+
+public class PandocFileReader extends AntTaskFileReader {
+
+  public PandocFileReader() {
+  }
 
   private static final String ANT_FILE = "/../process_pandoc.xml";
 
   @Override
-  protected String getAntFile(){
-    String path =  this.getJarFile().getParent();
-    return path + ANT_FILE;
+  protected String runTarget(File inputFile, String title)
+    throws IOException {
+    return executePandoc(inputFile, title);
   }
-  
-  public PandocFileReader() {
-    super(PandocFileReader.class);
+
+  protected String executePandoc(File inputFile, String title)
+    throws IOException {
+    return executeAntTask(
+      calculateJarPath(PandocFileReader.class) + ANT_FILE,
+      inputFile,
+      title
+    );
   }
 }

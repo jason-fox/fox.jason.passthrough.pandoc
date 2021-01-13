@@ -590,7 +590,7 @@ function Image(s, src, tit)
     return '<image class="- topic/image " href="' .. escape(src,true) .. '"/>'
   else
     return '<image class="- topic/image " scalefit="yes" href="' .. escape(src,true) .. '">' ..
-      '<alt class=" topic/alt ">' .. tit .. '</alt>' ..
+      '<alt class="- topic/alt ">' .. tit .. '</alt>' ..
       '</image>'
   end
 end
