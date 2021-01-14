@@ -87,28 +87,6 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-install-plugin</artifactId>
-				<version>3.0.0-M1</version>
-				<executions>
-					<execution>
-						<id>install-passthrough</id>
-						<configuration>
-						  <groupId>fox.jason</groupId>
-						  <artifactId>passthrough.parser</artifactId>
-						  <version>${passthrough-version}</version>
-						  <packaging>jar</packaging>
-						  <file>../fox.jason.passthrough/lib/passthrough.parser-${passthrough-version}.jar</file>
-						</configuration>
-						<goals>
-							<goal>install-file</goal>
-						</goals>
-						<phase>validate</phase>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>3.3.0.603</version>
