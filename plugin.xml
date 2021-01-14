@@ -6,12 +6,11 @@
 -->
 <plugin id="fox.jason.passthrough.pandoc" version="2.0.0">
 	<feature extension="dita.conductor.lib.import" file="lib/passthrough.pandoc-1.0.jar"/>
+	<feature extension="dita.conductor.lib.import" file="lib/passthrough.parser-4.0.jar"/>
 	<feature extension="ant.import" file="process_pandoc.xml"/>
 	<!-- Ensure the plugin's error and logging messages are available -->
-	<feature extension="dita.xsl.messages" file="resource/messages.xml"/>
-	<!-- This plugin requires the Passthrough reader 4.0 -->
-	<require plugin="fox.jason.passthrough"/>	
-	<!-- Uses the passthrough extension point and file reader -->
+	<feature extension="dita.xsl.messages" file="resource/messages.xml"/>	
+	<!-- Uses the passthrough pandoc file reader -->
 	<feature extension="dita.parser">
 		<parser format="pandoc" class="fox.jason.passthrough.PandocFileReader"/>
 	</feature>
