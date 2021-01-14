@@ -392,7 +392,7 @@ function  createProlog (metadata)
   if(tablelength (metadata) > 0) then
 
     if (metadata.shortdesc ~= nil) then
-      add('<shortdesc class=" topic/shortdesc ">' .. metadata.shortdesc .. '</shortdesc>')
+      add('<shortdesc class="- topic/shortdesc ">' .. metadata.shortdesc .. '</shortdesc>')
     end
     add('<prolog class="- topic/prolog ">\n')
     for k, v in pairs(metadata) do
@@ -516,25 +516,25 @@ end
 
 -- Emph is an inline element that translates to <i>
 function Emph(s)
-  return "<i class=' hi-d/i '>" .. s .. "</i>"
+  return "<i class='+ topic/ph hi-d/i '>" .. s .. "</i>"
 end
 
 
 -- Strong is an inline element that translates to <b>
 function Strong(s)
-  return "<b class=' hi-d/b '>" .. s .. "</b>"
+  return "<b class='+ topic/ph hi-d/b '>" .. s .. "</b>"
 end
 
 
 -- Subscript is an inline element that translates to <sub>
 function Subscript(s)
-  return "<sub class=' hi-d/sub '>" .. s .. "</sub>"
+  return "<sub class='+ topic/ph hi-d/sub '>" .. s .. "</sub>"
 end
 
 
 -- Superscript is an inline element that translates to <sup>
 function Superscript(s)
-  return "<sup class=' hi-d/sup '>" .. s .. "</sup>"
+  return "<sup class='+ topic/ph hi-d/sup '>" .. s .. "</sup>"
 end
 
 
@@ -548,7 +548,7 @@ end
 -- SmallCaps does not translate dirctly to a DITA element
 -- Annotate an inline <ph> element with an outputclass attibute
 function Strikeout(s)
-  return '<ph class="- topic/ph   hi-d/line-through " outputclass="strikeout">' .. s .. '</ph>'
+  return '<ph class="+ topic/ph   hi-d/line-through " outputclass="strikeout">' .. s .. '</ph>'
 end
 
 
@@ -599,7 +599,7 @@ end
 -- Code is an inline element that translates to <codeph>
 function Code(s, attr)
   codephCount = codephCount + 1
-  return '<codeph class="- pr-d/codeph "'  .. attributes(attr) .. '  xtrc="codeph:' .. 
+  return '<codeph class="+ topic/ph pr-d/codeph "'  .. attributes(attr) .. '  xtrc="codeph:' .. 
     codephCount ..'" xtrf="">' .. escape(s) .. '</codeph>'
 end
 
@@ -622,11 +622,11 @@ function Note(s)
   
   if s ~= "" then
     -- This is a plain text list item
-    footnote = '<fn class=" topic/fn ">\n\t' .. s .. '\n</fn>'
+    footnote = '<fn class="- topic/fn ">\n\t' .. s .. '\n</fn>'
   else
     -- If the item is empty this is a paragraph within the <fn>
     -- remove the <p> previously processed from the topic and add it to the list items
-    footnote = '<fn class=" topic/fn ">\n\t' .. getLastTopicElement() .. '</fn>' 
+    footnote = '<fn class="- topic/fn ">\n\t' .. getLastTopicElement() .. '</fn>' 
     popElementFromCurrentTopic()
   end
 
@@ -642,7 +642,7 @@ end
 
 -- Cite is an inline element that translates to <cite>
 function Cite(s, cs)
-  return "<cite class=' topic/cite '>" .. s .. "</cite>"
+  return "<cite class='- topic/cite '>" .. s .. "</cite>"
 end
 
 
@@ -699,9 +699,9 @@ function Header(lev, s, attr)
     note = true
 
     if has_value(note_types, string.lower(s)) then
-      pushElementToCurrentTopic ('<note class=" topic/note " type="' .. string.lower(s) .. '">\n\t')
+      pushElementToCurrentTopic ('<note class="- topic/note " type="' .. string.lower(s) .. '">\n\t')
     else
-      pushElementToCurrentTopic ('<note class=" topic/note " type="other" othertype="' .. s .. '">\n\t')
+      pushElementToCurrentTopic ('<note class="- topic/note " type="other" othertype="' .. s .. '">\n\t')
     end
     return ""
   end
@@ -750,7 +750,7 @@ end
 
 -- Blockquote is an inline element that translates to <q>
 function BlockQuote(s)
-  return "<q class=' topic/q '>\n" .. s .. "\n</q>"
+  return "<q class='- topic/q '>\n" .. s .. "\n</q>"
 end
 
 
@@ -768,7 +768,7 @@ end
 
 -- LineBlock is an inline element that translates to <lines>
 function LineBlock(ls)
-  return '<lines class=" topic/lines ">' .. table.concat(ls, '\n') .. '</lines>'
+  return '<lines class="- topic/lines ">' .. table.concat(ls, '\n') .. '</lines>'
 end
 
 
@@ -777,7 +777,7 @@ function CodeBlock(s, attr)
 
   codeblockCount = codeblockCount + 1
 
-  pushElementToCurrentTopic ('<codeblock class=" pr-d/codeblock " '
+  pushElementToCurrentTopic ('<codeblock class="+ topic/pre pr-d/codeblock " '
       .. attributes(attr) .. '  xtrc="codeblock:' .. codeblockCount ..'" xtrf="">' .. escape(s) .. '</codeblock>')
   return ""
 end
@@ -790,11 +790,11 @@ function BulletList(items)
   for _, item in pairs(items) do
     if item ~= "" then
       -- This is a plain text list item
-      table.insert(buffer, '\t<li class=" topic/li ">' .. item .. "</li>\n")
+      table.insert(buffer, '\t<li class="- topic/li ">' .. item .. "</li>\n")
     else
       -- If the item is empty this is a paragraph within the <li>
       -- remove the <p> previously processed from the topic and add it to the list items
-       table.insert(buffer, '\t<li class=" topic/li ">' .. getLastTopicElement()  .. "</li>\n")
+       table.insert(buffer, '\t<li class="- topic/li ">' .. getLastTopicElement()  .. "</li>\n")
        popElementFromCurrentTopic()
       -- To maintainorder we'll need to reverse the order
       -- Hopefully all the items in the list can be processed the same way
@@ -808,7 +808,7 @@ function BulletList(items)
   end
 
 
-  pushElementToCurrentTopic ('<ul class=" topic/ul ">\n' .. table.concat(buffer, "") .. "</ul>")
+  pushElementToCurrentTopic ('<ul class="- topic/ul ">\n' .. table.concat(buffer, "") .. "</ul>")
   return ""
 end
 
@@ -820,11 +820,11 @@ function OrderedList(items)
   for _, item in pairs(items) do
     if item ~= "" then
        -- This is a plain text list item
-      table.insert(buffer, '\t<li class=" topic/li ">' .. item .. "</li>\n")
+      table.insert(buffer, '\t<li class="- topic/li ">' .. item .. "</li>\n")
     else
        -- If the item is empty this is a paragraph within the <li>
        -- remove the <p> previously processed from the topic and add it to the list items
-       table.insert(buffer, '\t<li class=" topic/li ">' .. getLastTopicElement() .. "</li>\n")
+       table.insert(buffer, '\t<li class="- topic/li ">' .. getLastTopicElement() .. "</li>\n")
        popElementFromCurrentTopic()
        reverse = true
     end
@@ -834,7 +834,7 @@ function OrderedList(items)
     reverseArray(buffer)
   end
 
-  pushElementToCurrentTopic('<ol class=" topic/ol ">\n' .. table.concat(buffer, "") .. "</ol>")
+  pushElementToCurrentTopic('<ol class="- topic/ol ">\n' .. table.concat(buffer, "") .. "</ol>")
   return ""
 end
 
@@ -844,11 +844,11 @@ function DefinitionList(items)
   local buffer = {}
   for _,item in pairs(items) do
     for k, v in pairs(item) do
-      table.insert(buffer,"\n\t<dlentry class=' topic/dlentry '>\n\t\t<dt class=' topic/dt '>" .. k .. "</dt>\n\t\t<dd class=' topic/dd '>" ..
-                        table.concat(v,"</dd>\n\t\t<dd class=' topic/dd '>") .. "</dd>\n\t</dlentry>")
+      table.insert(buffer,"\n\t<dlentry class='- topic/dlentry '>\n\t\t<dt class='- topic/dt '>" .. k .. "</dt>\n\t\t<dd class='- topic/dd '>" ..
+                        table.concat(v,"</dd>\n\t\t<dd class='- topic/dd '>") .. "</dd>\n\t</dlentry>")
     end
   end
-  pushElementToCurrentTopic("<dl class=' topic/dl '>" .. table.concat(buffer, "\n") .. "\n</dl>")
+  pushElementToCurrentTopic("<dl class='- topic/dl '>" .. table.concat(buffer, "\n") .. "\n</dl>")
   return ""
 end
 
@@ -878,45 +878,45 @@ function Table(caption, aligns, widths, headers, rows)
     max_cols = math.max(max_cols, #row)
   end
 
-  add("<table class=' topic/table '>")
+  add("<table class='- topic/table '>")
   if caption ~= "" then
-    add("\t<title class=' topic/title '>" .. caption .. "</title>")
+    add("\t<title class='- topic/title '>" .. caption .. "</title>")
   end
-  add('\t<tgroup class=" topic/tgroup " cols="' .. max_cols .. '">')
+  add('\t<tgroup class="- topic/tgroup " cols="' .. max_cols .. '">')
   if widths and widths[1] ~= 0 then
     
     for _, w in pairs(widths) do
       width_total = width_total + w
     end
     for _, w in pairs(widths) do
-      add('\t\t<colspec class=" topic/colspec " colname="c' .. _ .. '" colnum="' .. _ .. '" colwidth="' .. string.format("%d%%", math.floor((w / width_total) * 100)) .. '"/>')
+      add('\t\t<colspec class="- topic/colspec " colname="c' .. _ .. '" colnum="' .. _ .. '" colwidth="' .. string.format("%d%%", math.floor((w / width_total) * 100)) .. '"/>')
     end
   else
     for _, w in pairs(widths) do
-      add('\t\t<colspec class=" topic/colspec " colname="c' .. _ .. '" colnum="' .. _ .. '"/>')
+      add('\t\t<colspec class="- topic/colspec " colname="c' .. _ .. '" colnum="' .. _ .. '"/>')
     end
   end
   local header_row = {}
   local empty_header = true
   for i, h in pairs(headers) do
     local align = dita_align(aligns[i])
-    table.insert(header_row,'\t\t\t\t<entry class=" topic/entry " colname="c' .. i .. '" align="' .. align ..  '">' .. h .. '</entry>')
+    table.insert(header_row,'\t\t\t\t<entry class="- topic/entry " colname="c' .. i .. '" align="' .. align ..  '">' .. h .. '</entry>')
     empty_header = empty_header and h == ""
   end
   if empty_header then
     head = ""
   else
-    add('\t\t<thead class=" topic/thead ">')
-    add('\t\t\t<row class=" topic/row ">')
+    add('\t\t<thead class="- topic/thead ">')
+    add('\t\t\t<row class="- topic/row ">')
     for _,h in pairs(header_row) do
       add(h)
     end
     add('\t\t\t</row>')
     add('\t\t</thead>')
   end
-  add('\t\t<tbody class=" topic/tbody ">')
+  add('\t\t<tbody class="- topic/tbody ">')
   for _, row in pairs(rows) do
-    add('\t\t\t<row class=" topic/row ">')
+    add('\t\t\t<row class="- topic/row ">')
     addLines = false
     for i,c in pairs(row) do
       c = c:gsub("&#13;", "\n")
@@ -928,9 +928,9 @@ function Table(caption, aligns, widths, headers, rows)
     for i,c in pairs(row) do
       local align = dita_align(aligns[i])
       if (addLines == true) then
-        c = '<lines class=" topic/lines ">' .. c  .. '</lines>'
+        c = '<lines class="- topic/lines ">' .. c  .. '</lines>'
       end
-      add('\t\t\t\t<entry class=" topic/entry " colname="c' .. i 
+      add('\t\t\t\t<entry class="- topic/entry " colname="c' .. i 
         .. '" align="' .. align ..  '">' .. c .. '</entry>')
     end
     add('\t\t\t</row>')
@@ -957,13 +957,13 @@ function Div(s, attr)
   end
 
   if (has_value(note_types, attr.class)) then
-    div_note = '<note class=" topic/note " type="' .. attr.class .. '">\n\t' .. getLastTopicElement() .. '</note>' 
+    div_note = '<note class="- topic/note " type="' .. attr.class .. '">\n\t' .. getLastTopicElement() .. '</note>' 
     popElementFromCurrentTopic()
     pushElementToCurrentTopic(div_note)
   end
 
-  --  pushElementToCurrentTopic("<div class=' topic/div '" .. attributes(attr) .. ">\n" .. s .. "</div>")
-  return "" -- "<div class=' topic/div '" .. attributes(attr) .. ">\n" .. s .. "</div>"
+  --  pushElementToCurrentTopic("<div class='- topic/div '" .. attributes(attr) .. ">\n" .. s .. "</div>")
+  return "" -- "<div class='- topic/div '" .. attributes(attr) .. ">\n" .. s .. "</div>"
 end
 
 
