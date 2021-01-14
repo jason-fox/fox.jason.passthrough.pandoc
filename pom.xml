@@ -4,25 +4,19 @@
 	<groupId>fox.jason</groupId>
 	<artifactId>passthrough.pandoc</artifactId>
 	<version>1.0</version>
-
+	
 	<dependencies>
 		<dependency>
-			<groupId>org.apache.ant</groupId>
-			<artifactId>ant</artifactId>
-			<version>1.10.8</version>
-		</dependency>
-		<dependency>
-			<groupId>fox.jason.passthrough</groupId>
+			<groupId>fox.jason</groupId>
 			<artifactId>passthrough.parser</artifactId>
-			<version>3.0</version>
+			<version>${passthrough-version}</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/passthrough.parser-3.0.jar</systemPath>
+			<systemPath>${project.basedir}/../fox.jason.passthrough/lib/passthrough.parser-${passthrough-version}.jar</systemPath>
 		</dependency>
 	</dependencies>
 
-
-
 	<properties>
+		<passthrough-version>4.0</passthrough-version>
 		<sonar.projectKey>fox.jason.passthrough.pandoc</sonar.projectKey>
 		<sonar.organization>dita-ot-plugins</sonar.organization>
 		<sonar.sources>src</sonar.sources>
@@ -34,7 +28,6 @@
 		<sonar.flex.cobertura.reportPaths>coverage.xml</sonar.flex.cobertura.reportPaths>
 		<sonar.exclusions>coverage.html,test-results.html,pom.xml,coverage.xml</sonar.exclusions>
 	</properties>
-	
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -84,6 +77,28 @@
 				<configuration>
 					<outputDirectory>${basedir}/lib</outputDirectory>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<executions>
+					<execution>
+						<id>install-passthrough</id>
+						<configuration>
+						  <groupId>fox.jason</groupId>
+						  <artifactId>passthrough.parser</artifactId>
+						  <version>${passthrough-version}</version>
+						  <packaging>jar</packaging>
+						  <file>../fox.jason.passthrough/lib/passthrough.parser-${passthrough-version}.jar</file>
+						</configuration>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>validate</phase>
+					</execution>
+				</executions>
 			</plugin>
 
 			<plugin>

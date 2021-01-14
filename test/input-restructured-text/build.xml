@@ -5,21 +5,21 @@
 		Expect that Pandoc can create a DITA file using restructured text as an input.
 	</description>
 	<target name="unit-test">
-
+		<property name="file" value="${basedir}/out/restructured-text.rst"/>
 		<exec-transtype transtype="dita"/>
 		<xmltask expandEntityReferences="false"
-			dest="${basedir}/out/restructured-text.rst.dita" 
+			dest="${file}" 
 			outputter="simple" 
-			source="${basedir}/out/restructured-text.rst.dita">
+			source="${file}">
 			<xmlcatalog>
 				<dtd publicId="-//OASIS//DTD DITA Topic//EN" 
-				location="${dita.dir}/plugins/fox.jason.passthrough/resource/fake.dtd"/>
+				location="../fake.dtd"/>
 			</xmlcatalog>
 		</xmltask>
-		<replace file="${basedir}/out/restructured-text.rst.dita" token="&amp;#8217;" value="'"/>
-		<replace file="${basedir}/out/restructured-text.rst.dita" token="&amp;#8230;" value="..."/>
-		<replace file="${basedir}/out/restructured-text.rst.dita" token="&amp;#8211;" value="--"/>
+		<replace file="${file}" token="&amp;#8217;" value="'"/>
+		<replace file="${file}" token="&amp;#8230;" value="..."/>
+		<replace file="${file}" token="&amp;#8211;" value="--"/>
 
-		<compare-output suffix=".xml" result="${basedir}/out/restructured-text.rst.dita"/>
+		<compare-output suffix=".xml" result="${file}"/>
 	</target>
 </project>

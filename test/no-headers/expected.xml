@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<topic id="markdown">
+<?path2rootmap-uri ./?>
+<topic id="markdown" specializations="@props/deliveryTarget">
   <title>markdown</title>
   <body>
     <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit malesuada ligula vehicula netus sollicitudin sociis, feugiat scelerisque luctus parturient pharetra. Dis pretium ante fringilla nunc velit nisi risus primis felis vel, venenatis auctor nascetur viverra non sagittis habitant condimentum integer. Himenaeos iaculis placerat neque nisl sodales faucibus ut porttitor maecenas et quam posuere mauris, venenatis tortor scelerisque suspendisse magna malesuada rhoncus commodo feugiat pretium urna justo.</p>

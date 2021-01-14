@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<topic id="markdown">
+<?path2rootmap-uri ./?>
+<topic id="markdown" specializations="@props/deliveryTarget">
   <title>markdown</title>
   <shortdesc>This is where the shortdesc goes</shortdesc>
   <prolog>

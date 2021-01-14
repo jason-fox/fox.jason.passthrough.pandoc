@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<topic id="a-restructuredtext-primer">
+<?path2rootmap-uri ./?>
+<topic id="a-restructuredtext-primer" specializations="@props/deliveryTarget">
   <title>A ReStructuredText Primer</title>
   <body>
     <p>The text below contains links that look like "(
@@ -8,10 +9,10 @@
       <xref format="html" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html" scope="external">master quick reference</xref>document.</p>
     <note type="note">
       <p>This document is an informal introduction to reStructuredText. The
-        <xref format="dita" href="#what-next">What Next?</xref>section below has links to further resources, including a formal reference.</p>
+        <xref format="dita" href="#what-next" type="topic">What Next?</xref>section below has links to further resources, including a formal reference.</p>
     </note>
   </body>
-  <topic id="structure">
+  <topic id="structure" specializations="@props/deliveryTarget">
     <title>Structure</title>
     <body>
       <p>From the outset, let me say that "Structured Text" is probably a bit of a misnomer. It's more like "Relaxed Text" that uses certain consistent patterns. These patterns are interpreted by a HTML converter to produce "Very Structured Text" that can be used by a web browser.</p>
@@ -31,7 +32,7 @@ This is another one.</codeblock>
       <p>This is another one.</p>
     </body>
   </topic>
-  <topic id="text-styles">
+  <topic id="text-styles" specializations="@props/deliveryTarget">
     <title>Text styles</title>
     <body>
       <p>(
@@ -56,7 +57,7 @@ This is another one.</codeblock>
       </note>
     </body>
   </topic>
-  <topic id="lists">
+  <topic id="lists" specializations="@props/deliveryTarget">
     <title>Lists</title>
     <body>
       <p>Lists of items come in three main flavours:
@@ -179,7 +180,7 @@ i. lower-case roman numerals
       </dl>
     </body>
   </topic>
-  <topic id="preformatting-code-samples">
+  <topic id="preformatting-code-samples" specializations="@props/deliveryTarget">
     <title>Preformatting (code samples)</title>
     <body>
       <p>(
@@ -211,7 +212,7 @@ no more example</codeblock>
 last "::" paragraph is removed</codeblock>
     </body>
   </topic>
-  <topic id="sections">
+  <topic id="sections" specializations="@props/deliveryTarget">
     <title>Sections</title>
     <body>
       <p>(
@@ -254,12 +255,12 @@ Chapter 2 Title
         Chapter 2 Title</codeblock>
       <p>(Pseudo-XML uses indentation for nesting and has no end-tags. It's not possible to show actual processed output, as in the other examples, because sections cannot exist inside block quotes. For a concrete example, compare the section structure of this document's source text and processed output.)</p>
       <p>Note that section headers are available as link targets, just using their name. To link to the
-        <xref format="dita" href="#lists">Lists</xref>heading, I write "
+        <xref format="dita" href="#lists" type="topic">Lists</xref>heading, I write "
         <codeph>Lists_</codeph>". If the heading has a space in it like
-        <xref format="dita" href="#text-styles">text styles</xref>, we need to quote the heading "
+        <xref format="dita" href="#text-styles" type="topic">text styles</xref>, we need to quote the heading "
         <codeph>`text styles`_</codeph>".</p>
     </body>
-    <topic id="document-title-subtitle">
+    <topic id="document-title-subtitle" specializations="@props/deliveryTarget">
       <title>Document Title / Subtitle</title>
       <body>
         <p>The title of the whole document is distinct from section titles and may be formatted somewhat differently (e.g. the HTML writer by default shows it as a centered heading).</p>
@@ -279,7 +280,7 @@ Section Title
       </body>
     </topic>
   </topic>
-  <topic id="images">
+  <topic id="images" specializations="@props/deliveryTarget">
     <title>Images</title>
     <body>
       <p>(quickref__)</p>
@@ -304,7 +305,7 @@ Section Title
         <ph outputclass="title-ref">image directive documentation</ph>__ for more info.</p>
     </body>
   </topic>
-  <topic id="what-next">
+  <topic id="what-next" specializations="@props/deliveryTarget">
     <title>What Next?</title>
     <body>
       <p>This primer introduces the most common features of reStructuredText, but there are a lot more to explore. The Quick reStructuredText user reference is a good place to go next. For complete details, the

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<topic id="word-file-with-various-structures">
+<?path2rootmap-uri ./?>
+<topic id="word-file-with-various-structures" specializations="@props/deliveryTarget">
   <title>Word File with various structures</title>
   <body>
     <p>Paragraph
@@ -41,21 +42,21 @@
     <p>C3</p>
     <table>
       <tgroup cols="3">
-        <colspec colname="c1" colnum="1"></colspec>
-        <colspec colname="c2" colnum="2"></colspec>
-        <colspec colname="c3" colnum="3"></colspec>
+        <colspec colname="col1" colnum="1"></colspec>
+        <colspec colname="col2" colnum="2"></colspec>
+        <colspec colname="col3" colnum="3"></colspec>
         <thead>
           <row>
-            <entry align="left" colname="c1">H1</entry>
-            <entry align="left" colname="c2">H2</entry>
-            <entry align="left" colname="c3"></entry>
+            <entry align="left" colname="col1">H1</entry>
+            <entry align="left" colname="col2">H2</entry>
+            <entry align="left" colname="col3"></entry>
           </row>
         </thead>
         <tbody>
           <row>
-            <entry align="left" colname="c1">C1</entry>
-            <entry align="left" colname="c2">C2</entry>
-            <entry align="left" colname="c3"></entry>
+            <entry align="left" colname="col1">C1</entry>
+            <entry align="left" colname="col2">C2</entry>
+            <entry align="left" colname="col3"></entry>
           </row>
         </tbody>
       </tgroup>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<topic id="markdown-syntax">
+<?path2rootmap-uri ./?>
+<topic id="markdown-syntax" specializations="@props/deliveryTarget">
   <title>Markdown Syntax</title>
   <body></body>
-  <topic id="emphasis">
+  <topic id="emphasis" specializations="@props/deliveryTarget">
     <title>Emphasis</title>
     <body>
       <p>Emphasis, aka italics, with
@@ -21,7 +22,7 @@
       </p>
     </body>
   </topic>
-  <topic id="lists">
+  <topic id="lists" specializations="@props/deliveryTarget">
     <title>Lists</title>
     <body>
       <p>(In this example, leading and trailing spaces are shown with with dots: &#8901;)</p>
@@ -48,7 +49,7 @@ Note that this line is separate, but within the same paragraph.&#8901;&#8901;
       </ul>
     </body>
   </topic>
-  <topic id="links">
+  <topic id="links" specializations="@props/deliveryTarget">
     <title>Links</title>
     <body>
       <p>There are two ways to create links.</p>
@@ -76,35 +77,35 @@ example.com (but not on Github, for example).</p>
       <p>Some text to show that the reference links can follow later.</p>
     </body>
   </topic>
-  <topic id="images">
+  <topic id="images" specializations="@props/deliveryTarget">
     <title>Images</title>
     <body>
       <p>Here's our logo (hover to see the title text):</p>
     </body>
-    <topic id="inline-style">
+    <topic id="inline-style" specializations="@props/deliveryTarget">
       <title>Inline-style:</title>
       <body>
         <fig>
           <title>alt text</title>
-          <image href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" scalefit="yes">
+          <image href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" scalefit="yes" scope="external">
             <alt>fig:Logo Title Text 1</alt>
           </image>
         </fig>
       </body>
     </topic>
-    <topic id="reference-style">
+    <topic id="reference-style" specializations="@props/deliveryTarget">
       <title>Reference-style:</title>
       <body>
         <fig>
           <title>alt text</title>
-          <image href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" scalefit="yes">
+          <image href="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" scalefit="yes" scope="external">
             <alt>fig:Logo Title Text 2</alt>
           </image>
         </fig>
       </body>
     </topic>
   </topic>
-  <topic id="code-and-syntax-highlighting">
+  <topic id="code-and-syntax-highlighting" specializations="@props/deliveryTarget">
     <title>Code and Syntax Highlighting</title>
     <body>
       <p>Code blocks are part of the Markdown spec, but syntax highlighting isn't. However, many renderers -- like Github's and Markdown Here -- support syntax highlighting. Which languages are supported and how those language names should be written will vary from renderer to renderer. Markdown Here supports highlighting for dozens of languages (and not-really-languages, like diffs and HTTP headers); to see the complete list, and how to write the language names, see the highlight.js demo page.</p>
@@ -120,38 +121,38 @@ print s</codeblock>
 But let's throw in a &lt;b&gt;tag&lt;/b&gt;.</codeblock>
     </body>
   </topic>
-  <topic id="tables">
+  <topic id="tables" specializations="@props/deliveryTarget">
     <title>Tables</title>
     <body>
       <p>Tables aren't part of the core Markdown spec, but they are part of GFM and Markdown Here supports them. They are an easy way of adding tables to your email -- a task that would otherwise require copy-pasting from another application.</p>
       <p>Colons can be used to align columns.</p>
       <table>
         <tgroup cols="3">
-          <colspec colname="c1" colnum="1"></colspec>
-          <colspec colname="c2" colnum="2"></colspec>
-          <colspec colname="c3" colnum="3"></colspec>
+          <colspec colname="col1" colnum="1"></colspec>
+          <colspec colname="col2" colnum="2"></colspec>
+          <colspec colname="col3" colnum="3"></colspec>
           <thead>
             <row>
-              <entry align="left" colname="c1">Tables</entry>
-              <entry align="center" colname="c2">Are</entry>
-              <entry align="right" colname="c3">Cool</entry>
+              <entry align="left" colname="col1">Tables</entry>
+              <entry align="center" colname="col2">Are</entry>
+              <entry align="right" colname="col3">Cool</entry>
             </row>
           </thead>
           <tbody>
             <row>
-              <entry align="left" colname="c1">col 3 is</entry>
-              <entry align="center" colname="c2">right-aligned</entry>
-              <entry align="right" colname="c3">$1600</entry>
+              <entry align="left" colname="col1">col 3 is</entry>
+              <entry align="center" colname="col2">right-aligned</entry>
+              <entry align="right" colname="col3">$1600</entry>
             </row>
             <row>
-              <entry align="left" colname="c1">col 2 is</entry>
-              <entry align="center" colname="c2">centered</entry>
-              <entry align="right" colname="c3">$12</entry>
+              <entry align="left" colname="col1">col 2 is</entry>
+              <entry align="center" colname="col2">centered</entry>
+              <entry align="right" colname="col3">$12</entry>
             </row>
             <row>
-              <entry align="left" colname="c1">zebra stripes</entry>
-              <entry align="center" colname="c2">are neat</entry>
-              <entry align="right" colname="c3">$1</entry>
+              <entry align="left" colname="col1">zebra stripes</entry>
+              <entry align="center" colname="col2">are neat</entry>
+              <entry align="right" colname="col3">$1</entry>
             </row>
           </tbody>
         </tgroup>
@@ -161,39 +162,39 @@ The outer pipes (|) are optional, and you don't need to make the
 raw Markdown line up prettily. You can also use inline Markdown.</p>
       <table>
         <tgroup cols="3">
-          <colspec colname="c1" colnum="1"></colspec>
-          <colspec colname="c2" colnum="2"></colspec>
-          <colspec colname="c3" colnum="3"></colspec>
+          <colspec colname="col1" colnum="1"></colspec>
+          <colspec colname="col2" colnum="2"></colspec>
+          <colspec colname="col3" colnum="3"></colspec>
           <thead>
             <row>
-              <entry align="left" colname="c1">Markdown</entry>
-              <entry align="left" colname="c2">Less</entry>
-              <entry align="left" colname="c3">Pretty</entry>
+              <entry align="left" colname="col1">Markdown</entry>
+              <entry align="left" colname="col2">Less</entry>
+              <entry align="left" colname="col3">Pretty</entry>
             </row>
           </thead>
           <tbody>
             <row>
-              <entry align="left" colname="c1">
+              <entry align="left" colname="col1">
                 <i>Still</i>
               </entry>
-              <entry align="left" colname="c2">
+              <entry align="left" colname="col2">
                 <codeph>renders</codeph>
               </entry>
-              <entry align="left" colname="c3">
+              <entry align="left" colname="col3">
                 <b>nicely</b>
               </entry>
             </row>
             <row>
-              <entry align="left" colname="c1">1</entry>
-              <entry align="left" colname="c2">2</entry>
-              <entry align="left" colname="c3">3</entry>
+              <entry align="left" colname="col1">1</entry>
+              <entry align="left" colname="col2">2</entry>
+              <entry align="left" colname="col3">3</entry>
             </row>
           </tbody>
         </tgroup>
       </table>
     </body>
   </topic>
-  <topic id="blockquotes">
+  <topic id="blockquotes" specializations="@props/deliveryTarget">
     <title>Blockquotes</title>
     <body>
       <p>Blockquotes are very handy in email to emulate reply text.
@@ -205,7 +206,7 @@ This line is part of the same quote.</p>
 Blockquotes are very handy in email to emulate reply text. This line is part of the same quote.</p>
     </body>
   </topic>
-  <topic id="inline-html">
+  <topic id="inline-html" specializations="@props/deliveryTarget">
     <title>Inline HTML</title>
     <body>
       <p>You can also use raw HTML in your Markdown, and it'll mostly work pretty well.</p>
@@ -217,7 +218,7 @@ Does
         <b>very</b>well. Use HTML tags.</p>
     </body>
   </topic>
-  <topic id="horizontal-rule">
+  <topic id="horizontal-rule" specializations="@props/deliveryTarget">
     <title>Horizontal Rule</title>
     <body>
       <p>Three or more...</p>

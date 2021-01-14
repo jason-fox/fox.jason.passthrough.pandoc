@@ -5,21 +5,21 @@
 		Expect that Pandoc can create a DITA file using Pandoc flavoured markdown as an input.
 	</description>
 	<target name="unit-test">
-
+		<property name="file" value="${basedir}/out/markdown.md"/>
 		<exec-transtype transtype="dita"/>
 		<xmltask expandEntityReferences="false"
-			dest="${basedir}/out/markdown.md" 
+			dest="${file}" 
 			outputter="simple" 
-			source="${basedir}/out/markdown.md">
+			source="${file}">
 			<xmlcatalog>
 				<dtd publicId="-//OASIS//DTD DITA Topic//EN" 
-				location="${dita.dir}/plugins/fox.jason.passthrough/resource/fake.dtd"/>
+				location="../fake.dtd"/>
 			</xmlcatalog>
 		</xmltask>
-		<replace file="${basedir}/out/markdown.md" token="&amp;#8217;" value="'"/>
-		<replace file="${basedir}/out/markdown.md" token="&amp;#8230;" value="..."/>
-		<replace file="${basedir}/out/markdown.md" token="&amp;#8211;" value="--"/>
+		<replace file="${file}" token="&amp;#8217;" value="'"/>
+		<replace file="${file}" token="&amp;#8230;" value="..."/>
+		<replace file="${file}" token="&amp;#8211;" value="--"/>
 
-		<compare-output suffix=".xml" result="${basedir}/out/markdown.md"/>
+		<compare-output suffix=".xml" result="${file}"/>
 	</target>
 </project>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<topic id="topic-1">
+<?path2rootmap-uri ./?>
+<topic id="topic-1" specializations="@props/deliveryTarget">
   <title>Topic 1</title>
   <body></body>
-  <topic id="subtopic-1a">
+  <topic id="subtopic-1a" specializations="@props/deliveryTarget">
     <title>Subtopic 1a</title>
     <body>
       <p>Rutrum curabitur eleifend quam porta nostra mauris aenean curae duis, lectus non neque nulla dictumst platea aliquam pulvinar aptent pretium, feugiat magnis tellus quis ultricies parturient felis lacinia. Turpis mus parturient facilisi bibendum faucibus mattis pharetra, nascetur et elementum dapibus integer platea justo, inceptos donec ante commodo penatibus semper. Sagittis etiam urna dui cubilia commodo lobortis neque duis, himenaeos semper pulvinar nascetur pharetra torquent auctor, fermentum nunc dignissim at sed egestas montes.</p>
@@ -17,13 +18,13 @@
       </section>
     </body>
   </topic>
-  <topic id="subtopic-1b">
+  <topic id="subtopic-1b" specializations="@props/deliveryTarget">
     <title>Subtopic 1b</title>
     <body>
       <p>Est vel ad nisi varius semper risus facilisis, ante justo sociosqu mi aptent cubilia, mus etiam commodo dapibus magnis pulvinar. Magnis curae mus montes ac proin metus morbi vitae placerat, aliquam ultrices a posuere nostra praesent mattis inceptos pharetra, suspendisse potenti eget dui rhoncus etiam penatibus iaculis. Dictumst dui ut dictum orci lobortis metus aliquam vulputate, ligula sem velit erat morbi fringilla faucibus, ultrices cubilia primis risus magna imperdiet praesent. Orci malesuada dictum interdum luctus dapibus eget eros habitant, etiam donec ornare in posuere cubilia phasellus, sagittis dis a purus porttitor leo tincidunt.</p>
     </body>
   </topic>
-  <topic id="topic-2">
+  <topic id="topic-2" specializations="@props/deliveryTarget">
     <title>Topic 2</title>
     <body>
       <p>Molestie proin id vivamus risus inceptos massa, congue aptent varius nullam nostra sociis lacus, justo natoque convallis metus aliquet. Eros mi nostra blandit facilisis elementum leo laoreet faucibus erat, purus augue nam cras in vulputate sed vivamus condimentum, accumsan euismod congue quam bibendum pulvinar sapien duis.</p>
@@ -34,7 +35,7 @@
       </section>
     </body>
   </topic>
-  <topic id="subtopic-2a">
+  <topic id="subtopic-2a" specializations="@props/deliveryTarget">
     <title>Subtopic 2a</title>
     <body>
       <p>Aliquet ultricies quam in netus sem ad consequat placerat mattis, sed fermentum quis curae hac sociosqu luctus accumsan porta lacus, convallis odio enim egestas orci quisque ullamcorper elementum. Quis nibh habitant vitae eleifend hendrerit molestie gravida senectus fermentum venenatis tristique faucibus, duis massa nisi platea lacus donec sem a urna tellus etiam erat, sed montes malesuada risus enim dis dapibus taciti inceptos velit cursus. Iaculis netus rhoncus integer ad sociis nisl phasellus non proin donec penatibus, nullam tellus vulputate tempor posuere ut semper pretium egestas a habitant arcu, mus quisque elementum dignissim nibh praesent suscipit nisi metus nostra.</p>

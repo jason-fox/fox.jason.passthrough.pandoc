@@ -900,7 +900,7 @@ function Table(caption, aligns, widths, headers, rows)
   local empty_header = true
   for i, h in pairs(headers) do
     local align = dita_align(aligns[i])
-    table.insert(header_row,'\t\t\t\t<entry class=" topic/entry " colname="c' .. i .. '" dita-ot:x="' .. i .. '" align="' .. align ..  '">' .. h .. '</entry>')
+    table.insert(header_row,'\t\t\t\t<entry class=" topic/entry " colname="c' .. i .. '" align="' .. align ..  '">' .. h .. '</entry>')
     empty_header = empty_header and h == ""
   end
   if empty_header then
@@ -931,7 +931,7 @@ function Table(caption, aligns, widths, headers, rows)
         c = '<lines class=" topic/lines ">' .. c  .. '</lines>'
       end
       add('\t\t\t\t<entry class=" topic/entry " colname="c' .. i 
-        .. '" dita-ot:x="' .. i .. '" align="' .. align ..  '">' .. c .. '</entry>')
+        .. '" align="' .. align ..  '">' .. c .. '</entry>')
     end
     add('\t\t\t</row>')
   end
