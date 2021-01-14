@@ -11,7 +11,7 @@
 			<artifactId>passthrough.parser</artifactId>
 			<version>${passthrough-version}</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/../fox.jason.passthrough/lib/passthrough.parser-${passthrough-version}.jar</systemPath>
+			<systemPath>${project.basedir}/lib/passthrough.parser-${passthrough-version}.jar</systemPath>
 		</dependency>
 	</dependencies>
 

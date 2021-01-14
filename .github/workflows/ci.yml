@@ -34,8 +34,6 @@ jobs:
         with:
           dita-ot-version: 3.6
           plugin: 'fox.jason.passthrough.pandoc'
-          prerequisites: |
-            https://github.com/jason-fox/fox.jason.passthrough/archive/master.zip
           setup-script: 'test/setup.sh'
         env:
           COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
