@@ -23,16 +23,10 @@
 
 			<echo if:set="pandoc.installed" taskname="pandoc" level="info" message="Processing @{title}" />
 
-			<!-- For Unix run Pandoc as an executable -->
-			<exec executable="pandoc" dir="${java.io.tmpdir}" osfamily="unix" taskname="pandoc" errorproperty="pandoc.error" resultproperty="pandoc.result" >
-				<arg line="&quot;@{src}&quot;  -t ${basedir}/resource/topic.lua -o  &quot;@{dest}&quot; -M title=&quot;@{title}&quot; "/>
-			</exec>
-			<!-- For Windows run from a DOS command -->
-			<exec if:set="pandoc.installed" executable="cmd" dir="${java.io.tmpdir}" osfamily="windows" taskname="pandoc" errorproperty="pandoc.error" resultproperty="pandoc.result">
-				<arg value="/C"/>
-				<arg value="pandoc &quot;@{src}&quot;  -t ${basedir}/resource/topic.lua -o &quot;@{dest}&quot; -M title=&quot;@{title}&quot; "/>
-			</exec>
-
+		    <exec executable="pandoc" dir="${java.io.tmpdir}" taskname="pandoc" errorproperty="pandoc.error" resultproperty="pandoc.result" failifexecutionfails="true" failonerror="true">
+		        <arg line="&quot;@{src}&quot;  -t ${basedir}${file.separator}resource${file.separator}topic.lua -o  &quot;@{dest}&quot; -M title=&quot;@{title}&quot; "/>
+		    </exec>
+		    
 			<process-pandoc-errors src="@{src}" result="${pandoc.result}" message="${pandoc.error}"/>
 		</sequential>
 	</macrodef>
