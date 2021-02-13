@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<?path2rootmap-uri ./?>
+<topic id="xxx" specializations="@props/deliveryTarget">
+  <title>XXX</title>
+  <body></body>
+  <topic id="security" specializations="@props/deliveryTarget">
+    <title>Security</title>
+    <body>
+      <table>
+        <tgroup cols="3">
+          <colspec colname="col1" colnum="1"></colspec>
+          <colspec colname="col2" colnum="2"></colspec>
+          <colspec colname="col3" colnum="3"></colspec>
+          <thead>
+            <row>
+              <entry align="left" colname="col1">Type</entry>
+              <entry align="left" colname="col2">Name</entry>
+              <entry align="left" colname="col3">Scopes</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry align="left" colname="col1">
+                <b>oauth2</b>
+              </entry>
+              <entry align="left" colname="col2">
+                <b>
+                  <xref format="dita" href="#petstore-auth">petstore_auth</xref>
+                </b>
+              </entry>
+              <entry align="left" colname="col3">write:pets,read:pets</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </body>
+    <topic id="query-parameters" specializations="@props/deliveryTarget">
+      <title>Query Parameters</title>
+      <body>
+        <table>
+          <tgroup cols="3">
+            <colspec colname="col1" colnum="1" colwidth="13%"></colspec>
+            <colspec colname="col2" colnum="2" colwidth="27%"></colspec>
+            <colspec colname="col3" colnum="3" colwidth="59%"></colspec>
+            <thead>
+              <row>
+                <entry align="left" colname="col1">Key</entry>
+                <entry align="left" colname="col2">Value</entry>
+                <entry align="left" colname="col3">Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry align="left" colname="col1">
+                  <codeph>georel</codeph>
+                </entry>
+                <entry align="left" colname="col2">
+                  <codeph>near;maxDistance:1500</codeph>
+                </entry>
+                <entry align="left" colname="col3"></entry>
+              </row>
+              <row>
+                <entry align="left" colname="col1">
+                  <codeph>geometry</codeph>
+                </entry>
+                <entry align="left" colname="col2">
+                  <codeph>point</codeph>
+                </entry>
+                <entry align="left" colname="col3"></entry>
+              </row>
+              <row>
+                <entry align="left" colname="col1">
+                  <codeph>coords</codeph>
+                </entry>
+                <entry align="left" colname="col2">
+                  <codeph>52.5162,13.3777</codeph>
+                </entry>
+                <entry align="left" colname="col3"></entry>
+              </row>
+              <row>
+                <entry align="left" colname="col1">
+                  <codeph>type</codeph>
+                </entry>
+                <entry align="left" colname="col2">
+                  <codeph>Store</codeph>
+                </entry>
+                <entry align="left" colname="col3">Entity type, to avoid ambiguity in case there are several entities with the same entity id</entry>
+              </row>
+              <row>
+                <entry align="left" colname="col1">
+                  <lines>
+                    <codeph>options</codeph>
+                  </lines>
+                </entry>
+                <entry align="left" colname="col2">
+                  <lines>
+                    <codeph>keyValues</codeph>
+                  </lines>
+                </entry>
+                <entry align="left" colname="col3">
+                  <lines>*
+                    <codeph>keyValues</codeph>option in order to get a more compact and brief representation, including just attribute values
+
+*
+                    <codeph>values</codeph>option combined with a list of attribute values
+                    <codeph>attrs</codeph>for an ordered list of attributes only</lines>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" colname="col1">
+                  <codeph>attrs</codeph>
+                </entry>
+                <entry align="left" colname="col2">
+                  <codeph>name</codeph>
+                </entry>
+                <entry align="left" colname="col3">Ordered list of attribute names to display</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </body>
+    </topic>
+  </topic>
+</topic>
+

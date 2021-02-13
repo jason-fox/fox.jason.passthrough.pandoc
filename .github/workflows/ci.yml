@@ -1,0 +1,37 @@
+name: CI
+'on':
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  sonarcloud:
+    name: SonarCloud Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+      - name: Use Java 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: SonarCloud Scan
+        uses: jason-fox/sonarcloud-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_CLOUD_LOGIN: ${{ secrets.SONAR_CLOUD_LOGIN }}
+
+  unit-test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+      - name: Run DITA-OT Unit Test
+        uses: jason-fox/dita-unit-test-action@master
+        with:
+          dita-ot-version: 3.6
+          plugin: 'fox.jason.passthrough.pandoc'
+          setup-script: 'test/setup.sh'
