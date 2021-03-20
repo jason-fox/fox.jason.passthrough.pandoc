@@ -40,6 +40,12 @@
      letter-spacing: 1px;
      font-size: 87.5%;
 }
+ pre {
+     border-width: 1px;
+     border-style: solid;
+     border-color: #c0c7d2;
+     border-radius: .25rem;
+}
  pre code {
      color: #ffffff !important 
 }
@@ -69,6 +75,9 @@
      font-weight: normal !important;
      color: #000 !important;
      margin: 0 0 0 0 !important 
+}
+ .toctree-expand {
+     display: none !important;
 }
  .fa-home:before, .icon-home:before {
      content: None !important 
