@@ -1,1 +1,4 @@
-test/* linguist-vendored
+test/** linguist-vendored
+
+process_pandoc.xml linguist-language=Ant-Build-System
+resource/antlib.xml linguist-language=Ant-Build-System
