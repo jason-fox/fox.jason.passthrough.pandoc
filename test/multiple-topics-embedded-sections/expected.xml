@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<?path2rootmap-uri ./?>
+<topic id="identity" specializations="@props/deliveryTarget">
+  <title>identity</title>
+  <body></body>
+  <topic id="paths" specializations="@props/deliveryTarget">
+    <title>Paths</title>
+    <body>
+      <section id="list-versions" outputclass="section">
+        <title>List versions</title>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit duis, massa eleifend natoque vestibulum penatibus aenean quis imperdiet, blandit ante laoreet ultricies risus nascetur faucibus. Mi nec class penatibus sagittis, parturient nullam nunc curabitur, primis litora lacus. Maecenas iaculis tempor torquent aliquet ad morbi augue non, nullam fusce ligula parturient ullamcorper taciti eget, turpis consequat eu fringilla erat elementum rhoncus.</p>
+      </section>
+    </body>
+  </topic>
+</topic>
+

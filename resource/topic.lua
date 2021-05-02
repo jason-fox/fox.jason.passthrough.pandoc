@@ -238,10 +238,14 @@ local function nestTopicWithinParent (index, parent)
       end
     elseif (topicCount == 1 or topicClosure > topicCount) then
        pushElementToTopic(index, "</body>\n")
+    elseif (index == #topics and parent > 1) then
+        pushElementToTopic(index, "</body>\n")
     else
       pushElementToTopic(index, "</" .. topics[parent].name .. ">\n")
     end
   end
+
+
 
 
   -- Close the existing parent body if it is still open
