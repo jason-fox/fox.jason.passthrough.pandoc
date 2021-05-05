@@ -24,6 +24,7 @@
 			<echo if:set="pandoc.installed" taskname="pandoc" level="info" message="Processing @{title}" />
 
 			<!-- For Unix run Pandoc as an executable -->
+			<mkdir dir="${java.io.tmpdir}"/>
 			<exec executable="pandoc" dir="${java.io.tmpdir}" osfamily="unix" taskname="pandoc" errorproperty="pandoc.error" resultproperty="pandoc.result" >
 				<arg line="&quot;@{src}&quot;  -t ${basedir}/resource/topic.lua -o  &quot;@{dest}&quot; -M title=&quot;@{title}&quot; "/>
 			</exec>
