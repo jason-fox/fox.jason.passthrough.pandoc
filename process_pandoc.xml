@@ -2,7 +2,7 @@
 	This file is part of the DITA-OT Pandoc Plug-in project.
 	See the accompanying LICENSE file for applicable licenses.
 -->
-<project name="fox.jason.passthrough.pandoc.dita" xmlns:if="ant:if" xmlns:unless="ant:unless" default="pandoc.process">
+<project name="fox.jason.passthrough.pandoc.dita" xmlns:if="ant:if" xmlns:unless="ant:unless"  xmlns:pandoc="antlib:fox.jason.passthrough.pandoc" default="pandoc.process">
 	<!--
 		Setting up Pandoc processing. Check that Pandoc is installed
 	-->
@@ -34,7 +34,6 @@
 		<property name="passthrough.input" value=""/>
 		<property name="passthrough.output" value=""/>
 		<property name="passthrough.title" value=""/>
-		<typedef file="${basedir}/resource/antlib.xml"/>
-		<add-pandoc-file src="${passthrough.input}" dest="${passthrough.output}" title="${passthrough.title}"/>
+		<pandoc:add-file src="${passthrough.input}" dest="${passthrough.output}" title="${passthrough.title}"/>
 	</target>
 </project>

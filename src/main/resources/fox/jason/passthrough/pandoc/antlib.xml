@@ -4,7 +4,6 @@
 	See the accompanying LICENSE file for applicable licenses.
 -->
 <antlib xmlns:if="ant:if" xmlns:unless="ant:unless">
-
 	<!--
 		Individual file processing for pandoc.
 		Take an input format run pandoc against it and convert to DITA
@@ -13,13 +12,15 @@
 		@param dest - The output file location
 		@param title - The title of the converted file
 	-->
-	<macrodef name="add-pandoc-file">
+	<macrodef name="add-file">
 		<attribute name="src" />
 		<attribute name="dest" />
 		<attribute name="title" />
 		<sequential>
 			<local name="pandoc.result"/>
 			<local name="pandoc.error"/>
+			<local name="pandoc.isError"/>
+			<local name="pandoc.message.code"/>
 
 			<echo if:set="pandoc.installed" taskname="pandoc" level="info" message="Processing @{title}" />
 
@@ -34,40 +35,18 @@
 				<arg value="pandoc &quot;@{src}&quot;  -t &quot;${basedir}/resource/topic.lua&quot; -o &quot;@{dest}&quot; -M title=&quot;@{title}&quot; "/>
 			</exec>
 
-			<process-pandoc-errors src="@{src}" result="${pandoc.result}" message="${pandoc.error}"/>
-		</sequential>
-	</macrodef>
-
-	<!--
-		Flag up any error messages created during file processing
-
-		@param src - The input file to convert to DITA
-		@param result - Whether Pandoc succeeded or failed
-		@param message - err.out from Pandoc
-	-->
-	<macrodef name="process-pandoc-errors">
-		<attribute name="result" />
-		<attribute name="message" />
-		<attribute name="src" />
-		<sequential>
-			<local name="pandoc.isError"/>
-			<local name="pandoc.message.code"/>
 
 			<condition property="pandoc.isError">
 				<not>
-					<equals arg1="@{result}" arg2="0"/>
+					<equals arg1="${pandoc.result}" arg2="0"/>
 			    </not>
 			</condition>
-
-			<echo taskname="pandoc" if:set="pandoc.isError" level="error" message="@{message}"/>
-			
-
+			<echo taskname="pandoc" if:set="pandoc.isError" level="error" message="${pandoc.error}"/>
 			<fail id="PAND003F" if:set="pandoc.isError" message="Pandoc failed to generate documentation: @{src}"/>
 
 			<condition property="pandoc.message.code" value="PAND002W">
-				<contains string="@{message}" substring="Multiple Root Nodes detected."/>
+				<contains string="${pandoc.result}" substring="Multiple Root Nodes detected."/>
 			</condition>
-
 			<echo level="info" if:set="pandoc.message.code" id="${pandoc.message.code}" message="Multiple H1 headers detected in file: $title"/>
 		</sequential>
 	</macrodef>
