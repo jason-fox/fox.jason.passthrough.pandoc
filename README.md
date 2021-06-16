@@ -125,10 +125,10 @@ The `dita` command line tool requires no additional configuration.
 
 To download a copy follow the instructions on the [Install page](https://github.com/jgm/pandoc/blob/master/INSTALL.md)
 
-If running DITA-OT with the Oxygen editor on Mac OS, if you start Oxygen from the Terminal using `sh oxygen.sh` in the Oxygen installation
-folder, when Oxygen runs the DITA OT, the build file manages to run the `pandoc` executable. Starting Oxygen by double clicking it's shortcut
-in the Finder, does not work reliably, it works only if the path to the pandoc executable `/usr/local/bin/pandoc` is fully specified in the build file.
-`process_pandoc.xml`
+If running DITA-OT with the Oxygen editor on Mac OS, and if you start Oxygen from the Terminal using `sh oxygen.sh` in the Oxygen installation
+folder, when Oxygen runs the DITA OT, the build file manages to run the `pandoc` executable. Starting Oxygen by double clicking the shortcut
+in the Finder, does not work reliably, it works only if the path to the Pandoc executable `/usr/local/bin/` is fully specified in the configuration file.
+`fox.jason.passthrough.pandoc/cfg/configuration.properties`
 
 ## Usage
 

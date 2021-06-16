@@ -7,8 +7,15 @@
 		Setting up Pandoc processing. Check that Pandoc is installed
 	-->
 	<target name="pandoc.check">
-		<!-- For Unix run Pandoc as an executable -->
-		<exec executable="pandoc" dir="${dita.dir}" osfamily="unix" taskname="pandoc"
+		<property file="${dita.plugin.fox.jason.passthrough.dita.dir}/cfg/configuration.properties"/>
+		<property name="pandoc.dir" value=""/>
+		<!-- For Unix, run Pandoc as an executable assuming it is on the classpath -->
+		<exec if:blank="${pandoc.dir}" executable="pandoc" dir="${dita.dir}" osfamily="unix" taskname="pandoc"
+			resultproperty="pandoc.result" outputproperty="pandoc.out" failonerror="false" failifexecutionfails="false">
+			<arg line="-v"/>
+		</exec>
+		<!-- For Unix, run Pandoc as an executable from a defined directory-->
+		<exec unless:blank="${pandoc.dir}" executable="pandoc" dir="${pandoc.dir}" osfamily="unix" taskname="pandoc"
 			resultproperty="pandoc.result" outputproperty="pandoc.out" failonerror="false" failifexecutionfails="false">
 			<arg line="-v"/>
 		</exec>
@@ -16,7 +23,7 @@
 		<exec executable="cmd" dir="${dita.dir}" osfamily="windows" taskname="pandoc"
 			resultproperty="pandoc.result" outputproperty="pandoc.out" failonerror="false" failifexecutionfails="false">
 			<arg value="/C"/>
-			<arg value="pandoc -v"/>
+			<arg value="${pandoc.dir}pandoc -v"/>
 		</exec>
 
 		<condition property="pandoc.installed">
@@ -34,6 +41,8 @@
 		<property name="passthrough.input" value=""/>
 		<property name="passthrough.output" value=""/>
 		<property name="passthrough.title" value=""/>
+		<property file="${basedir}/cfg/configuration.properties"/>
+		<property name="pandoc.dir" value=""/>
 		<pandoc:add-file src="${passthrough.input}" dest="${passthrough.output}" title="${passthrough.title}"/>
 	</target>
 </project>
