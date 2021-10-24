@@ -7,13 +7,14 @@
 	<target name="unit-test">
 		<property name="file" value="${basedir}/out/topic.html"/>
 		<exec-transtype transtype="dita"/>
-		<xmltask expandEntityReferences="false"
-			dest="${file}" 
-			outputter="simple" 
-			source="${file}">
+		<xmltask
+      expandEntityReferences="false"
+      dest="${file}"
+      outputter="simple"
+      source="${file}"
+    >
 			<xmlcatalog>
-				<dtd publicId="-//OASIS//DTD DITA Topic//EN" 
-				location="../fake.dtd"/>
+				<dtd publicId="-//OASIS//DTD DITA Topic//EN" location="../fake.dtd"/>
 			</xmlcatalog>
 		</xmltask>
 		<replace file="${file}" token="&amp;#8217;" value="'"/>

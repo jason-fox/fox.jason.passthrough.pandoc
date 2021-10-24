@@ -1,27 +1,63 @@
-<?xml version="1.0" encoding="UTF-8"?><!--ant--><!--
+<?xml version="1.0" encoding="UTF-8"?>
+<!--ant-->
+<!--
 	This file is part of the DITA-OT Pandoc Plug-in project.
 	See the accompanying LICENSE file for applicable licenses.
 -->
-<project name="fox.jason.passthrough.pandoc.dita" xmlns:if="ant:if" xmlns:unless="ant:unless"  xmlns:pandoc="antlib:fox.jason.passthrough.pandoc" default="pandoc.process">
+<project
+  name="fox.jason.passthrough.pandoc.dita"
+  xmlns:if="ant:if"
+  xmlns:unless="ant:unless"
+  xmlns:pandoc="antlib:fox.jason.passthrough.pandoc"
+  default="pandoc.process"
+>
 	<!--
 		Setting up Pandoc processing. Check that Pandoc is installed
 	-->
 	<target name="pandoc.check">
-		<property file="${dita.plugin.fox.jason.passthrough.dita.dir}/cfg/configuration.properties"/>
+		<property
+      file="${dita.plugin.fox.jason.passthrough.dita.dir}/cfg/configuration.properties"
+    />
 		<property name="pandoc.dir" value=""/>
 		<!-- For Unix, run Pandoc as an executable assuming it is on the classpath -->
-		<exec if:blank="${pandoc.dir}" executable="pandoc" dir="${dita.dir}" osfamily="unix" taskname="pandoc"
-			resultproperty="pandoc.result" outputproperty="pandoc.out" failonerror="false" failifexecutionfails="false">
+		<exec
+      if:blank="${pandoc.dir}"
+      executable="pandoc"
+      dir="${dita.dir}"
+      osfamily="unix"
+      taskname="pandoc"
+      resultproperty="pandoc.result"
+      outputproperty="pandoc.out"
+      failonerror="false"
+      failifexecutionfails="false"
+    >
 			<arg line="-v"/>
 		</exec>
 		<!-- For Unix, run Pandoc as an executable from a defined directory-->
-		<exec unless:blank="${pandoc.dir}" executable="pandoc" dir="${pandoc.dir}" osfamily="unix" taskname="pandoc"
-			resultproperty="pandoc.result" outputproperty="pandoc.out" failonerror="false" failifexecutionfails="false">
+		<exec
+      unless:blank="${pandoc.dir}"
+      executable="pandoc"
+      dir="${pandoc.dir}"
+      osfamily="unix"
+      taskname="pandoc"
+      resultproperty="pandoc.result"
+      outputproperty="pandoc.out"
+      failonerror="false"
+      failifexecutionfails="false"
+    >
 			<arg line="-v"/>
 		</exec>
 		<!-- For Windows run from a DOS command -->
-		<exec executable="cmd" dir="${dita.dir}" osfamily="windows" taskname="pandoc"
-			resultproperty="pandoc.result" outputproperty="pandoc.out" failonerror="false" failifexecutionfails="false">
+		<exec
+      executable="cmd"
+      dir="${dita.dir}"
+      osfamily="windows"
+      taskname="pandoc"
+      resultproperty="pandoc.result"
+      outputproperty="pandoc.out"
+      failonerror="false"
+      failifexecutionfails="false"
+    >
 			<arg value="/C"/>
 			<arg value="${pandoc.dir}pandoc -v"/>
 		</exec>
@@ -31,7 +67,12 @@
 		</condition>
 
 		<dita-ot-echo unless:set="pandoc.installed" id="PAND001W"/>
-		<echo if:set="pandoc.installed"  taskname="pandoc" level="info" message="${pandoc.out}"/>
+		<echo
+      if:set="pandoc.installed"
+      taskname="pandoc"
+      level="info"
+      message="${pandoc.out}"
+    />
 	</target>
 
 	<!--
@@ -43,6 +84,10 @@
 		<property name="passthrough.title" value=""/>
 		<property file="${basedir}/cfg/configuration.properties"/>
 		<property name="pandoc.dir" value=""/>
-		<pandoc:add-file src="${passthrough.input}" dest="${passthrough.output}" title="${passthrough.title}"/>
+		<pandoc:add-file
+      src="${passthrough.input}"
+      dest="${passthrough.output}"
+      title="${passthrough.title}"
+    />
 	</target>
 </project>

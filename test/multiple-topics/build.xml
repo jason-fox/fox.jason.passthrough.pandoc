@@ -8,10 +8,14 @@
 
 		<property name="file" value="${basedir}/out/markdown.md"/>
 		<exec-transtype transtype="dita"/>
-		<xmltask expandEntityReferences="false" dest="${file}" outputter="simple" source="${file}">
+		<xmltask
+      expandEntityReferences="false"
+      dest="${file}"
+      outputter="simple"
+      source="${file}"
+    >
 			<xmlcatalog>
-				<dtd publicId="-//OASIS//DTD DITA Topic//EN" 
-				location="../fake.dtd"/>
+				<dtd publicId="-//OASIS//DTD DITA Topic//EN" location="../fake.dtd"/>
 			</xmlcatalog>
 		</xmltask>
 		<compare-output suffix=".xml" result="${file}"/>

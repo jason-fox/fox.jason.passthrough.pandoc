@@ -1,5 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fox.jason</groupId>
 	<artifactId>passthrough.pandoc</artifactId>
@@ -16,7 +19,8 @@
 			<artifactId>passthrough.parser</artifactId>
 			<version>${passthrough-version}</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/passthrough.parser-${passthrough-version}.jar</systemPath>
+			<systemPath
+      >${project.basedir}/lib/passthrough.parser-${passthrough-version}.jar</systemPath>
 		</dependency>
 	</dependencies>
 
@@ -30,8 +34,10 @@
 		<sonar.test.exclusions>test</sonar.test.exclusions>
 		<sonar.cpd.exclusions>src/fox/jason/passthrough/**</sonar.cpd.exclusions>  
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<sonar.flex.cobertura.reportPaths>coverage.xml</sonar.flex.cobertura.reportPaths>
-		<sonar.exclusions>coverage.html,test-results.html,pom.xml,coverage.xml</sonar.exclusions>
+		<sonar.flex.cobertura.reportPaths
+    >coverage.xml</sonar.flex.cobertura.reportPaths>
+		<sonar.exclusions
+    >coverage.html,test-results.html,pom.xml,coverage.xml</sonar.exclusions>
 	</properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -46,7 +52,8 @@
 							<directory>target</directory>
                             <directory>lib</directory>
                             <excludes>
-                                <exclude>passthrough.parser-${passthrough-version}.jar</exclude>
+                                <exclude
+                  >passthrough.parser-${passthrough-version}.jar</exclude>
                             </excludes>
                             <followSymlinks>false</followSymlinks>
                         </fileset>

@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--ant-->
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--ant-->
 <!--
 	This file is part of the DITA-OT Passthrough Pandoc Plug-in project.
 	See the accompanying LICENSE file for applicable licenses.
@@ -13,30 +14,65 @@
 		@param title - The title of the converted file
 	-->
 	<macrodef name="add-file">
-		<attribute name="src" />
-		<attribute name="dest" />
-		<attribute name="title" />
+		<attribute name="src"/>
+		<attribute name="dest"/>
+		<attribute name="title"/>
 		<sequential>
 			<local name="pandoc.result"/>
 			<local name="pandoc.error"/>
 			<local name="pandoc.isError"/>
 			<local name="pandoc.message.code"/>
 
-			<echo if:set="pandoc.installed" taskname="pandoc" level="info" message="Processing @{title}" />
+			<echo
+        if:set="pandoc.installed"
+        taskname="pandoc"
+        level="info"
+        message="Processing @{title}"
+      />
 
 			<!-- For Unix, run Pandoc as an executable assuming it is on the classpath -->
 			<mkdir if:blank="${pandoc.dir}" dir="${java.io.tmpdir}"/>
-			<exec if:blank="${pandoc.dir}" executable="pandoc" dir="${java.io.tmpdir}" osfamily="unix" taskname="pandoc" errorproperty="pandoc.error" resultproperty="pandoc.result" >
-				<arg line="&quot;@{src}&quot;  -t &quot;${basedir}/resource/topic.lua&quot; -o  &quot;@{dest}&quot; -M title=&quot;@{title}&quot; "/>
+			<exec
+        if:blank="${pandoc.dir}"
+        executable="pandoc"
+        dir="${java.io.tmpdir}"
+        osfamily="unix"
+        taskname="pandoc"
+        errorproperty="pandoc.error"
+        resultproperty="pandoc.result"
+      >
+				<arg
+          line="&quot;@{src}&quot;  -t &quot;${basedir}/resource/topic.lua&quot; -o  &quot;@{dest}&quot; -M title=&quot;@{title}&quot; "
+        />
 			</exec>
 			<!-- For Unix, run Pandoc as an executable from a defined directory-->
-			<exec unless:blank="${pandoc.dir}" executable="pandoc" dir="${pandoc.dir}" osfamily="unix" taskname="pandoc" errorproperty="pandoc.error" resultproperty="pandoc.result" >
-				<arg line="&quot;@{src}&quot;  -t &quot;${basedir}/resource/topic.lua&quot; -o  &quot;@{dest}&quot; -M title=&quot;@{title}&quot; "/>
+			<exec
+        unless:blank="${pandoc.dir}"
+        executable="pandoc"
+        dir="${pandoc.dir}"
+        osfamily="unix"
+        taskname="pandoc"
+        errorproperty="pandoc.error"
+        resultproperty="pandoc.result"
+      >
+				<arg
+          line="&quot;@{src}&quot;  -t &quot;${basedir}/resource/topic.lua&quot; -o  &quot;@{dest}&quot; -M title=&quot;@{title}&quot; "
+        />
 			</exec>
 			<!-- For Windows run from a DOS command -->
-			<exec if:set="pandoc.installed" executable="cmd" dir="${java.io.tmpdir}" osfamily="windows" taskname="pandoc" errorproperty="pandoc.error" resultproperty="pandoc.result">
+			<exec
+        if:set="pandoc.installed"
+        executable="cmd"
+        dir="${java.io.tmpdir}"
+        osfamily="windows"
+        taskname="pandoc"
+        errorproperty="pandoc.error"
+        resultproperty="pandoc.result"
+      >
 				<arg value="/C"/>
-				<arg value="${pandoc.dir}pandoc &quot;@{src}&quot;  -t &quot;${basedir}/resource/topic.lua&quot; -o &quot;@{dest}&quot; -M title=&quot;@{title}&quot; "/>
+				<arg
+          value="${pandoc.dir}pandoc &quot;@{src}&quot;  -t &quot;${basedir}/resource/topic.lua&quot; -o &quot;@{dest}&quot; -M title=&quot;@{title}&quot; "
+        />
 			</exec>
 
 
@@ -45,13 +81,27 @@
 					<equals arg1="${pandoc.result}" arg2="0"/>
 			    </not>
 			</condition>
-			<echo taskname="pandoc" if:set="pandoc.isError" level="error" message="${pandoc.error}"/>
-			<fail id="PAND003F" if:set="pandoc.isError" message="Pandoc failed to generate documentation: @{src}"/>
+			<echo
+        taskname="pandoc"
+        if:set="pandoc.isError"
+        level="error"
+        message="${pandoc.error}"
+      />
+			<fail
+        id="PAND003F"
+        if:set="pandoc.isError"
+        message="Pandoc failed to generate documentation: @{src}"
+      />
 
 			<condition property="pandoc.message.code" value="PAND002W">
 				<contains string="${pandoc.result}" substring="Multiple Root Nodes detected."/>
 			</condition>
-			<echo level="info" if:set="pandoc.message.code" id="${pandoc.message.code}" message="Multiple H1 headers detected in file: $title"/>
+			<echo
+        level="info"
+        if:set="pandoc.message.code"
+        id="${pandoc.message.code}"
+        message="Multiple H1 headers detected in file: $title"
+      />
 		</sequential>
 	</macrodef>
 </antlib>
