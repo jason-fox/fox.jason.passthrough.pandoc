@@ -5,7 +5,7 @@
 	See the accompanying LICENSE file for applicable licenses.
 -->
 <project
-  name="fox.jason.passthrough.pandoc.dita"
+  name="fox.jason.passthrough.pandoc"
   xmlns:if="ant:if"
   xmlns:unless="ant:unless"
   xmlns:pandoc="antlib:fox.jason.passthrough.pandoc"
@@ -16,7 +16,7 @@
 	-->
 	<target name="pandoc.check">
 		<property
-      file="${dita.plugin.fox.jason.passthrough.dita.dir}/cfg/configuration.properties"
+      file="${dita.plugin.fox.jason.passthrough.pandoc.dir}/cfg/configuration.properties"
     />
 		<property name="pandoc.dir" value=""/>
 		<!-- For Unix, run Pandoc as an executable assuming it is on the classpath -->
