@@ -19,6 +19,7 @@
       file="${dita.plugin.fox.jason.passthrough.pandoc.dir}/cfg/configuration.properties"
     />
 		<property name="pandoc.dir" value=""/>
+		<record name="${dita.dir}/check.txt" action="start" loglevel="debug"/>
 		<!-- For Unix, run Pandoc as an executable assuming it is on the classpath -->
 		<exec
       if:blank="${pandoc.dir}"
@@ -61,6 +62,7 @@
 			<arg value="/C"/>
 			<arg value="${pandoc.dir}pandoc -v"/>
 		</exec>
+		<record name="${dita.dir}/check.txt" action="start" loglevel="debug"/>
 
 		<condition property="pandoc.installed">
 			<equals arg1="${pandoc.result}" arg2="0"/>

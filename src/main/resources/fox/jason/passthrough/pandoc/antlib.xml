@@ -32,6 +32,7 @@
 
 			<!-- For Unix, run Pandoc as an executable assuming it is on the classpath -->
 			<mkdir if:blank="${pandoc.dir}" dir="${java.io.tmpdir}"/>
+			<record name="${basedir}/../../exec.txt" action="start" loglevel="debug"/>
 			<exec
         if:blank="${pandoc.dir}"
         executable="pandoc"
@@ -60,10 +61,11 @@
         />
 			</exec>
 			<!-- For Windows run from a DOS command -->
+			
 			<exec
         if:set="pandoc.installed"
         executable="cmd"
-        dir="${java.io.tmpdir}"
+        dir="${basedir}"
         osfamily="windows"
         taskname="pandoc"
         errorproperty="pandoc.error"
@@ -74,6 +76,7 @@
           value="${pandoc.dir}pandoc &quot;@{src}&quot;  -t &quot;${basedir}/resource/topic.lua&quot; -o &quot;@{dest}&quot; -M title=&quot;@{title}&quot; "
         />
 			</exec>
+			<record name="${basedir}/../../exec.txt" action="stop"/>
 
 
 			<condition property="pandoc.isError">
@@ -82,6 +85,12 @@
 			    </not>
 			</condition>
 			<echo
+        taskname="pandoc"
+        if:set="pandoc.isError"
+        level="error"
+        message="${pandoc.error}"
+      />
+      <echo
         taskname="pandoc"
         if:set="pandoc.isError"
         level="error"

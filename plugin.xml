@@ -7,7 +7,7 @@
 <plugin id="fox.jason.passthrough.pandoc" version="2.0.1">
 	<feature
     extension="dita.conductor.lib.import"
-    file="lib/passthrough.pandoc-1.1.jar"
+    file="lib/passthrough.pandoc-1.1-d.jar"
   />
 	<feature
     extension="dita.conductor.lib.import"
