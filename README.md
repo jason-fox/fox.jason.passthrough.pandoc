@@ -316,4 +316,4 @@ This allows for topic metadata to be added to files for formats other than Markd
 
 ## License
 
-[Apache 2.0](LICENSE) © 2019 - 2021 Jason Fox
+[Apache 2.0](LICENSE) © 2019 - 2022 Jason Fox
