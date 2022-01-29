@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
+<bookmap>
+	<chapter>
+		<topicmeta>
+			<navtitle>Chapter</navtitle>
+		</topicmeta>
+		<topicref format="pandoc" processing-role="normal" type="topic" href="markdown.md"/>
+	</chapter>
+</bookmap>

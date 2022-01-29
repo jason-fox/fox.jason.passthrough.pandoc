@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<?path2rootmap-uri ./?>
+<topic id="word-file-with-various-structures" specializations="@props/deliveryTarget">
+  <title>Word File with various structures</title>
+  <body>
+    <p>Paragraph
+      <b>bold
+        <i>italic</i>
+      </b>
+      <image href="media/image1.jpg" scalefit="yes">
+        <alt></alt>
+      </image>
+    </p>
+    <p>And a link
+      <xref format="html" href="http://www.google.com" scope="external">Google</xref>
+    </p>
+    <p>some</p>
+    <p>space</p>
+    <p>preserve</p>
+    <p>Ordered list:</p>
+    <ol>
+      <li>
+        <p>List item 1</p>
+      </li>
+      <li>
+        <p>List item 2</p>
+      </li>
+      <li>
+        <p>Unordered list</p>
+      </li>
+    </ol>
+    <ul>
+      <li>
+        <p>Item 3</p>
+      </li>
+      <li>
+        <p>Item 4</p>
+      </li>
+    </ul>
+    <p>H3</p>
+    <p>C3</p>
+    <table>
+      <tgroup cols="3">
+        <colspec colname="col1" colnum="1"></colspec>
+        <colspec colname="col2" colnum="2"></colspec>
+        <colspec colname="col3" colnum="3"></colspec>
+        <thead>
+          <row>
+            <entry align="left" colname="col1">H1</entry>
+            <entry align="left" colname="col2">H2</entry>
+            <entry align="left" colname="col3"></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry align="left" colname="col1">C1</entry>
+            <entry align="left" colname="col2">C2</entry>
+            <entry align="left" colname="col3"></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <p>MathML Equation: \(\int_{c}^{b}a\)</p>
+  </body>
+</topic>
+

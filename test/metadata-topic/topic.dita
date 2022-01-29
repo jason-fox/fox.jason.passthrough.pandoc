@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic">
+  <title>topic</title>
+  <prolog>
+    <author>Author One</author>
+    <author>Author Two</author>
+    <source>Source</source>
+    <publisher>Publisher</publisher>
+    <permissions view="Permissions"/>
+    <metadata>
+      <audience audience="Audience"/>
+      <category>Category</category>
+      <keywords>
+        <keyword>Keyword1</keyword>
+        <keyword>Keyword2</keyword>
+      </keywords>
+    </metadata>
+    <resourceid appid="Resourceid1"/>
+    <resourceid appid="Resourceid2"/>
+    <data name="workflow" value="review"/>
+  </prolog>
+  <body>
+    <p>
+    Lorem ipsum dolor sit amet consectetur adipiscing, elit porttitor taciti nostra dis potenti donec, fusce gravida primis metus.
+    </p>
+  </body>
+</topic>
