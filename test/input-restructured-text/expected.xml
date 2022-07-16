@@ -28,7 +28,7 @@ converter to produce "Very Structured Text" that can be used by a web
 browser.</p>
       <p>The most basic pattern recognised is a
         <b>paragraph</b>(
-        <xref format="html" href="quickref.html#paragraphs" scope="external">quickref</xref>).
+        <xref format="html" href="quickref.html#literal-blocks" scope="external">quickref</xref>).
 That's a chunk of text that is separated by blank lines (one is
 enough). Paragraphs must have the same indentation -- that is, line
 up at their left edge. Paragraphs that start indented will result in
@@ -52,7 +52,7 @@ text, typically used for quoting other text.</p>
     <title>Text styles</title>
     <body>
       <p>(
-        <xref format="html" href="quickref.html#inline-markup" scope="external">quickref</xref>)</p>
+        <xref format="html" href="quickref.html#section-structure" scope="external">quickref</xref>)</p>
       <p>Inside paragraphs and other bodies of text, you may additionally mark
 text for
         <i>italics</i>with "
@@ -76,7 +76,7 @@ want text *surrounded by asterisks* to
 you need to indicate that the asterisk is not special. You do this by
 placing a backslash just before it, like so "
         <codeph>\*</codeph>" (
-        <xref format="html" href="quickref.html#escaping" scope="external">quickref</xref>), or
+        <xref format="html" href="quickref.html#directives" scope="external">quickref</xref>), or
 by enclosing it in double back-quotes (inline literals), like this:</p>
       <codeblock>``*``</codeblock>
       <p>Tip</p>
@@ -85,7 +85,7 @@ by enclosing it in double back-quotes (inline literals), like this:</p>
 the same way: immediately before and after the text being marked
 up. Inline markup by itself (surrounded by whitespace) or in the
 middle of a word won't be recognized. See the
-          <xref format="html" href="../../ref/rst/restructuredtext.html#inline-markup" scope="external">markup spec</xref>for
+          <xref format="html" href="../../ref/rst/directives.html" scope="external">markup spec</xref>for
 full details.</p>
       </note>
     </body>
@@ -208,19 +208,19 @@ Blank lines are not allowed between term and definition.</p>
         <dlentry>
           <dt>
             <b>enumerated</b>lists (numbers, letters or roman numerals;
-            <xref format="html" href="quickref.html#literal-blocks" scope="external">quickref</xref>)</dt>
+            <xref format="html" href="../../ref/rst/directives.html#images" scope="external">quickref</xref>)</dt>
           <dd></dd>
         </dlentry>
         <dlentry>
           <dt>
             <b>bulleted</b>lists (
-            <xref format="html" href="quickref.html#section-structure" scope="external">quickref</xref>)</dt>
+            <xref format="html" href="quickref.html#paragraphs" scope="external">quickref</xref>)</dt>
           <dd></dd>
         </dlentry>
         <dlentry>
           <dt>
             <b>definition</b>lists (
-            <xref format="html" href="quickref.html#directives" scope="external">quickref</xref>)</dt>
+            <xref format="html" href="quickref.html#inline-markup" scope="external">quickref</xref>)</dt>
           <dd></dd>
         </dlentry>
       </dl>
@@ -230,7 +230,7 @@ Blank lines are not allowed between term and definition.</p>
     <title>Preformatting (code samples)</title>
     <body>
       <p>(
-        <xref format="html" href="../../ref/rst/directives.html" scope="external">quickref</xref>)</p>
+        <xref format="html" href="quickref.html#escaping" scope="external">quickref</xref>)</p>
       <p>To just include a chunk of preformatted, never-to-be-fiddled-with
 text, finish the prior paragraph with "
         <codeph>::</codeph>". The preformatted
@@ -267,7 +267,7 @@ last "::" paragraph is removed</codeblock>
     <title>Sections</title>
     <body>
       <p>(
-        <xref format="html" href="../../ref/rst/directives.html#images" scope="external">quickref</xref>)</p>
+        <xref format="html" href="../../ref/rst/restructuredtext.html#inline-markup" scope="external">quickref</xref>)</p>
       <p>To break longer text up into sections, you use
         <b>section headers</b>.
 These are a single line of text (one or more words) with adornment: an

@@ -42,9 +42,9 @@
     <p>C3</p>
     <table>
       <tgroup cols="3">
-        <colspec colname="col1" colnum="1"></colspec>
-        <colspec colname="col2" colnum="2"></colspec>
-        <colspec colname="col3" colnum="3"></colspec>
+        <colspec colname="col1" colnum="1" colwidth="33%"></colspec>
+        <colspec colname="col2" colnum="2" colwidth="33%"></colspec>
+        <colspec colname="col3" colnum="3" colwidth="33%"></colspec>
         <thead>
           <row>
             <entry align="left" colname="col1">H1</entry>
