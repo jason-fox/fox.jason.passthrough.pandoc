@@ -1,7 +1,7 @@
 # Pandoc Plugin for DITA-OT [<img src="https://jason-fox.github.io/fox.jason.passthrough.pandoc/pandoc.png" align="right" width="300">](http://pandocdita-ot.rtfd.io/)
 
 [![license](https://img.shields.io/github/license/jason-fox/fox.jason.passthrough.pandoc.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![DITA-OT 4.0](https://img.shields.io/badge/DITA--OT-3.7-blue.svg)](http://www.dita-ot.org/3.7)
+[![DITA-OT 4.0](https://img.shields.io/badge/DITA--OT-4.0-green.svg)](http://www.dita-ot.org/4.0)
 [![CI](https://github.com/jason-fox/fox.jason.passthrough.pandoc/workflows/CI/badge.svg)](https://github.com/jason-fox/fox.jason.passthrough.pandoc/actions?query=workflow%3ACI)
 [![Documentation Status](https://readthedocs.org/projects/pandocdita-ot/badge/?version=latest)](https://pandocdita-ot.readthedocs.io/en/latest/?badge=latest)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fox.jason.passthrough.pandoc&metric=alert_status)](https://sonarcloud.io/dashboard?id=fox.jason.passthrough.pandoc)
