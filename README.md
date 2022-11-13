@@ -3,7 +3,6 @@
 [![license](https://img.shields.io/github/license/jason-fox/fox.jason.passthrough.pandoc.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![DITA-OT 4.0](https://img.shields.io/badge/DITA--OT-4.0-green.svg)](http://www.dita-ot.org/4.0)
 [![CI](https://github.com/jason-fox/fox.jason.passthrough.pandoc/workflows/CI/badge.svg)](https://github.com/jason-fox/fox.jason.passthrough.pandoc/actions?query=workflow%3ACI)
-[![Documentation Status](https://readthedocs.org/projects/pandocdita-ot/badge/?version=latest)](https://pandocdita-ot.readthedocs.io/en/latest/?badge=latest)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fox.jason.passthrough.pandoc&metric=alert_status)](https://sonarcloud.io/dashboard?id=fox.jason.passthrough.pandoc)
 
 This is a [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to extend the available input formats for DITA-OT. Non DITA
