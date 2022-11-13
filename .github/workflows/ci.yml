@@ -35,3 +35,8 @@ jobs:
           dita-ot-version: '4.0'
           plugin: 'fox.jason.passthrough.pandoc'
           setup-script: 'test/setup.sh'
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-results
+          path: test-results.html
