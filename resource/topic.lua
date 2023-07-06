@@ -719,10 +719,12 @@ function Header(lev, s, attr)
     parent[i]= #topics
   end
 
-  level[lev][#level[lev]+1] =  {
-    index = #topics,
-    parent =  parent[lev]
-  }
+  if not(level[lev] == nil) then
+    level[lev][#level[lev]+1] =  {
+      index = #topics,
+      parent =  parent[lev]
+    }
+  end
 
  -- Uncomment this line to see the structure of the document.
  -- print (#topics .. ' ' .. lev .. ' ' .. parent[lev] .. ' ' .. level[lev][#level[lev]].parent .. ' '.. s  )
@@ -757,6 +759,9 @@ function BlockQuote(s)
   return "<q class='- topic/q '>\n" .. s .. "\n</q>"
 end
 
+function Underline(s)
+  return "<q class='- topic/q '>\n" .. s .. "\n</q>"
+end
 
 -- HorizontalRule does not translate directly to a DITA element
 -- Add a carriage return
