@@ -14,7 +14,9 @@
 	<!--
 		Setting up Pandoc processing. Check that Pandoc is installed
 	-->
-	<target name="pandoc.check">
+	<target 
+		name="pandoc.check"
+		description="Ensure that Pandoc is available">
 		<property
       file="${dita.plugin.fox.jason.passthrough.pandoc.dir}/cfg/configuration.properties"
     />
