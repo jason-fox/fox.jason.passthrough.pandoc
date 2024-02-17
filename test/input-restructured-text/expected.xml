@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<?path2rootmap-uri ./?>
-<topic id="a-restructuredtext-primer" specializations="@props/deliveryTarget">
+<topic id="a-restructuredtext-primer">
   <title>A ReStructuredText Primer</title>
   <body>
     <p>The text below contains links that look like "(
@@ -14,11 +13,11 @@ quick reference</xref>document.</p>
     <note type="note">
       <p>This document is an informal introduction to
 reStructuredText. The
-        <xref format="dita" href="#what-next" type="topic">What Next?</xref>section below has links to
+        <xref href="restructured-text.dita#what-next" type="topic">What Next?</xref>section below has links to
 further resources, including a formal reference.</p>
     </note>
   </body>
-  <topic id="structure" specializations="@props/deliveryTarget">
+  <topic id="structure">
     <title>Structure</title>
     <body>
       <p>From the outset, let me say that "Structured Text" is probably a bit
@@ -48,7 +47,7 @@ text, typically used for quoting other text.</p>
       <p>This is another one.</p>
     </body>
   </topic>
-  <topic id="text-styles" specializations="@props/deliveryTarget">
+  <topic id="text-styles">
     <title>Text styles</title>
     <body>
       <p>(
@@ -90,7 +89,7 @@ full details.</p>
       </note>
     </body>
   </topic>
-  <topic id="lists" specializations="@props/deliveryTarget">
+  <topic id="lists">
     <title>Lists</title>
     <body>
       <p>Lists of items come in three main flavours:
@@ -226,7 +225,7 @@ Blank lines are not allowed between term and definition.</p>
       </dl>
     </body>
   </topic>
-  <topic id="preformatting-code-samples" specializations="@props/deliveryTarget">
+  <topic id="preformatting-code-samples">
     <title>Preformatting (code samples)</title>
     <body>
       <p>(
@@ -263,7 +262,7 @@ from the output:</p>
 last "::" paragraph is removed</codeblock>
     </body>
   </topic>
-  <topic id="sections" specializations="@props/deliveryTarget">
+  <topic id="sections">
     <title>Sections</title>
     <body>
       <p>(
@@ -321,14 +320,14 @@ concrete example, compare the section structure of this document's
 source text and processed output.)</p>
       <p>Note that section headers are available as link targets, just using
 their name. To link to the
-        <xref format="dita" href="#lists" type="topic">Lists</xref>heading, I write "
+        <xref href="restructured-text.dita#lists" type="topic">Lists</xref>heading, I write "
         <codeph>Lists_</codeph>". If
 the heading has a space in it like
-        <xref format="dita" href="#text-styles" type="topic">text styles</xref>, we need to quote
+        <xref href="restructured-text.dita#text-styles" type="topic">text styles</xref>, we need to quote
 the heading "
         <codeph>`text styles`_</codeph>".</p>
     </body>
-    <topic id="document-title-subtitle" specializations="@props/deliveryTarget">
+    <topic id="document-title-subtitle">
       <title>Document Title / Subtitle</title>
       <body>
         <p>The title of the whole document is distinct from section titles and
@@ -356,7 +355,7 @@ for aesthetics.</p>
       </body>
     </topic>
   </topic>
-  <topic id="images" specializations="@props/deliveryTarget">
+  <topic id="images">
     <title>Images</title>
     <body>
       <p>(quickref__)</p>
@@ -385,7 +384,7 @@ you wish to supply additional information, you may:</p>
         <ph outputclass="title-ref">image directive documentation</ph>__ for more info.</p>
     </body>
   </topic>
-  <topic id="what-next" specializations="@props/deliveryTarget">
+  <topic id="what-next">
     <title>What Next?</title>
     <body>
       <p>This primer introduces the most common features of reStructuredText,

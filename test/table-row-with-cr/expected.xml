@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<?path2rootmap-uri ./?>
-<topic id="lorem-ipsum" specializations="@props/deliveryTarget">
+<topic id="lorem-ipsum">
   <title>Lorem ipsum</title>
   <body></body>
-  <topic id="ut-finibus-mi-ac-hendrerit-posuere" specializations="@props/deliveryTarget">
+  <topic id="ut-finibus-mi-ac-hendrerit-posuere">
     <title>Ut finibus mi ac hendrerit posuere</title>
     <body>
       <p>Fusce efficitur sapien eget magna pretium, non molestie nulla elementum.</p>
@@ -20,13 +19,13 @@
       </ul>
     </body>
   </topic>
-  <topic id="cras-eu-lectus-sit-amet-purus" specializations="@props/deliveryTarget">
+  <topic id="cras-eu-lectus-sit-amet-purus">
     <title>Cras eu lectus sit amet purus</title>
     <body>
       <p>Vestibulum placerat felis turpis, et suscipit ipsum ornare at.</p>
       <ul>
         <li>Curabitur ac odio eget eros tincidunt condimentum. Xref
-          <xref format="dita" href="#lorem-ipsum" type="topic">lorem_ipsum</xref>.</li>
+          <xref href="test.dita#lorem-ipsum" type="topic">lorem_ipsum</xref>.</li>
         <li>Morbi pretium, orci ut scelerisque congue.</li>
         <li>quam arcu congue tellus, ut bibendum diam arcu et nisl.</li>
         <li>Proin erat libero, lacinia eget sapien a, commodo placerat quam</li>
@@ -101,7 +100,7 @@
                 <ph outputclass="title-ref">elementum</ph>
               </entry>
               <entry align="left" colname="col3">
-                <xref format="dita" href="#fusce" type="topic">fusce</xref>
+                <xref href="test.dita#fusce" type="topic">fusce</xref>
               </entry>
             </row>
             <row>
@@ -121,7 +120,7 @@
       </table>
     </body>
   </topic>
-  <topic id="fusce" specializations="@props/deliveryTarget">
+  <topic id="fusce">
     <title>Fusce accumsan metus</title>
     <body>
       <fig>

@@ -6,7 +6,7 @@
 	</description>
 	<target name="unit-test">
 
-		<property name="file" value="${basedir}/out/markdown.md"/>
+		<property name="file" value="${basedir}/out/markdown.dita"/>
 		<exec-transtype transtype="dita"/>
 		<xmltask
       expandEntityReferences="false"

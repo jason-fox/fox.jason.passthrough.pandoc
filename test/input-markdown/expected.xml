@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<?path2rootmap-uri ./?>
-<topic id="markdown-syntax" specializations="@props/deliveryTarget">
+<topic id="markdown-syntax">
   <title>Markdown Syntax</title>
   <body></body>
-  <topic id="emphasis" specializations="@props/deliveryTarget">
+  <topic id="emphasis">
     <title>Emphasis</title>
     <body>
       <p>Emphasis, aka italics, with
@@ -22,7 +21,7 @@
       </p>
     </body>
   </topic>
-  <topic id="lists" specializations="@props/deliveryTarget">
+  <topic id="lists">
     <title>Lists</title>
     <body>
       <p>(In this example, leading and trailing spaces are shown with with dots: &#8901;)</p>
@@ -49,7 +48,7 @@ Note that this line is separate, but within the same paragraph.&#8901;&#8901;
       </ul>
     </body>
   </topic>
-  <topic id="links" specializations="@props/deliveryTarget">
+  <topic id="links">
     <title>Links</title>
     <body>
       <p>There are two ways to create links.</p>
@@ -77,12 +76,12 @@ example.com (but not on Github, for example).</p>
       <p>Some text to show that the reference links can follow later.</p>
     </body>
   </topic>
-  <topic id="images" specializations="@props/deliveryTarget">
+  <topic id="images">
     <title>Images</title>
     <body>
       <p>Here's our logo (hover to see the title text):</p>
     </body>
-    <topic id="inline-style" specializations="@props/deliveryTarget">
+    <topic id="inline-style">
       <title>Inline-style:</title>
       <body>
         <fig>
@@ -93,7 +92,7 @@ example.com (but not on Github, for example).</p>
         </fig>
       </body>
     </topic>
-    <topic id="reference-style" specializations="@props/deliveryTarget">
+    <topic id="reference-style">
       <title>Reference-style:</title>
       <body>
         <fig>
@@ -105,7 +104,7 @@ example.com (but not on Github, for example).</p>
       </body>
     </topic>
   </topic>
-  <topic id="code-and-syntax-highlighting" specializations="@props/deliveryTarget">
+  <topic id="code-and-syntax-highlighting">
     <title>Code and Syntax Highlighting</title>
     <body>
       <p>Code blocks are part of the Markdown spec, but syntax highlighting isn't. However, many renderers -- like Github's and Markdown Here -- support syntax highlighting. Which languages are supported and how those language names should be written will vary from renderer to renderer. Markdown Here supports highlighting for dozens of languages (and not-really-languages, like diffs and HTTP headers); to see the complete list, and how to write the language names, see the highlight.js demo page.</p>
@@ -121,7 +120,7 @@ print s</codeblock>
 But let's throw in a &lt;b&gt;tag&lt;/b&gt;.</codeblock>
     </body>
   </topic>
-  <topic id="tables" specializations="@props/deliveryTarget">
+  <topic id="tables">
     <title>Tables</title>
     <body>
       <p>Tables aren't part of the core Markdown spec, but they are part of GFM and Markdown Here supports them. They are an easy way of adding tables to your email -- a task that would otherwise require copy-pasting from another application.</p>
@@ -194,7 +193,7 @@ raw Markdown line up prettily. You can also use inline Markdown.</p>
       </table>
     </body>
   </topic>
-  <topic id="blockquotes" specializations="@props/deliveryTarget">
+  <topic id="blockquotes">
     <title>Blockquotes</title>
     <body>
       <p>Blockquotes are very handy in email to emulate reply text.
@@ -206,7 +205,7 @@ This line is part of the same quote.</p>
 Blockquotes are very handy in email to emulate reply text. This line is part of the same quote.</p>
     </body>
   </topic>
-  <topic id="inline-html" specializations="@props/deliveryTarget">
+  <topic id="inline-html">
     <title>Inline HTML</title>
     <body>
       <p>You can also use raw HTML in your Markdown, and it'll mostly work pretty well.</p>
@@ -218,7 +217,7 @@ Does
         <b>very</b>well. Use HTML tags.</p>
     </body>
   </topic>
-  <topic id="horizontal-rule" specializations="@props/deliveryTarget">
+  <topic id="horizontal-rule">
     <title>Horizontal Rule</title>
     <body>
       <p>Three or more...</p>

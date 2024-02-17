@@ -7,7 +7,7 @@
 	<target name="unit-test">
 		<property
       name="file"
-      value="${basedir}/out/Word File with various structures.docx"
+      value="${basedir}/out/Word File with various structures.dita"
     />
 		<exec-transtype transtype="dita"/>
 		<xmltask

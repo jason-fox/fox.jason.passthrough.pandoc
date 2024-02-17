@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<?path2rootmap-uri ./?>
-<topic id="topic-1" specializations="@props/deliveryTarget">
+<topic id="topic-1">
   <title>Topic 1</title>
   <body>
     <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit malesuada ligula vehicula netus sollicitudin sociis, feugiat scelerisque luctus parturient pharetra. Dis pretium ante fringilla nunc velit nisi risus primis felis vel, venenatis auctor nascetur viverra non sagittis habitant condimentum integer. Himenaeos iaculis placerat neque nisl sodales faucibus ut porttitor maecenas et quam posuere mauris, venenatis tortor scelerisque suspendisse magna malesuada rhoncus commodo feugiat pretium urna justo.</p>

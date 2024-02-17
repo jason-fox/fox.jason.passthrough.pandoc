@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<?path2rootmap-uri ./?>
-<topic id="identity" specializations="@props/deliveryTarget">
+<topic id="identity">
   <title>identity</title>
   <body></body>
-  <topic id="paths" specializations="@props/deliveryTarget">
+  <topic id="paths">
     <title>Paths</title>
     <body>
       <section id="list-versions" outputclass="section">

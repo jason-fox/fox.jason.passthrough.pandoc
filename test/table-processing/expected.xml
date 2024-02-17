@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<?path2rootmap-uri ./?>
-<topic id="xxx" specializations="@props/deliveryTarget">
+<topic id="xxx">
   <title>XXX</title>
   <body></body>
-  <topic id="security" specializations="@props/deliveryTarget">
+  <topic id="security">
     <title>Security</title>
     <body>
       <table>
@@ -26,7 +25,7 @@
               </entry>
               <entry align="left" colname="col2">
                 <b>
-                  <xref format="dita" href="#petstore-auth">petstore_auth</xref>
+                  <xref href="markdown.dita#petstore-auth">petstore_auth</xref>
                 </b>
               </entry>
               <entry align="left" colname="col3">write:pets,read:pets</entry>
@@ -35,7 +34,7 @@
         </tgroup>
       </table>
     </body>
-    <topic id="query-parameters" specializations="@props/deliveryTarget">
+    <topic id="query-parameters">
       <title>Query Parameters</title>
       <body>
         <table>

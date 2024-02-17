@@ -6,7 +6,7 @@
 	</description>
 	<target name="unit-test">
 
-		<property name="file" value="${basedir}/out/test.rst"/>
+		<property name="file" value="${basedir}/out/test.dita"/>
 		<exec-transtype transtype="dita"/>
 		<xmltask
       expandEntityReferences="false"

@@ -5,7 +5,7 @@
 		Expect that a Word Document is converted properly.
 	</description>
 	<target name="unit-test">
-		<property name="file" value="${basedir}/out/Word_Document.docx"/>
+		<property name="file" value="${basedir}/out/Word_Document.dita"/>
 		<exec-transtype transtype="dita"/>
 		<xmltask
       expandEntityReferences="false"

@@ -5,7 +5,7 @@
 		Expect that Pandoc can create a DITA file using HTML as an input.
 	</description>
 	<target name="unit-test">
-		<property name="file" value="${basedir}/out/topic.html"/>
+		<property name="file" value="${basedir}/out/topic.dita"/>
 		<exec-transtype transtype="dita"/>
 		<xmltask
       expandEntityReferences="false"
